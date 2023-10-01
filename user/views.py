@@ -1,29 +1,23 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from django.db import IntegrityError
+
+from .forms import NewUserCreationForm
 
 
 def signup_user(request):
-    if request.method == 'GET':
-        return render(request, 'user/signup.html')
-    else:
+    form = NewUserCreationForm()
+    if request.method == 'POST':
+        form = NewUserCreationForm(request.POST)
         if request.POST['password1'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(
-                    request.POST['username'],
-                    password=request.POST['password1']
-                )
+            if form.is_valid():
+                user = form.save(commit=False)
+                user.username = user.username.lower().strip()
                 user.save()
+                messages.success(request, 'User account was created')
                 login(request, user)
                 return redirect('home')
-            except IntegrityError:
-                return render(request, 'user/signup.html',
-                              {'error': 'User with this name already exists'})
-        else:
-            return render(request, 'user/signup.html',
-                          {'error': 'Passwords are not the same'})
+    return render(request, 'user/signup.html', {'form': form})
 
 
 def login_user(request):
@@ -32,8 +26,8 @@ def login_user(request):
     else:
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request, 'user/login.html',
-                          {'error': 'Invalid login information'})
+            error = 'Invalid username or password'
+            return render(request, 'user/login.html', {'error': error})
         else:
             login(request, user)
             return redirect('home')

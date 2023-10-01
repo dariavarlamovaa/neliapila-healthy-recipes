@@ -37,7 +37,7 @@
 }
 
 .sign-in-form,
-.sign-up-form {
+.auth__form {
     display: flex;
     flex-direction: column;
     min-height: 200px;
@@ -52,20 +52,26 @@
     justify-content: space-between;
 }
 
-.sign-up-form p {
+.form__field {
     text-align: left;
 }
 
 .sign-in-form input,
-.sign-up-form input {
+.form__field input {
     border-radius: 60px;
     border: 1px solid rgba(116, 146, 74, 0.5);
     padding: 10px 30px;
     box-sizing: border-box;
     font-size: 15px;
+    outline: none;
 }
 
-.sign-up-form input {
+.sign-in-form input:focus,
+.form__field input:focus {
+    outline: 3px solid #74924a;
+}
+
+.form__field input {
     width: 100%;
 }
 
@@ -92,3 +98,18 @@
     text-decoration: underline;
 }
 
+.forgot-password {
+    text-align: right;
+    font-size: 17px;
+    color: #74924a;
+}
+
+.link-forget-password {
+    color: #74924a;
+
+}
+
+.error-form-label-input {
+    font-size: 17px;
+    color: #CF1818DB;
+}

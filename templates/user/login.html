@@ -14,6 +14,7 @@
                     <label for="id_username">Username</label>
                     <input type="text" name="username" autofocus="" autocapitalize="none"
                            autocomplete="username" required id="id_username">
+
                 </p>
                 <p>
                     <label for="id_password">Password</label>
@@ -21,6 +22,12 @@
                            autocomplete="current-password" required
                            id="id_password">
                 </p>
+                {% if error %}
+                <span class="error-form-label-input">{{ error }}</span>
+                {% endif %}
+                <div class="forgot-password">
+                    <span><a class="link-forget-password" href="#">Forgot password?</a></span>
+                </div>
                 <div class="authenticate">
                     <button class="btn">LOGIN</button>
                 </div>

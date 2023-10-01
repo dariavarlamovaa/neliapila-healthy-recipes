@@ -9,25 +9,20 @@
     <div class="signup container">
         <div class="sign-up-block">
             <h1>SIGN UP</h1>
-            <form method="post" class="sign-up-form">
-                {% csrf_token %}
+            <form action="{% url 'signup' %}" class="form auth__form" method="post">
                 <div class="form-parts">
-                    <p>
-                        <label for="id_username">Username</label>
-                        <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username"
-                               autofocus="" required="" id="id_username">
-                    </p>
-                    <p>
-                        <label for="id_password1">Password</label>
-                        <input type="password" name="password1" autocomplete="new-password" required=""
-                               id="id_password1">
-                    <p>
-                        <label for="id_password2">Password <span class="confirmation-span">confirmation</span></label>
-                        <input type="password" name="password2" autocomplete="new-password" required=""
-                               id="id_password2">
-                    </p>
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form__field">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                        <p class="error-form-label-input">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
                     <div class="authenticate">
-                        <button class="sign-up-btn btn">Sign up</button>
+                        <button class="sign-up-btn btn">SIGN UP</button>
                     </div>
                 </div>
             </form>
