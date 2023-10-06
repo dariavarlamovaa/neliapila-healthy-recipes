@@ -10,7 +10,7 @@
         <div class="sign-up-block">
             <h1>SIGN UP</h1>
             <form action="{% url 'signup' %}" class="form auth__form" method="post">
-                <div class="form-parts">
+                <div class="sign-up-form-parts form-parts">
                     {% csrf_token %}
                     {% for field in form %}
                     <div class="form__field">

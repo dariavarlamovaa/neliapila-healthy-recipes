@@ -51,18 +51,20 @@ main {
     flex: 1;
 }
 
-.header-top {
+.header {
     width: 100%;
+    padding: 0 2%;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+.header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 0;
+    padding: 35px 0;
     box-sizing: border-box;
     position: relative;
-}
-
-.logo {
-    width: 230px;
 }
 
 .logo img {
@@ -70,9 +72,6 @@ main {
 }
 
 .search-bar {
-    position: absolute;
-    top: 50px;
-    left: 26%;
     width: 100%;
     max-width: 600px;
     border: 1px solid rgba(116, 146, 74, 0.5);
@@ -109,33 +108,35 @@ main {
 }
 
 .right-items {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .right-links {
     color: #74924a;
-    font-size: 17px;
+    font-size: 20px;
 }
 
-.login-link {
-    position: relative;
+.right-items-login {
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.login-link::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #74924a;
-    transform: scaleX(0);
-    transform-origin: left center;
-    transition: transform 0.5s ease;
+.right-items-login svg{
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(217, 217, 217);
+    padding-right: 17px;
 }
 
-.login-link:hover::before {
-    transform: scaleX(1);
+
+.right-items-login button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 .page-footer_wrapper {
@@ -168,4 +169,50 @@ main {
 }
 
 
+.alert {
+    display: inline-flex;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2.5rem;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    border-radius: 7px;
+}
+
+.alert,
+.alert > .alert__message {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+}
+
+.alert.alert--error,
+.alert.alert--error > .alert__message {
+    background-color: #a91313;
+    color: #FFFFFF;
+}
+
+.alert.alert--success,
+.alert.alert--success > .alert__message {
+    background-color: #74924a;
+    color: #FFFFFF;
+}
+
+.alert > .alert__close {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    outline: transparent;
+    font-size: 1em;
+    z-index: 99;
+    color: #FFFFFF;
+    padding: 0;
+}
+
+.alert > .alert__close:hover {
+    opacity: 0.85;
+}
 

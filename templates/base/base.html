@@ -22,8 +22,51 @@
                     <input type="text" placeholder="Search Recipes" name="search-bar">
                 </form>
             </div>
-            <div class="right-items">
-                <a class="login-link right-links" href="{% url 'login' %}">LOGIN</a>
+            <div class="right-items-login">
+                {% if user.is_authenticated %}
+                <a href="#">
+                    {% else %}
+                    <a href="{% url 'login' %}">
+                        {% endif %}
+                        <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M5 6c0-1.4 0-2.1.272-2.635a2.5 2.5 0 0 1 1.093-1.093C6.9 2 7.6 2 9 2h6c1.4 0 2.1 0 2.635.272a2.5 2.5 0 0 1 1.092 1.093C19 3.9 19 4.6 19 6v13.208c0 1.056 0 1.583-.217 1.856a1 1 0 0 1-.778.378c-.349.002-.764-.324-1.593-.976L12 17l-4.411 3.466c-.83.652-1.245.978-1.594.976a1 1 0 0 1-.778-.378C5 20.791 5 20.264 5 19.208V6z"
+                                      fill="#e32400"/>
+                            </g>
+                        </svg>
+                    </a>
+                </a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' user.id %}">
+                    {% else %}
+                    <a href="{% url 'login' %}">
+                        {% endif %}
+                        {% csrf_token %}
+
+                        <svg class="svg-user" width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                      stroke="#74924a" stroke-width="1.3679999999999999" stroke-linecap="round"
+                                      stroke-linejoin="round"></path>
+                                <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
+                                      stroke="#74924a"
+                                      stroke-width="1.3679999999999999" stroke-linecap="round"
+                                      stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
+                    </a>
+                </a>
+                {% if user.is_authenticated %}
+                <a class="add-a-recipe right-links" href="#">ADD A RECIPE</a>
+                {% else %}
+                <a class="add-a-recipe right-links" href="{% url 'login' %}">ADD A RECIPE</a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -32,11 +75,9 @@
 {% endblock header %}
 
 {% for message in messages %}
-<div>
-    <div class="alert alert--{{ message.tags }}">
-        <p class="alert__message">{{ message }}</p>
-        <button class="alert__close">x</button>
-    </div>
+<div class="alert alert--{{ message.tags }}">
+    <p class="alert__message">{{ message }}</p>
+    <button class="alert__close">X</button>
 </div>
 {% endfor %}
 <main>

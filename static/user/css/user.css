@@ -7,7 +7,7 @@
 
 .login,
 .signup {
-    min-height: 700px;
+    min-height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,12 +29,18 @@
     justify-content: space-between;
 }
 
+.sign-up-block {
+    min-height: 700px;
+}
+
 .form-parts {
-    min-height: 300px;
+    min-height: 470px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
+
 
 .sign-in-form,
 .auth__form {
@@ -112,4 +118,5 @@
 .error-form-label-input {
     font-size: 17px;
     color: #CF1818DB;
+    text-align: center;
 }

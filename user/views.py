@@ -1,8 +1,9 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-
 from .forms import NewUserCreationForm
+from .models import Profile
 
 
 def signup_user(request):
@@ -13,6 +14,9 @@ def signup_user(request):
             if form.is_valid():
                 user = form.save(commit=False)
                 user.username = user.username.lower().strip()
+                user.first_name = user.first_name.strip()
+                user.last_name = user.last_name.strip()
+                user.email = user.email.lower().strip()
                 user.save()
                 messages.success(request, 'User account was created')
                 login(request, user)
@@ -24,7 +28,9 @@ def login_user(request):
     if request.method == 'GET':
         return render(request, 'user/login.html')
     else:
-        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        username = request.POST.get('username', '')
+        password = request.POST.get('password', '')
+        user = authenticate(request, username=username, password=password)
         if user is None:
             error = 'Invalid username or password'
             return render(request, 'user/login.html', {'error': error})
@@ -33,7 +39,17 @@ def login_user(request):
             return redirect('home')
 
 
+@login_required(login_url='login')
 def logout_user(request):
     if request.method == 'POST':
         logout(request)
+        messages.success(request, 'You were logged out')
         return redirect('home')
+
+
+@login_required(login_url='login')
+def get_profile(request, pk):
+    profile = Profile.objects.get(user=request.user.pk)
+    full_name = f'{profile.first_name} {profile.last_name}'
+    context = {'profile': profile, 'full_name': full_name}
+    return render(request, 'user/profile.html', context)
