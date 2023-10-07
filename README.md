@@ -12,6 +12,7 @@
 - CSS
 - Python
 - Django
+- SQLite
 
 
 ## Features
