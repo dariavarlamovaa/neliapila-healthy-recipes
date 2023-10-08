@@ -1,19 +1,25 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'user/css/user.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
 {% endblock %}
 {% block content %}
 <section class="user-profile-page">
     <div class="profile container">
-        <div class="card__body dev">
-            <img class="avatar avatar--xl"
-                 src="{{ profile.image.url }}" alt="User`s photo">
-            <h2 class="dev__name">{{ full_name }}</h2>
-            <form action="{% url 'logout' %}" method="post">
-                {% csrf_token %}
-                <button class="logout-btn">Logout</button>
-            </form>
+        <div class="profile-parts">
+            <div class="profile-recipes">
+                <img src="{% static 'user/images/recipe-default.svg' %}" alt="Recipe">
+                <span>There is nothing here yet, but soon there will be recipes added by {{ profile.username }}</span>
+            </div>
+            <div class="profile-card">
+                <img class="profile-avatar"
+                     src="{{ profile.image.url }}" alt="User`s photo">
+                <span class="profile-username">{{ profile.username }}</span>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button class="logout-btn">LOGOUT</button>
+                </form>
+            </div>
         </div>
     </div>
 </section>
