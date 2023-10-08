@@ -1,0 +1,56 @@
+.profile-parts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 60px 30px 0 30px;
+    min-height: 500px;
+}
+
+.profile-recipes {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    text-align: center;
+    align-items: center;
+    border-right: 1px solid;
+    border-right-color: #F2F2F2FF;
+    height: 500px;
+}
+
+.profile-recipes img {
+    margin-bottom: 30px;
+    width: 200px;
+}
+
+.profile-recipes span {
+    color: #B8B8B8FF;
+    font-size: 15px;
+}
+
+.profile-card {
+    width: 29%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.profile-avatar {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 30px;
+    border-radius: 100%;
+}
+
+.profile-username {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.profile-card button {
+    background: transparent;
+    border: 1px solid #B8B8B8FF;
+    border-radius: 3px;
+    color: #B8B8B8FF;
+}
