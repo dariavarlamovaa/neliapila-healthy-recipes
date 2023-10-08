@@ -18,7 +18,7 @@ def signup_user(request):
                 user.last_name = user.last_name.strip()
                 user.email = user.email.lower().strip()
                 user.save()
-                messages.success(request, 'User account was created')
+                messages.success(request, 'User account successfully created')
                 login(request, user)
                 return redirect('home')
     return render(request, 'user/signup.html', {'form': form})
@@ -50,6 +50,5 @@ def logout_user(request):
 @login_required(login_url='login')
 def get_profile(request, pk):
     profile = Profile.objects.get(user=request.user.pk)
-    full_name = f'{profile.first_name} {profile.last_name}'
-    context = {'profile': profile, 'full_name': full_name}
+    context = {'profile': profile}
     return render(request, 'user/profile.html', context)
