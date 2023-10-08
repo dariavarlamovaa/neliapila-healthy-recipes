@@ -7,7 +7,7 @@
 
 .login,
 .signup {
-    min-height: 800px;
+    min-height: 700px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,17 +30,15 @@
 }
 
 .sign-up-block {
-    min-height: 700px;
+    min-height: 640px;
 }
 
 .form-parts {
-    min-height: 470px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
-
 
 .sign-in-form,
 .auth__form {
