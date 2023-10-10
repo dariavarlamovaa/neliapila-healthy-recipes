@@ -4,12 +4,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+    # login, signup, logout
     path('login/', views.login_user, name='login'),
     path('signup/', views.signup_user, name='signup'),
     path('logout/', views.logout_user, name='logout'),
 
-    path('profile/<pk>/my', views.get_profile, name='profile')
-
+    # author(user) profile
+    path('profile/<pk>/my', views.author_profile, name='profile')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
