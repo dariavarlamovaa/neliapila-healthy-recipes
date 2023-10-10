@@ -24,9 +24,9 @@
             </div>
             <div class="right-items-login">
                 {% if user.is_authenticated %}
-                <a href="#">
+                <a class="user-favourites" href="#">
                     {% else %}
-                    <a href="{% url 'login' %}">
+                    <a class="user-favourites" href="{% url 'login' %}">
                         {% endif %}
                         <svg width="40px" height="40px" viewBox="0 0 24 24" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -39,29 +39,49 @@
                         </svg>
                     </a>
                 </a>
-                {% if user.is_authenticated %}
-                <a href="{% url 'profile' user.id %}">
-                    {% else %}
-                    <a href="{% url 'login' %}">
-                        {% endif %}
-                        {% csrf_token %}
+                <div class="user-profile-next-links">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'profile' user.id %}">
+                        {% else %}
+                        <a href="{% url 'login' %}">
+                            {% endif %}
+                            {% csrf_token %}
 
-                        <svg class="svg-user" width="40px" height="40px" viewBox="0 0 24 24" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                                      stroke="#74924a" stroke-width="1.3679999999999999" stroke-linecap="round"
-                                      stroke-linejoin="round"></path>
-                                <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
-                                      stroke="#74924a"
-                                      stroke-width="1.3679999999999999" stroke-linecap="round"
-                                      stroke-linejoin="round"></path>
-                            </g>
-                        </svg>
+                            <svg class="svg-user" width="40px" height="40px" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                          stroke="#74924a" stroke-width="1.3679999999999999" stroke-linecap="round"
+                                          stroke-linejoin="round"></path>
+                                    <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
+                                          stroke="#74924a"
+                                          stroke-width="1.3679999999999999" stroke-linecap="round"
+                                          stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </a>
                     </a>
-                </a>
+                    <button class="arrow-button" id="arrow-button">
+                        <svg id="arrow" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="profile-popup" id="profile-popup-settings">
+                        <div class="edit-profile">
+                            <a href="#">
+                                Edit
+                            </a>
+                        </div>
+                        <form action="{% url 'logout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="logout-btn">LOGOUT</button>
+                        </form>
+                    </div>
+                </div>
                 {% if user.is_authenticated %}
                 <a class="add-a-recipe right-links" href="#">ADD A RECIPE</a>
                 {% else %}
@@ -118,5 +138,8 @@
         </div>
     </div>
 </footer>
+<script src="{% static 'js/popup.js' %}"></script>
+{% block script_block %}
+{% endblock %}
 </body>
 </html>
