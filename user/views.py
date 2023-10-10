@@ -47,8 +47,7 @@ def logout_user(request):
         return redirect('home')
 
 
-@login_required(login_url='login')
-def get_profile(request, pk):
+def author_profile(request, pk):
     profile = Profile.objects.get(user=request.user.pk)
     context = {'profile': profile}
     return render(request, 'user/profile.html', context)
