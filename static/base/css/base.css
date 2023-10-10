@@ -124,19 +124,44 @@ main {
     align-items: center;
 }
 
-.right-items-login svg{
+.user-favourites,
+.arrow-button {
     border-right-width: 1px;
     border-right-style: solid;
     border-right-color: rgb(217, 217, 217);
-    padding-right: 17px;
+    padding-right: 10px;
+    border-bottom: 0;
+    border-left: 0;
+    border-top: 0;
+}
+
+.user-profile-next-links {
+    position: relative;
 }
 
 
-.right-items-login button {
+.arrow-button {
     background-color: transparent;
-    border: none;
-    padding: 0;
     cursor: pointer;
+    height: 40px;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.profile-popup {
+    width: 92px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+    z-index: 900;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9FF;
+    background-color: #FFFFFF;
+    display: none;
 }
 
 .page-footer_wrapper {
