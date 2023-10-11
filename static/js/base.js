@@ -16,7 +16,6 @@ if (arrow != null) {
         }
 
         isPopupVisible = !isPopupVisible
-
     });
 }
 
