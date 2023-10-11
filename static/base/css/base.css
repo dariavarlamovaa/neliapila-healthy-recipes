@@ -124,8 +124,7 @@ main {
     align-items: center;
 }
 
-.user-favourites,
-.arrow-button {
+.user-favourites {
     border-right-width: 1px;
     border-right-style: solid;
     border-right-color: rgb(217, 217, 217);
@@ -137,31 +136,74 @@ main {
 
 .user-profile-next-links {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
+.profile-image {
+    width: 40px;
+    height: 40px;
+}
+
+.add-a-recipe {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(217, 217, 217);
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+
+}
 
 .arrow-button {
     background-color: transparent;
     cursor: pointer;
     height: 40px;
+    border: none;
 }
 
 .rotate {
     transform: rotate(180deg);
-    transition: transform 0.3s ease;
 }
 
 .profile-popup {
-    width: 92px;
-    height: 80px;
+    min-width: 150px;
+    min-height: 110px;
     position: absolute;
-    right: 0;
+    top: 50px;
+    right: -10px;
     z-index: 900;
     padding: 10px 20px;
     box-sizing: border-box;
     border: 1px solid #D9D9D9FF;
     background-color: #FFFFFF;
     display: none;
+    font-size: 19px;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.profile-popup svg {
+    margin-right: 10px;
+}
+
+.edit-profile-link,
+.logout-form,
+.profile-user-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logout-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 19px;
+    font-weight: 200;
+    padding: 0;
 }
 
 .page-footer_wrapper {
@@ -196,10 +238,10 @@ main {
 
 .alert {
     display: inline-flex;
-    gap: 3rem;
+    gap: 2rem;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2.5rem;
+    padding: 1rem 2rem;
     position: fixed;
     bottom: 20px;
     left: 20px;
