@@ -15,6 +15,9 @@
                 <img class="profile-avatar"
                      src="{{ profile.image.url }}" alt="User`s photo">
                 <span class="profile-username">{{ profile.username }}</span>
+                {% if request.user.id == profile.user.id %}
+                <a class="profile-edit-link" href="{% url 'edit-profile' user.id %}">Edit</a>
+                {% endif %}
             </div>
         </div>
     </div>
