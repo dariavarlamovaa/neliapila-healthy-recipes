@@ -77,7 +77,7 @@
                     {% endif %}
                     <div class="profile-popup" id="profile-popup-settings">
                         <div class="popup-profile-username">
-                            <a class="profile-user-link" href="{% url 'profile' user.id%}">
+                            <a class="profile-user-link" href="{% url 'profile' user.id %}">
                                 <svg class="svg-user" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -95,7 +95,7 @@
                                 <span>{{ user.profile.username }}</span></a>
                         </div>
                         <div class="edit-profile">
-                            <a class="edit-profile-link" href="#">
+                            <a class="edit-profile-link" href="{% url 'edit-profile' user.id %}">
                                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -113,7 +113,7 @@
                             </a>
                         </div>
                         <div class="logout-form">
-                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                            <svg class="logout-svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -144,7 +144,7 @@
 {% for message in messages %}
 <div id="alert" class="alert alert--{{ message.tags }}">
     <p class="alert__message">{{ message }}</p>
-    <button class="alert__close" id="alert__close">X</button>
+    <button class="alert__close" id="alert__close">x</button>
 </div>
 {% endfor %}
 <main>
