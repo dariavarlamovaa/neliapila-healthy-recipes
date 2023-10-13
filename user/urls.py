@@ -10,7 +10,9 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
 
     # author(user) profile
-    path('profile/<pk>/my', views.author_profile, name='profile')
+    path('profile/<pk>', views.author_profile, name='profile'),
+    # edit profile info
+    path('profile/<pk>/edit', views.edit_profile, name='edit-profile')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
