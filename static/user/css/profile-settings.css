@@ -1,0 +1,40 @@
+.profile-settings {
+    background-image: url("../images/settings-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.settings {
+    min-height: 800px;
+}
+
+.settings-parts {
+    float: right;
+    text-align: center;
+    min-width: 700px;
+    min-height: 750px;
+    color: #74924a;
+    padding: 20px 70px;
+    box-sizing: border-box;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.settings-form {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: -webkit-center;
+}
+
+.settings-form input {
+    outline: none;
+    width: 70%;
+}
+
+.settings-form input:focus {
+    outline: 3px solid #74924a;
+}
