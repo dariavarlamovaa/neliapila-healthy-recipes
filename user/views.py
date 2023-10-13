@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-from .forms import NewUserCreationForm
+from .forms import NewUserCreationForm, ProfileForm
 from .models import Profile
 
 
@@ -48,6 +48,20 @@ def logout_user(request):
 
 
 def author_profile(request, pk):
-    profile = Profile.objects.get(user=request.user.pk)
+    profile = Profile.objects.get(user=pk)
     context = {'profile': profile}
     return render(request, 'user/profile.html', context)
+
+
+@login_required(login_url='login')
+def edit_profile(request, pk):
+    profile = Profile.objects.get(user=request.user.pk)
+    form = ProfileForm(instance=profile)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile edited successfully')
+            return redirect('profile', request.user.id)
+    context = {'form': form, 'profile': profile}
+    return render(request, 'user/profile-form.html', context)
