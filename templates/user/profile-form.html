@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'user/css/profile-settings.css' %}">
+{% endblock %}
+{% block content %}
+<section class="profile-settings">
+    <div class="settings container">
+        <div class="settings-parts">
+            <h1>Profile Settings</h1>
+            <div class="profile-image-settings">
+                <img src="{{ profile.image.url }}" alt="User`s image">
+            </div>
+            <div class="settings-form-block">
+                <form action="{% url 'edit-profile' user.id %}" class="settings-form" method="POST"
+                      enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-field">
+                        <label>{{ field.label }}</label>
+                        <p>{{ field }}</p>
+                    </div>
+                    {% endfor %}
+                    <input class="submit btn" type="submit" value="Submit"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
