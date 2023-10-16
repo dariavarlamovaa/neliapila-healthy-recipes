@@ -89,6 +89,7 @@
     color: #74924a;
     font-weight: 500;
     min-height: 40px;
+    cursor: pointer;
 }
 
 .btn:hover {

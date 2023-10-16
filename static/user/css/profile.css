@@ -42,9 +42,12 @@
     border-radius: 100%;
 }
 
+.profile-name {
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
 .profile-username {
-    font-size: 30px;
-    text-transform: uppercase;
     margin-bottom: 30px;
 }
 
@@ -53,4 +56,22 @@
     border: 1px solid #B8B8B8FF;
     border-radius: 3px;
     color: #B8B8B8FF;
+}
+
+.about-user {
+    margin-bottom: 40px;
+}
+
+.profile-edit-link {
+    border: 1px solid #74924a;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    border-radius: 60px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.profile-edit-link:hover {
+    background-color: #74924a;
+    color: #FFFFFF;
 }
