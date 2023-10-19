@@ -1,0 +1,53 @@
+.add-a-new-recipe {
+    background-color: #74924a;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.new-recipe-block {
+    text-align: center;
+    min-height: 1300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    padding: 50px 100px;
+    box-sizing: border-box;
+    border-radius: 6px;
+
+}
+
+.new_recipe__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 1100px;
+}
+
+
+#id_ingredients, #id_steps {
+    min-height: 100px;
+}
+
+.add-a-recipe-form {
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.new-recipe-form-field input,
+.new-recipe-form-field select,
+.new-recipe-form-field textarea {
+    width: 100%;
+}
+
+.new-recipe-form-field select {
+    background-color: #FFFFFF;
+    height: 45px;
+    appearance: inherit;
+}
+
+.new_recipe_submit {
+    text-transform: uppercase;
+}
