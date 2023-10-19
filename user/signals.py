@@ -9,7 +9,6 @@ def update_profile(sender, instance, created, **kwargs):
         user = instance
         profile = Profile.objects.create(
             user=user,
-            name=user.name,
             username=user.username,
             email=user.email,
         )
