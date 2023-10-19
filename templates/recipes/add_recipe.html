@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'recipes/css/new_recipe.css' %}">
+{% endblock %}
+{% block content %}
+<section class="add-a-new-recipe">
+    <div class="new-recipe container">
+        <div class="new-recipe-block">
+            <h1>ADD A NEW RECIPE</h1>
+            <form action="{% url 'add-recipe' %}" class="new_recipe__form" method="post"
+                  enctype="multipart/form-data">
+                <div class="add-a-recipe-form form-parts">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="new-recipe-form-field">
+                        <label>{{ field.label }}</label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                        <p class="error-form-label-input">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <input class="new_recipe_submit btn" type="submit" value="SUBMIT"/>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
