@@ -27,6 +27,12 @@ class ProfileForm(ModelForm):
         exclude = ['user', 'created']
         labels = {'image': ''}
 
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if len(username) > 15:
+            raise forms.ValidationError('Username cannot contain more than 15 characters')
+        return username
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
