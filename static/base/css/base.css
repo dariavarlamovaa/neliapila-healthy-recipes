@@ -41,6 +41,31 @@ svg {
     vertical-align: middle;
 }
 
+form label {
+    text-transform: uppercase;
+}
+
+input, select, textarea {
+    border-radius: 6px;
+    border: 1px solid rgba(116, 146, 74, 0.5);
+    padding: 10px 30px;
+    box-sizing: border-box;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus {
+    outline: 1px solid rgba(116, 146, 74, 0.5);
+
+}
+
+textarea {
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid rgba(116, 146, 74, 0.5);
+}
+
 .container {
     width: 1240px;
     margin: 0 auto;
@@ -75,9 +100,13 @@ main {
     width: 100%;
     max-width: 600px;
     border: 1px solid rgba(116, 146, 74, 0.5);
-    border-radius: 60px;
-    padding: 12px 15px;
+    border-radius: 6px;
+    padding: 5px 15px;
     box-sizing: border-box;
+    position: absolute;
+    right: 355px;
+    z-index: 999;
+    display: none;
 }
 
 .search-bar-form {
@@ -117,13 +146,14 @@ main {
 }
 
 .right-items-login {
-    min-width: 300px;
+    min-width: 350px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
+.right-items-login button:nth-child(1),
 .user-favourites {
     border-right-width: 1px;
     border-right-style: solid;
@@ -158,7 +188,8 @@ main {
 
 }
 
-.arrow-button {
+.arrow-button,
+.search-logo {
     background-color: transparent;
     cursor: pointer;
     height: 40px;
@@ -173,6 +204,7 @@ main {
 .profile-popup {
     min-width: 150px;
     min-height: 110px;
+    max-width: 235px;
     position: absolute;
     top: 50px;
     right: 0;
@@ -254,6 +286,9 @@ main {
     left: 20px;
     z-index: 1000;
     border-radius: 7px;
+    max-height: 450px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .alert,
@@ -290,3 +325,20 @@ main {
     opacity: 0.85;
 }
 
+.btn {
+    width: 100%;
+    border: 1px solid rgba(116, 146, 74, 0.5);
+    padding: 10px 30px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border-radius: 6px;
+    color: #74924a;
+    font-weight: 500;
+    min-height: 40px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #74924a;
+    color: #FFFFFF;
+}
