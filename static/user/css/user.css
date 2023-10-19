@@ -60,16 +60,6 @@
     text-align: left;
 }
 
-.sign-in-form input,
-.form__field input {
-    border-radius: 60px;
-    border: 1px solid rgba(116, 146, 74, 0.5);
-    padding: 10px 30px;
-    box-sizing: border-box;
-    font-size: 15px;
-    outline: none;
-}
-
 .sign-in-form input:focus,
 .form__field input:focus {
     outline: 3px solid #74924a;
@@ -79,23 +69,6 @@
     width: 100%;
 }
 
-.btn {
-    width: 100%;
-    border: 1px solid rgba(116, 146, 74, 0.5);
-    padding: 10px 30px;
-    box-sizing: border-box;
-    background-color: transparent;
-    border-radius: 60px;
-    color: #74924a;
-    font-weight: 500;
-    min-height: 40px;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #74924a;
-    color: #FFFFFF;
-}
 
 .link {
     color: #74924a;
