@@ -13,14 +13,17 @@ def signup_user(request):
         if request.POST['password1'] == request.POST['password2']:
             if form.is_valid():
                 user = form.save(commit=False)
-                user.username = user.username.lower().strip()
-                user.first_name = user.first_name.strip()
-                user.last_name = user.last_name.strip()
-                user.email = user.email.lower().strip()
-                user.save()
-                messages.success(request, 'User account successfully created')
-                login(request, user)
-                return redirect('home')
+                if len(user.username) > 15:
+                    messages.error(request, 'Username cannot contain more than 15 characters')
+                else:
+                    user.username = user.username.lower().strip()
+                    user.first_name = user.first_name.strip()
+                    user.last_name = user.last_name.strip()
+                    user.email = user.email.lower().strip()
+                    user.save()
+                    messages.success(request, 'User account successfully created')
+                    login(request, user)
+                    return redirect('home')
     return render(request, 'user/signup.html', {'form': form})
 
 
@@ -63,5 +66,9 @@ def edit_profile(request, pk):
             form.save()
             messages.success(request, 'Profile edited successfully')
             return redirect('profile', request.user.id)
+        else:
+            username_error = form.errors.get('username')
+            if username_error:
+                messages.error(request, *username_error)
     context = {'form': form, 'profile': profile}
     return render(request, 'user/profile-form.html', context)
