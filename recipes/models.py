@@ -1,4 +1,3 @@
-import datetime
 import os
 from django.utils import timezone
 from django.contrib.auth.models import User
@@ -19,13 +18,14 @@ class Recipe(models.Model):
         ('Snacks', 'Snacks'),
         ('Desserts', 'Desserts'),
         ('Drinks', 'Drinks'),
+        ('Other', 'Other')
     ]
     STATUS_CHOICES = [
         (True, 'Approved'),
         (False, 'On moderation'),
     ]
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=70)
     portions = models.PositiveIntegerField(default=1, blank=True, null=True)
     cooking_hours = models.PositiveIntegerField(default=0)
     cooking_minutes = models.PositiveIntegerField(default=0)
