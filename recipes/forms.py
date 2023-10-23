@@ -8,7 +8,8 @@ class NewRecipe(ModelForm):
     class Meta:
         model = Recipe
         exclude = ['author', 'is_approved', 'date_created']
-        labels = {'image': 'Recipe image'}
+        labels = {'image': 'Recipe image',
+                  'ingredients': 'Ingredients and Their Quantity'}
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
