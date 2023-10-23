@@ -81,6 +81,7 @@ main {
     padding: 0 2%;
     box-sizing: border-box;
     font-size: 10px;
+    border-bottom: 1px solid #efefef;
 }
 
 .header-top {
