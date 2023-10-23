@@ -7,10 +7,56 @@
 <section class="user-profile-page">
     <div class="profile container">
         <div class="profile-parts">
-            <div class="profile-recipes">
+            {% if not recipes %}
+            <div class="no-recipes">
                 <img src="{% static 'user/images/recipe-default.svg' %}" alt="Recipe">
                 <span>There is nothing here yet, but soon there will be recipes added by {{ profile.username }}</span>
             </div>
+            {% else %}
+            <div class="profile-recipes">
+                <div class="all-recipes">
+                    {% for recipe in recipes %}
+                    <div class="one-recipe">
+                        <div class="recipe-image">
+                            <img src="{{ recipe.image.url }}" alt="Recipe Image">
+                        </div>
+                        <div class="recipe-info">
+                            {% if recipe.category != 'Other' %}
+                            <p class="recipe-category">{{ recipe.category }}</p>
+                            {% endif %}
+                            <a href="#" class="recipe-title">{{ recipe.title }}</a>
+                            <a href="{% url 'profile' profile.user_id %}" class="recipe-author">
+                                Author: {{ recipe.author }}</a>
+                            <div class="recipe-details">
+                                <div class="portions-details">
+                                    <img src="{% static 'user/images/pot-svg.svg' %}" alt="Pot">
+                                    <span>{{ recipe.portions }} portion{{ recipe.portions | pluralize:'s' }}</span>
+                                </div>
+                                <div class="cooking-time-details">
+                                    <img src="{% static 'user/images/clock-svg.svg' %}" alt="Clock">
+                                    {% if recipe.cooking_hours != 0 and recipe.cooking_minutes != 0 %}
+                                    <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}
+                                {{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}</span>
+                                    {% elif recipe.cooking_hours != 0 and recipe.cooking_minutes == 0 %}
+                                    <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}</span>
+                                    {% elif recipe.cooking_hours == 0 and recipe.cooking_minutes != 0 %}
+                                    <span>{{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}
+                                </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="add-to-favourites">
+                                <div class="button-favorites">
+                                    <img src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
+                                    <span>Add to favorites</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
             <div class="profile-card">
                 <img class="profile-avatar"
                      src="{{ profile.image.url }}" alt="User`s photo">
@@ -23,6 +69,7 @@
                     <p>{{ profile.bio }}</p>
                 </div>
                 {% endif %}
+                <p class="recipes-count">Recipes {{ recipes_count }}</p>
                 {% if request.user.id == profile.user.id %}
                 <a class="profile-edit-link" href="{% url 'edit-profile' user.id %}">Edit profile</a>
                 {% endif %}
