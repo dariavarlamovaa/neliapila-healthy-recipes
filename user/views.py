@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
+
+from recipes.models import Recipe
 from .forms import NewUserCreationForm, ProfileForm
 from .models import Profile
 
@@ -52,7 +54,9 @@ def logout_user(request):
 
 def author_profile(request, pk):
     profile = Profile.objects.get(user=pk)
-    context = {'profile': profile}
+    recipes = Recipe.objects.filter(author=pk).all()
+    recipes_count = recipes.count()
+    context = {'profile': profile, 'recipes': recipes, 'recipes_count': recipes_count}
     return render(request, 'user/profile.html', context)
 
 
