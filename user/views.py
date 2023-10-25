@@ -54,9 +54,14 @@ def logout_user(request):
 
 def author_profile(request, pk):
     profile = Profile.objects.get(user=pk)
-    recipes = Recipe.objects.filter(author=pk).all()
+    if request.user == profile.user:
+        recipes = Recipe.objects.filter(author=pk).all().order_by('-date_created')
+    else:
+        recipes = Recipe.objects.filter(author=pk, is_approved=True).all().order_by('-date_created')
     recipes_count = recipes.count()
-    context = {'profile': profile, 'recipes': recipes, 'recipes_count': recipes_count}
+    pending_recipes_count = Recipe.objects.filter(author=pk, is_approved=False).count()
+    context = {'profile': profile, 'recipes': recipes, 'recipes_count': recipes_count,
+               'pending_recipes_count': pending_recipes_count}
     return render(request, 'user/profile.html', context)
 
 
@@ -76,3 +81,12 @@ def edit_profile(request, pk):
                 messages.error(request, *username_error)
     context = {'form': form, 'profile': profile}
     return render(request, 'user/profile-form.html', context)
+
+
+@login_required(login_url='login')
+def favorites(request):
+    profile = Profile.objects.get(user=request.user.id)
+    favorite_recipes = profile.favorite_set.all()
+    favorite_recipes = [favorite.recipe for favorite in favorite_recipes]
+    context = {'favorites': favorite_recipes}
+    return render(request, 'user/favorites.html', context)

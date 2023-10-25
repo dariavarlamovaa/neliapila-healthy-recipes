@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from recipes.models import Recipe
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -13,3 +15,11 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class Favorite(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.recipe.title
