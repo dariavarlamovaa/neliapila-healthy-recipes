@@ -9,10 +9,14 @@ urlpatterns = [
     path('signup/', views.signup_user, name='signup'),
     path('logout/', views.logout_user, name='logout'),
 
+    # favorites
+    path('profile/favorites', views.favorites, name='favorites'),
+
     # author(user) profile
     path('profile/<pk>', views.author_profile, name='profile'),
     # edit profile info
-    path('profile/<pk>/edit', views.edit_profile, name='edit-profile')
+    path('profile/<pk>/edit', views.edit_profile, name='edit-profile'),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
