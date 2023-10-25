@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
 
-def home(request):
+def recipes(request):
     return render(request, 'home/home.html')
+
