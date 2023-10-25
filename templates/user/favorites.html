@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'user/css/favorites.css' %}">
+{% endblock %}
+{% block content %}
+<section class="favorites-page">
+    <div class="favorites container">
+        <div class="favorites-parts">
+            {% if not favorites %}
+            <div class="no-recipes">
+                <img src="{% static 'user/images/cookbook.svg' %}" alt="Recipe">
+                <span>There are no recipes in the favorites</span>
+                <a href="/">Explore</a>
+            </div>
+            {% else %}
+            <div class="all_favorites">
+                <h1>Favorites</h1>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
