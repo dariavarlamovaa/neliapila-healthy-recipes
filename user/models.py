@@ -18,8 +18,8 @@ class Profile(models.Model):
 
 
 class Favorite(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    favorite_recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.recipe.title
+        return self.favorite_recipe.title
