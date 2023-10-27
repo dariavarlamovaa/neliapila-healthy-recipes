@@ -10,7 +10,8 @@
             {% if not recipes %}
             <div class="no-recipes">
                 <img src="{% static 'user/images/recipe-default.svg' %}" alt="Recipe">
-                <span>There is nothing here yet, but soon there will be recipes added by {{ profile.username }}</span>
+                <p>There is nothing here yet, but soon there will be recipes added by
+                    <span>{{ profile.username }}</span></p>
             </div>
             {% else %}
             <div class="profile-recipes">
@@ -48,12 +49,23 @@
                                     {% endif %}
                                 </div>
                             </div>
+                            {% if recipe.is_approved %}
                             <div class="add-to-favourites">
                                 <div class="button-favorites">
-                                    <img src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
-                                    <span>Add to favorites</span>
+                                    {% if recipe in favorites %}
+                                    <a class="button-favorites-link" href="{% url 'delete-from-favorites' recipe.id %}">
+                                        <img src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
+                                        Added to favorites
+                                    </a>
+                                    {% else %}
+                                    <a class="button-favorites-link" href="{% url 'add-to-favorites' recipe.id %}">
+                                        <img src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
+                                        Add to favorites
+                                    </a>
+                                    {% endif %}
                                 </div>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
@@ -75,7 +87,7 @@
                 <div class="count-recipes">
                     <p class="recipes-count count">Recipes {{ recipes_count }}</p>
                     {% if request.user.id == profile.user.id %}
-                    <p class="pending-recipes-count count">Pending verification {{ pending_recipes_count }}</p>
+                    <p class="pending-recipes-count count">Pending {{ pending_recipes_count }}</p>
                     {% endif %}
                 </div>
                 {% if request.user.id == profile.user.id %}

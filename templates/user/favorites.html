@@ -1,6 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block css %}
+<link rel="stylesheet" href="{% static 'user/css/profile.css' %}">
 <link rel="stylesheet" href="{% static 'user/css/favorites.css' %}">
 {% endblock %}
 {% block content %}
@@ -8,14 +9,54 @@
     <div class="favorites container">
         <div class="favorites-parts">
             {% if not favorites %}
-            <div class="no-recipes">
+            <div class="no-favourites">
                 <img src="{% static 'user/images/cookbook.svg' %}" alt="Recipe">
-                <span>There are no recipes in the favorites</span>
-                <a href="/">Explore</a>
+                <span>You don't have any favorite recipes yet</span>
+                <p>To find a recipe and add it to favorites, go to the <a href="/">recipes page</a></p>
             </div>
             {% else %}
             <div class="all_favorites">
                 <h1>Favorites</h1>
+                {% for favorite in favorites %}
+                <div class="one-favorite">
+                    <div class="recipe-main-info">
+                        <div class="recipe-image">
+                            <img src="{{ favorite.image.url }}" alt="Recipe Image">
+                        </div>
+                        <div class="recipe-info">
+                            {% if recipe.category != 'Other' %}
+                            <p class="recipe-category">{{ favorite.category }}</p>
+                            {% endif %}
+                            <a href="#" class="recipe-title">{{ favorite.title }}</a>
+                            <a href="{% url 'profile' request.user.profile.user_id %}" class="recipe-author">
+                                Author: {{ favorite.author }}</a>
+                            <div class="recipe-details">
+                                <div class="portions-details">
+                                    <img src="{% static 'user/images/pot-svg.svg' %}" alt="Pot">
+                                    <span>{{ favorite.portions }} portion{{ favorite.portions | pluralize:'s' }}</span>
+                                </div>
+                                <div class="cooking-time-details">
+                                    <img src="{% static 'user/images/clock-svg.svg' %}" alt="Clock">
+                                    {% if favorite.cooking_hours != 0 and favorite.cooking_minutes != 0 %}
+                                    <span>{{ favorite.cooking_hours }} hour{{ favorite.cooking_hours | pluralize:'s' }}
+                                {{ favorite.cooking_minutes }} minute{{ favorite.cooking_minutes | pluralize:'s' }}</span>
+                                    {% elif favorite.cooking_hours != 0 and favorite.cooking_minutes == 0 %}
+                                    <span>{{ favorite.cooking_hours }} hour{{ favorite.cooking_hours | pluralize:'s' }}</span>
+                                    {% elif favorite.cooking_hours == 0 and favorite.cooking_minutes != 0 %}
+                                    <span>{{ favorite.cooking_minutes }} minute{{ favorite.cooking_minutes | pluralize:'s' }}
+                                </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delete-from-favorites">
+                        <a href="{% url 'delete-from-favorites' favorite.id %}">
+                            <img src="{% static 'user/images/trash-svg.svg' %}" alt="Delete">
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
             {% endif %}
         </div>
