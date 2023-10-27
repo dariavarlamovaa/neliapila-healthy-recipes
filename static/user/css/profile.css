@@ -20,9 +20,13 @@
     width: 200px;
 }
 
-.no-recipes span {
+.no-recipes p {
     color: #B8B8B8FF;
     font-size: 15px;
+}
+
+.no-recipes span {
+    font-weight: bold;
 }
 
 
@@ -57,7 +61,6 @@
 .portions-details,
 .button-favorites {
     text-transform: uppercase;
-
 }
 
 .recipe-info {
@@ -127,7 +130,7 @@
     font-size: 15px;
 }
 
-.button-favorites {
+.button-favorites-link {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -136,7 +139,7 @@
     border-radius: 2px;
     padding-right: 10px;
     box-sizing: border-box;
-    max-width: 205px;
+    max-width: 225px;
 }
 
 .profile-card {
