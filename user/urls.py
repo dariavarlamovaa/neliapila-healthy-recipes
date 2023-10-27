@@ -10,7 +10,9 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
 
     # favorites
-    path('profile/favorites', views.favorites, name='favorites'),
+    path('profile/favorites', views.get_favorites, name='favorites'),
+    path('add-to-favorites/<pk>', views.add_recipe_to_favorites, name='add-to-favorites'),
+    path('delete-from-favorites/<pk>', views.delete_favorite, name='delete-from-favorites'),
 
     # author(user) profile
     path('profile/<pk>', views.author_profile, name='profile'),
