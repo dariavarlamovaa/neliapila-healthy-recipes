@@ -1,11 +1,11 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 
 from recipes.models import Recipe
 from .forms import NewUserCreationForm, ProfileForm
-from .models import Profile
+from .models import Profile, Favorite
 
 
 def signup_user(request):
@@ -25,7 +25,7 @@ def signup_user(request):
                     user.save()
                     messages.success(request, 'User account successfully created')
                     login(request, user)
-                    return redirect('home')
+                    return redirect('recipes')
     return render(request, 'user/signup.html', {'form': form})
 
 
@@ -41,7 +41,7 @@ def login_user(request):
             return render(request, 'user/login.html', {'error': error})
         else:
             login(request, user)
-            return redirect('home')
+            return redirect('recipes')
 
 
 @login_required(login_url='login')
@@ -49,7 +49,7 @@ def logout_user(request):
     if request.method == 'POST':
         logout(request)
         messages.success(request, 'You were logged out')
-        return redirect('home')
+        return redirect('recipes')
 
 
 def author_profile(request, pk):
@@ -59,9 +59,10 @@ def author_profile(request, pk):
     else:
         recipes = Recipe.objects.filter(author=pk, is_approved=True).all().order_by('-date_created')
     recipes_count = recipes.count()
+    favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
     pending_recipes_count = Recipe.objects.filter(author=pk, is_approved=False).count()
     context = {'profile': profile, 'recipes': recipes, 'recipes_count': recipes_count,
-               'pending_recipes_count': pending_recipes_count}
+               'pending_recipes_count': pending_recipes_count, 'favorites': favorite_recipes}
     return render(request, 'user/profile.html', context)
 
 
@@ -72,21 +73,49 @@ def edit_profile(request, pk):
     if request.method == 'POST':
         form = ProfileForm(request.POST, request.FILES, instance=profile)
         if form.is_valid():
-            form.save()
+            edition = form.save(commit=False)
+            edition.username = edition.username.lower().strip()
+            edition.save()
             messages.success(request, 'Profile edited successfully')
             return redirect('profile', request.user.id)
         else:
+            email_error = form.errors.get('email')
             username_error = form.errors.get('username')
-            if username_error:
+            if form.errors.get('username'):
                 messages.error(request, *username_error)
+            if form.errors.get('email'):
+                messages.error(request, *email_error)
     context = {'form': form, 'profile': profile}
     return render(request, 'user/profile-form.html', context)
 
 
 @login_required(login_url='login')
-def favorites(request):
+def get_favorites(request):
     profile = Profile.objects.get(user=request.user.id)
     favorite_recipes = profile.favorite_set.all()
-    favorite_recipes = [favorite.recipe for favorite in favorite_recipes]
+    favorite_recipes = [favorite.favorite_recipe for favorite in favorite_recipes]
     context = {'favorites': favorite_recipes}
     return render(request, 'user/favorites.html', context)
+
+
+@login_required(login_url='login')
+def add_recipe_to_favorites(request, pk):
+    recipe = get_object_or_404(Recipe, id=pk)
+    if recipe.is_approved:
+        favourite, created = Favorite.objects.get_or_create(
+            favorite_recipe=recipe,
+            profile=request.user.profile
+        )
+        if not created:
+            favourite.save()
+        messages.success(request, 'Recipe added to favorites')
+        return redirect('favorites')
+
+
+@login_required(login_url='login')
+def delete_favorite(request, pk):
+    favourite = get_object_or_404(Favorite, favorite_recipe_id=pk, profile=request.user.profile)
+    if request.method == 'GET':
+        favourite.delete()
+        messages.success(request, 'Recipe deleted from favorites')
+        return redirect('favorites')
