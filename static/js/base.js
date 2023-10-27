@@ -1,7 +1,6 @@
 const arrow = document.getElementById("arrow");
 const profilePopupSettings = document.getElementById("profile-popup-settings");
-const alertCloseButton = document.getElementById("alert__close");
-const alertBlock = document.getElementById("alert");
+const alertCloseButtons = document.querySelectorAll("#alert__close");
 const searchLogo = document.getElementById("search_logo")
 const searchBar = document.getElementById("search-bar")
 
@@ -33,8 +32,12 @@ if (searchLogo != null) {
     })
 }
 
-if (alertCloseButton != null) {
+
+alertCloseButtons.forEach(alertCloseButton => {
     alertCloseButton.addEventListener("click", () => {
-        alertBlock.style.display = "none";
+        const alertBlock = alertCloseButton.closest("#alert");
+        if (alertBlock) {
+            alertBlock.style.display = "none";
+        }
     });
-}
+});
