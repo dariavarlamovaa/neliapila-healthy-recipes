@@ -18,7 +18,7 @@ class Recipe(models.Model):
         ('Snacks', 'Snacks'),
         ('Desserts', 'Desserts'),
         ('Drinks', 'Drinks'),
-        ('Other', 'Other')
+        ('Miscellaneous', 'Other')
     ]
     STATUS_CHOICES = [
         (True, 'Approved'),
