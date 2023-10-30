@@ -16,6 +16,6 @@ class NewRecipe(ModelForm):
 
         self.fields['image'].widget = forms.FileInput(attrs={'accept': 'image/*'})
         self.fields['ingredients'].widget = forms.Textarea(
-            attrs={'placeholder': 'Ingredient1 - 100g\nIngredient2 - 2 spoons'})
+            attrs={'placeholder': 'Quantity Ingredient\n10g sugar'})
         self.fields['steps'].widget = forms.Textarea(
             attrs={'placeholder': 'Step 1 - ...\nStep 2 - ...'})
