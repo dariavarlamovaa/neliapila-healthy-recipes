@@ -1,0 +1,32 @@
+.specific-recipe-information {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.recipe-image {
+    width: 35%;
+}
+
+.recipe-main-information {
+    width: 64%;
+}
+
+.recipe-image img {
+    width: 400px;
+    height: 400px;
+}
+
+.recipe-heading {
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 30px;
+    font-size: 2.4375rem;
+    word-break: break-word;
+    margin-bottom: 30px;
+}
+
+.recipe-author {
+    font-size: 1rem;
+    color: #B8B8B8FF;
+}

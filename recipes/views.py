@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from recipes.forms import NewRecipe
+from recipes.models import Recipe
 
 
 def add_a_recipe(request):
@@ -19,3 +20,9 @@ def add_a_recipe(request):
             return redirect('profile', request.user.id)
     content = {'form': form}
     return render(request, 'recipes/add_recipe.html', content)
+
+
+def show_specific_recipe(request, pk):
+    specific_recipe = Recipe.objects.get(pk=pk)
+    content = {'recipe': specific_recipe}
+    return render(request, 'recipes/specific-recipe.html', content)
