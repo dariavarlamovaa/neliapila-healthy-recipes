@@ -21,15 +21,13 @@
                 <div class="one-favorite">
                     <div class="recipe-main-info">
                         <div class="recipe-image">
-                            <img src="{{ favorite.image.url }}" alt="Recipe Image">
+                            <a href="{% url 'specific-recipe' favorite.id %}"><img src="{{ favorite.image.url }}" alt="Recipe Image"></a>
                         </div>
                         <div class="recipe-info">
-                            {% if recipe.category != 'Other' %}
                             <p class="recipe-category">{{ favorite.category }}</p>
-                            {% endif %}
-                            <a href="#" class="recipe-title">{{ favorite.title }}</a>
+                            <a href="{% url 'specific-recipe' favorite.id %}" class="recipe-title">{{ favorite.title }}</a>
                             <a href="{% url 'profile' request.user.profile.user_id %}" class="recipe-author">
-                                Author: {{ favorite.author }}</a>
+                                By {{ favorite.author }}</a>
                             <div class="recipe-details">
                                 <div class="portions-details">
                                     <img src="{% static 'user/images/pot-svg.svg' %}" alt="Pot">

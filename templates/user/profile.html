@@ -19,18 +19,16 @@
                     {% for recipe in recipes %}
                     <div class="one-recipe">
                         <div class="recipe-image">
-                            <img src="{{ recipe.image.url }}" alt="Recipe Image">
+                            <a href="{% url 'specific-recipe' recipe.id %}"><img src="{{ recipe.image.url }}" alt="Recipe Image"></a>
                         </div>
                         <div class="recipe-info">
-                            {% if recipe.category != 'Other' %}
                             <p class="recipe-category">{{ recipe.category }}</p>
-                            {% endif %}
                             {% if request.user == profile.user and recipe.is_approved == False %}
                             <p class="on-moderation">Pending</p>
                             {% endif %}
-                            <a href="#" class="recipe-title">{{ recipe.title }}</a>
+                            <a href="{% url 'specific-recipe' recipe.id %}" class="recipe-title">{{ recipe.title }}</a>
                             <a href="{% url 'profile' profile.user_id %}" class="recipe-author">
-                                Author: {{ recipe.author }}</a>
+                                By {{ recipe.author }}</a>
                             <div class="recipe-details">
                                 <div class="portions-details">
                                     <img src="{% static 'user/images/pot-svg.svg' %}" alt="Pot">
