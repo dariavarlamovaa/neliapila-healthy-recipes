@@ -1,15 +1,25 @@
-.specific-recipe-information {
+.information-about-recipe {
     display: flex;
-    justify-content: space-between;
-    padding: 50px 0;
+    padding: 50px 0 70px 0;
 }
 
-.recipe-image {
+.recipe-image,
+.ingredients {
     width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-main-information,
+.steps {
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
 }
 
 .recipe-main-information {
-    width: 64%;
+    justify-content: space-between;
 }
 
 .recipe-image img {
@@ -20,13 +30,91 @@
 .recipe-heading {
     font-weight: 900;
     letter-spacing: 1px;
-    line-height: 30px;
-    font-size: 2.4375rem;
+    line-height: 50px;
+    font-size: 4rem;
     word-break: break-word;
-    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .recipe-author {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: #B8B8B8FF;
+}
+
+.recipe-info {
+    display: flex;
+}
+
+.recipe-info img {
+    width: 40px;
+    height: 40px;
+    padding-right: 15px;
+}
+
+.category-details,
+.portions-details,
+.cooking-time-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 40px;
+}
+
+.button-favorites-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+    border: 1px solid #E5E5E5FF;
+    border-radius: 2px;
+    padding-right: 5px;
+    box-sizing: border-box;
+    max-width: max-content;
+    text-transform: uppercase;
+}
+
+.button-favorites-link img {
+    width: 40px;
+    height: 40px;
+}
+
+.ingredients,
+.steps-heading {
+    text-align: center;
+}
+
+.ingredients-heading,
+.steps-heading {
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.ingredient-list,
+.steps-list {
+    list-style: none;
+    font-size: 23px;
+    font-weight: 200;
+}
+
+.ingredient-list {
+    padding: 10px 0;
+}
+
+.steps-list {
+    text-align: justify;
+    line-height: 2;
+    padding-bottom: 10px;
+}
+
+.list-item-separator {
+    border-bottom: 1px solid #efefef;
+}
+
+.list-item-separator:first-child {
+    border-top: 1px solid #efefef;
+}
+
+.cooking-information {
+    display: flex;
 }

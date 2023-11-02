@@ -139,7 +139,7 @@
     border-radius: 2px;
     padding-right: 10px;
     box-sizing: border-box;
-    max-width: 225px;
+    max-width: max-content;
 }
 
 .profile-card {
