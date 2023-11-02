@@ -38,3 +38,29 @@ class Recipe(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    RATING_CHOICES = [
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 5),
+    ]
+    STATUS_CHOICES = [
+        (True, 'Approved'),
+        (False, 'On moderation'),
+    ]
+    owner = models.ForeignKey('user.Profile', on_delete=models.SET_NULL, null=True, blank=True)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    body = models.TextField(max_length=500, null=True, blank=True)
+    rating = models.IntegerField(null=False, blank=False, choices=RATING_CHOICES)
+    created_date = models.DateTimeField(auto_now_add=True)
+    is_approved = models.BooleanField(default=False, choices=STATUS_CHOICES)
+
+    def __str__(self):
+        return f'Rating: {self.rating}. Recipe: {self.recipe}'
+
+    class Meta:
+        unique_together = [['owner', 'recipe'], ]
