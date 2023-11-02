@@ -59,7 +59,10 @@ def author_profile(request, pk):
     else:
         recipes = Recipe.objects.filter(author=pk, is_approved=True).all().order_by('-date_created')
     recipes_count = recipes.count()
-    favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
+    try:
+        favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
+    except AttributeError:
+        favorite_recipes = ''
     pending_recipes_count = Recipe.objects.filter(author=pk, is_approved=False).count()
     context = {'profile': profile, 'recipes': recipes, 'recipes_count': recipes_count,
                'pending_recipes_count': pending_recipes_count, 'favorites': favorite_recipes}
