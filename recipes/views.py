@@ -36,9 +36,9 @@ def show_specific_recipe(request, pk):
     form = CommentForm()
     try:
         if request.method == 'POST':
-            if request.user.profile == specific_recipe.author:
+            if request.user.profile == specific_recipe.author.profile:
                 messages.error(request, 'You can`t leave a comment on your own recipe')
-                return redirect('recipe', pk=specific_recipe.id)
+                return redirect('specific-recipe', pk=specific_recipe.id)
             else:
                 form = CommentForm(request.POST)
                 comment = form.save(commit=False)
@@ -47,10 +47,10 @@ def show_specific_recipe(request, pk):
                 comment.save()
 
                 messages.success(request, 'Your comment posted successfully')
-                return redirect('recipe', pk=specific_recipe.id)
+                return redirect('specific-recipe', pk=specific_recipe.id)
     except IntegrityError:
         messages.error(request, 'You have already posted the comment')
-        return redirect('recipe', pk=specific_recipe.id)
+        return redirect('specific-recipe', pk=specific_recipe.id)
     content = {'recipe': specific_recipe, 'comments_count': comments_count,
                'favorites': favorite_recipes, 'ingredients': recipe_ingredients,
                'steps': recipe_steps, 'form': form}
