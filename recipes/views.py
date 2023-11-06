@@ -27,8 +27,8 @@ def show_specific_recipe(request, pk):
     specific_recipe = Recipe.objects.get(pk=pk)
     recipe_ingredients = specific_recipe.ingredients.split('\n')
     recipe_steps = specific_recipe.steps.split('\n')
-    comments_count = Comment.objects.filter(recipe=specific_recipe, is_approved=True).count()
-    print(comments_count)
+    comments = Comment.objects.filter(recipe=specific_recipe, is_approved=True)
+    comments_count = comments.count()
     try:
         favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
     except AttributeError:
@@ -46,12 +46,12 @@ def show_specific_recipe(request, pk):
                 comment.owner = request.user.profile
                 comment.save()
 
-                messages.success(request, 'Your comment posted successfully')
+                messages.success(request, 'Your comment posted successfully. Wait for the admin\'s approval')
                 return redirect('specific-recipe', pk=specific_recipe.id)
     except IntegrityError:
         messages.error(request, 'You have already posted the comment')
         return redirect('specific-recipe', pk=specific_recipe.id)
     content = {'recipe': specific_recipe, 'comments_count': comments_count,
                'favorites': favorite_recipes, 'ingredients': recipe_ingredients,
-               'steps': recipe_steps, 'form': form}
+               'steps': recipe_steps, 'form': form, 'comments': comments}
     return render(request, 'recipes/specific-recipe.html', content)
