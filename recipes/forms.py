@@ -1,5 +1,4 @@
 from django.forms import ModelForm, FileInput, Textarea
-
 from .models import Recipe, Comment
 
 
@@ -25,6 +24,11 @@ class CommentForm(ModelForm):
         model = Comment
         fields = ['rating', 'body']
 
-        labels = {
-            'body': 'Add a comment',
-        }
+        labels = {'body': '',
+                  'rating': 'Rate this recipe'}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['body'].widget = Textarea(
+            attrs={'placeholder': 'Add your comment'})
