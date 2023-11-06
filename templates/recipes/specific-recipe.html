@@ -2,6 +2,7 @@
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'recipes/css/specific-recipe.css' %}">
+<link rel="stylesheet" href="{% static 'recipes/css/comment-section.css' %}">
 {% endblock %}
 {% block content %}
 <section class="specific-recipe-page">
@@ -59,46 +60,81 @@
                     {% endif %}
                 </div>
             </section>
-            <section class="cooking-information">
-                <div class="ingredients">
-                    <h2 class="ingredients-heading">Ingredients</h2>
-                    <ul>
-                        {% for ingredient in ingredients %}
-                        <li class="ingredient-list list-item-separator">{{ ingredient }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="steps">
-                    <h2 class="steps-heading">Method</h2>
-                    <ul>
-                        {% for step in steps %}
-                        <li class="steps-list">{{ step }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </section>
-            <section class="comments" id="comments">
-                <h2>Comments</h2>
-                <div class="comment-form">
-                    {% if request.user.is_authenticated %}
-                    <form class="form" action="{% url 'specific-recipe' recipe.id %}" method="POST">
-                        {% csrf_token %}
-                        {% for field in form %}
-                        <div class="form-for-comment">
-                            <label>{{ field.label }}: </label>
-                            {{ field }}
-                        </div>
-                        {% endfor %}
-                        <input class="submit btn" type="submit" value="Commit"/>
-                    </form>
-                    {% else %}
-                    <a href="{% url 'login' %}">You need to log in to leave a comment</a>
-                    {% endif %}
-                </div>
-            </section>
         </div>
-
+        <section class="cooking-information">
+            <div class="ingredients">
+                <h2 class="ingredients-heading">Ingredients</h2>
+                <ul>
+                    {% for ingredient in ingredients %}
+                    <li class="ingredient-list list-item-separator">{{ ingredient }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="steps">
+                <h2 class="steps-heading">Method</h2>
+                <ul>
+                    {% for step in steps %}
+                    <li class="steps-list">{{ step }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section class="comments-section">
+            <section class="leave-comment" id="comments">
+                <h2>Comments ({{ comments_count }})</h2>
+                <hr>
+                {% if request.user.is_authenticated %}
+                <div class="leave-comment-section">
+                    <div class="comment-form">
+                        <form class="form" action="{% url 'specific-recipe' recipe.id %}" method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                            <div class="form-for-comment">
+                                <label>{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                            {% endfor %}
+                            <input class="submit btn" type="submit" value="Post"/>
+                        </form>
+                    </div>
+                </div>
+                {% else %}
+                <div class="link-to-login">
+                    <a class="link-to-login" href="{% url 'login' %}">You need to log in to leave a comment</a>
+                </div>
+                {% endif %}
+            </section>
+            <section class="all-recipe-comments">
+                <div class="comments">
+                    {% for comment in comments %}
+                    <div class="one-comment">
+                        <div class="comment-owner-info">
+                            <div class="comment-owner-info-left">
+                                <div class="comment-owner-image">
+                                    <img src="{{ comment.owner.image.url }}" alt="Commentator`s image">
+                                </div>
+                                <div class="owner-name-and-date-created">
+                                    <div class="owner-name">
+                                        <a href="{% url 'profile' comment.owner.user.id %}">
+                                            {{ comment.owner.username }}</a>
+                                    </div>
+                                    <div class="date-created">
+                                        <p>{{ comment.created_date | date:"j F y"}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-rating">
+                                <p>{{ comment.rating }} / 5</p>
+                            </div>
+                        </div>
+                        <div class="comment-body">
+                            <p>{{ comment.body }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </section>
     </div>
-
 </section>
 {% endblock %}
