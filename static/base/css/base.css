@@ -37,6 +37,10 @@ li, ul {
     padding: 0;
 }
 
+hr {
+    border: 1px solid #efefef;
+}
+
 svg {
     vertical-align: middle;
 }
