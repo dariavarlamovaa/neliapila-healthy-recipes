@@ -1,5 +1,9 @@
+from xhtml2pdf import pisa
+
 from django.db import IntegrityError
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.template.loader import get_template
 from django.contrib import messages
 
 from recipes.forms import NewRecipe, CommentForm
@@ -55,3 +59,27 @@ def show_specific_recipe(request, pk):
                'favorites': favorite_recipes, 'ingredients': recipe_ingredients,
                'steps': recipe_steps, 'form': form, 'comments': comments}
     return render(request, 'recipes/specific-recipe.html', content)
+
+
+def get_pdf(request, pk):
+    recipe = Recipe.objects.get(pk=pk)
+    context = {
+        'recipe': recipe,
+        'ingredients': recipe.ingredients.split('\n'),
+        'steps': recipe.steps.split('\n'),
+    }
+
+    template = get_template('recipes/for-pdf.html')
+    html = template.render(context)
+
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename=recipe_{pk}.pdf'
+
+    pisa_status = pisa.CreatePDF(
+        html, dest=response
+    )
+
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+
+    return response
