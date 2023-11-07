@@ -41,23 +41,35 @@
                             {% endif %}
                         </div>
                     </div>
-                    {% if recipe.is_approved %}
-                    <div class="add-to-favourites">
-                        <div class="button-favorites">
-                            {% if recipe in favorites %}
-                            <a class="button-favorites-link" href="{% url 'delete-from-favorites' recipe.id %}">
-                                <img src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
-                                Added to favorites
-                            </a>
-                            {% else %}
-                            <a class="button-favorites-link" href="{% url 'add-to-favorites' recipe.id %}">
-                                <img src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
-                                Add to favorites
-                            </a>
-                            {% endif %}
+                    <div class="favorite-and-print-links">
+                        {% if recipe.is_approved %}
+                        <div class="add-to-favourites">
+                            <div class="button-favorites">
+                                {% if recipe in favorites %}
+                                <a class="button-favorites-link button-link"
+                                   href="{% url 'delete-from-favorites' recipe.id %}">
+                                    <img src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
+                                    Added to favorites
+                                </a>
+                                {% else %}
+                                <a class="button-favorites-link button-link"
+                                   href="{% url 'add-to-favorites' recipe.id %}">
+                                    <img src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
+                                    Add to favorites
+                                </a>
+                                {% endif %}
+                            </div>
                         </div>
+                        <div class="print-recipe">
+                            <div class="print">
+                                <a class="print-link button-link" href="{% url 'pdf' recipe.id %}" target="_blank"><img
+                                        src="{% static 'recipes/images/print-svg.svg' %}" alt="Print">
+                                    Print
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
                 </div>
             </section>
         </div>
