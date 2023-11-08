@@ -12,8 +12,18 @@
 <header class="header-menu">
     <div class="header container">
         <div class="header-top">
-            <div class="logo">
-                <a href="{% url 'recipes' %}"><img src="{% static 'base/images/neliapila_logo.svg' %}" alt="NELIAPILA"></a>
+            <div class="logo-menu">
+                <div class="logo">
+                    <a href="{% url 'recipes' %}"><img src="{% static 'base/images/neliapila_logo.svg' %}"
+                                                       alt="NELIAPILA"></a>
+                </div>
+                <div class="menu">
+                    <ul class="menu-list">
+                        <li><a href="/">Recipes</a></li>
+                        <li><a href="#">Authors</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="search-bar" id="search-bar">
                 <form action="" class="search-bar-form">
