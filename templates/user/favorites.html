@@ -26,7 +26,7 @@
                         <div class="recipe-info">
                             <p class="recipe-category">{{ favorite.category }}</p>
                             <a href="{% url 'specific-recipe' favorite.id %}" class="recipe-title">{{ favorite.title }}</a>
-                            <a href="{% url 'profile' request.user.profile.user_id %}" class="recipe-author">
+                            <a href="{% url 'profile' favorite.author.id %}" class="recipe-author">
                                 By {{ favorite.author }}</a>
                             <div class="recipe-details">
                                 <div class="portions-details">
