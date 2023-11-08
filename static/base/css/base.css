@@ -97,8 +97,33 @@ main {
     position: relative;
 }
 
+.logo-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 550px;
+    justify-content: space-between;
+}
+
 .logo img {
     height: 50px;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    font-size: 20px;
+    min-width: 300px;
+    justify-content: space-between;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu-list li {
+    color: #74924a;
 }
 
 .search-bar {
