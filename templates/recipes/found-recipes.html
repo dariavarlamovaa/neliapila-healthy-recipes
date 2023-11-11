@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+{% block content %}
+<section class="found-recipes-page">
+    <section class="all-approved-recipes container">
+        <div class="recipes ">
+            <h1 class="found-recipes-heading">"{{ search_query }} - {{ recipes_count }} recipes"</h1>
+            <div class="all-recipes">
+                {% if recipes %}
+                {% for recipe in recipes %}
+                <div class="sp-recipe">
+                    <div class="recipe-image">
+                        <a href="{% url 'specific-recipe' recipe.id %}">
+                            <img src="{{ recipe.image.url }}" alt="Recipe Image">
+                        </a>
+                    </div>
+                    <div class="recipe-title">
+                        <a href="{% url 'specific-recipe' recipe.id %}">
+                            <h2>{{ recipe.title|truncatechars:20 }}</h2></a>
+                    </div>
+                    <div class="recipe-short-info">
+                        <div class="recipe-portions info">
+                            <img src="{% static 'recipes/images/pot-svg.svg' %}" alt="Pot">
+                            <span>{{ recipe.portions }}</span>
+                        </div>
+                        <div class="recipe-cooking-time info">
+                            <img src="{% static 'recipes/images/clock-svg.svg' %}" alt="Clock">
+                            {% if recipe.cooking_hours != 0 and recipe.cooking_minutes != 0 %}
+                            <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}
+                                {{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}</span>
+                            {% elif recipe.cooking_hours != 0 and recipe.cooking_minutes == 0 %}
+                            <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}</span>
+                            {% elif recipe.cooking_hours == 0 and recipe.cooking_minutes != 0 %}
+                            <span>{{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}
+                                </span>
+                            {% endif %}
+                        </div>
+                        <div class="add-recipe-to-favorites info">
+                            {% if recipe in favorites %}
+                            <a class="button-favorites-link button-link"
+                               href="{% url 'delete-from-favorites' recipe.id %}">
+                                <img src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
+                            </a>
+                            {% else %}
+                            <a class="button-favorites-link button-link"
+                               href="{% url 'add-to-favorites' recipe.id %}">
+                                <img src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="recipes-not-found">
+                    <p class="nothing-found">Nothing was found for the query "{{ search_query }}"</p>
+                    <p class="recommendations">Recommendations:</p>
+                    <p>- Make sure that all words are spelled correctly</p>
+                    <p>- Try using other keywords</p>
+                    <p>- Try to reduce the number of query criteria</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}
