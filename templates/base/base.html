@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="search-bar" id="search-bar">
-                <form action="" class="search-bar-form">
+                <form action="{% url 'found-recipes' %}" class="search-bar-form" method="GET">
                     <button type="submit"><img src="{% static 'base/images/search_logo.svg' %}" alt="ENTER"></button>
                     <input type="text" placeholder="Search Recipes" name="search-bar">
                 </form>
