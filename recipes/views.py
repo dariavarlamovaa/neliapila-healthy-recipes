@@ -1,5 +1,5 @@
+import re
 from xhtml2pdf import pisa
-
 from django.db import IntegrityError
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -18,19 +18,23 @@ def add_a_recipe(request):
         if form.is_valid():
             user_recipe = form.save(commit=False)
             user_recipe.author = profile
-            user_recipe.title = user_recipe.title.capitalize().strip()
+            user_recipe.title = user_recipe.title.lower().capitalize().strip()
+            user_recipe.ingredients = re.sub(r'\n\s*\n', '\n', user_recipe.ingredients.strip())
+            user_recipe.steps = re.sub(r'\n\s*\n', '\n', user_recipe.steps.strip())
             user_recipe.save()
             messages.success(request,
                              'The recipe has been added successfully. Wait for the admin\'s approval')
             return redirect('profile', request.user.id)
-    content = {'form': form}
-    return render(request, 'recipes/add_recipe.html', content)
+    context = {'form': form}
+    return render(request, 'recipes/add_recipe.html', context)
 
 
 def show_specific_recipe(request, pk):
-    specific_recipe = Recipe.objects.get(pk=pk)
+    specific_recipe = Recipe.objects.get(pk=pk, is_approved=True)
     recipe_ingredients = specific_recipe.ingredients.split('\n')
+    recipe_ingredients = [ingredient.strip() for ingredient in recipe_ingredients if ingredient.strip()]
     recipe_steps = specific_recipe.steps.split('\n')
+    recipe_steps = [step.strip() for step in recipe_steps if step.strip()]
     comments = Comment.objects.filter(recipe=specific_recipe, is_approved=True)
     comments_count = comments.count()
     try:
@@ -55,10 +59,10 @@ def show_specific_recipe(request, pk):
     except IntegrityError:
         messages.error(request, 'You have already posted the comment')
         return redirect('specific-recipe', pk=specific_recipe.id)
-    content = {'recipe': specific_recipe, 'comments_count': comments_count,
+    context = {'recipe': specific_recipe, 'comments_count': comments_count,
                'favorites': favorite_recipes, 'ingredients': recipe_ingredients,
                'steps': recipe_steps, 'form': form, 'comments': comments}
-    return render(request, 'recipes/specific-recipe.html', content)
+    return render(request, 'recipes/specific-recipe.html', context)
 
 
 def get_pdf(request, pk):
