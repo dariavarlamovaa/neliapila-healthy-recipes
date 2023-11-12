@@ -5,14 +5,17 @@ from recipes.models import Recipe
 
 
 def get_recipes(request):
-    recipes = Recipe.objects.filter(is_approved=True)
+    recipes = Recipe.objects.filter(is_approved=True).order_by('-date_created')
+    recipes_count = recipes.count()
     try:
         favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
     except AttributeError:
         favorite_recipes = ''
     if request.GET.get('sort_by'):
         recipes, sort_query = get_sorted_recipes(request)
-    context = {'recipes': recipes, 'favorites': favorite_recipes}
+        recipes = recipes.order_by('-date_created')
+        recipes_count = recipes.count()
+    context = {'recipes': recipes, 'favorites': favorite_recipes, 'recipes_count': recipes_count}
     return render(request, 'home/home.html', context)
 
 
@@ -21,7 +24,6 @@ def search_recipes(request):
         favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
     except AttributeError:
         favorite_recipes = ''
-
     recipes, search_query = get_found_recipes(request)
     recipes_count = recipes.count()
     context = {'recipes': recipes, 'favorites': favorite_recipes, 'recipes_count': recipes_count,
