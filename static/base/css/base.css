@@ -101,7 +101,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    min-width: 550px;
+    min-width: 500px;
     justify-content: space-between;
 }
 
@@ -114,7 +114,7 @@ main {
     flex-direction: row;
     text-transform: uppercase;
     font-size: 20px;
-    min-width: 300px;
+    min-width: 235px;
     justify-content: space-between;
 }
 
@@ -275,7 +275,28 @@ main {
     padding: 0;
 }
 
+.footer-nav {
+    background-color: #efefef;
+}
+
 .page-footer_wrapper {
+    width: 1300px;
+    box-sizing: border-box;
+}
+
+.list-of-links {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 40px 0 20px;
+}
+
+.list-of-links li {
+    padding-right: 30px;
+}
+
+.developer-info {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

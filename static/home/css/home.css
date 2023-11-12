@@ -3,6 +3,12 @@
     background-size: cover;
 }
 
+.home-slogan,
+.recipes-counter {
+    width: 1300px;
+    box-sizing: border-box;
+}
+
 .home-page-slogan {
     padding: 50px 0;
     margin-bottom: 50px;
@@ -63,8 +69,25 @@
     transition: transform 0.5s ease;
 }
 
+.categories-ul li.selected {
+  font-weight: 500;
+}
+
 .categories-ul li:hover::before {
     transform: scaleX(1);
+}
+
+.selected-recipes-counter {
+    margin-bottom: 50px;
+}
+
+.selected-recipes-counter p {
+    color: #8f8d8d;
+}
+
+.span-counter {
+    font-weight: 500;
+    color: #000000;
 }
 
 
@@ -81,7 +104,7 @@
     box-sizing: border-box;
     border: 1px solid #efefef;
     border-radius: 6px;
-    min-height: 500px;
+    min-height: 530px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -99,6 +122,11 @@
     height: 270px;
     border: 1px solid #efefef;
     border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.recipe-title h2 {
+    font-weight: 400;
 }
 
 .recipe-short-info {
