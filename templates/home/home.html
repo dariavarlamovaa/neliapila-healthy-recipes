@@ -16,7 +16,7 @@
             </div>
         </div>
     </section>
-    <section class="categories container">
+    <section id=categories" class="categories container">
         <div class="categories-nav">
             <ul class="categories-ul">
                 <li><a href="?sort_by=All">All</a></li>
@@ -28,6 +28,13 @@
                 <li><a href="?sort_by=Drinks">Drinks</a></li>
                 <li><a href="?sort_by=Miscellaneous">Other</a></li>
             </ul>
+        </div>
+    </section>
+    <section class="recipes-counter container">
+        <div class="selected-recipes-counter">
+            <p>You have
+                <span class="span-counter">{{ recipes_count }}</span> recipe{{ recipes_count | pluralize:'s' }} to explore
+            </p>
         </div>
     </section>
     <section class="all-approved-recipes container">
@@ -81,4 +88,8 @@
         </div>
     </section>
 </section>
+{% endblock %}
+
+{% block script_block %}
+<script src="{% static 'js/ul-list.js' %}"></script>
 {% endblock %}
