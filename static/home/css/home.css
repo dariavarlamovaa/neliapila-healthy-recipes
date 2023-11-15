@@ -35,7 +35,8 @@
 }
 
 .categories,
-.all-approved-recipes {
+.all-approved-recipes,
+.pag {
     margin-bottom: 50px;
     width: 1300px;
 }
@@ -70,7 +71,7 @@
 }
 
 .categories-ul li.selected {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 .categories-ul li:hover::before {
@@ -173,4 +174,18 @@
 
 .recommendations {
     font-weight: 500;
+}
+
+.pag {
+    display: flex;
+    flex-direction: row;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.pag-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
 }
