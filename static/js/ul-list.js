@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function getParameterByName(name) {
-    const regex = new RegExp("[?&]" + name + "=([^&#]*)");
+    const regex = new RegExp("[?&]" + name + "=([^&]*)");
     const results = regex.exec(window.location.href);
 
     return results ? decodeURIComponent(results[1].replace(/\+/g, " ")) : null;
