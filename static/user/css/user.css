@@ -7,7 +7,7 @@
 
 .login,
 .signup {
-    min-height: 700px;
+    min-height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
