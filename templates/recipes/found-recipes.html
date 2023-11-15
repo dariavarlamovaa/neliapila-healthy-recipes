@@ -7,7 +7,7 @@
 <section class="found-recipes-page">
     <section class="all-approved-recipes container">
         <div class="recipes ">
-            <h1 class="found-recipes-heading">"{{ search_query }} - {{ recipes_count }} recipes"</h1>
+            <h1 class="found-recipes-heading">"{{ search_query }}" - {{ recipes_count }} recipes</h1>
             <div class="all-recipes">
                 {% if recipes %}
                 {% for recipe in recipes %}
@@ -54,6 +54,36 @@
                     </div>
                 </div>
                 {% endfor %}
+                <section class="paginator-section">
+                    {% if recipes.has_other_pages %}
+                    <div class="pagination container">
+                        <div class="pag">
+                            <ul class="pag-list">
+                                {% if recipes.has_previous %}
+                                <li><a href="?page={{ recipes.previous_page_number }}
+                                            {% if search_query %}&search-bar={{ search_query }}{% endif %}"
+                                       class="btn page-link">&lt; Prev.</a></li>
+                                {% endif %}
+                                {% for page in custom_range %}
+                                {% if page == recipes.number %}
+                                <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
+                                       class="btn page-link">{{ page }}</a></li>
+                                {% else %}
+                                <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
+                                       class="btn page-link">{{ page }}</a></li>
+                                {% endif %}
+                                {% endfor %}
+                                {% if recipes.has_next %}
+                                <li><a href="?page={{ recipes.next_page_number }}
+                                       {% if search_query %}&search-bar={{ search_query }}{% endif %}"
+                                       class="btn page-link">Next &gt;</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                    </div>
+                    {% endif %}
+                </section>
                 {% else %}
                 <div class="recipes-not-found">
                     <p class="nothing-found">Nothing was found for the query "{{ search_query }}"</p>
