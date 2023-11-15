@@ -275,20 +275,16 @@ main {
     padding: 0;
 }
 
-.footer-nav {
-    background-color: #efefef;
-}
-
 .page-footer_wrapper {
     width: 1300px;
     box-sizing: border-box;
 }
 
 .list-of-links {
+    border-top: 1px solid #efefef;
     list-style: none;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #FFFFFF;
     padding: 40px 0 20px;
 }
 
