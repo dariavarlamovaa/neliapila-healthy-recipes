@@ -17,6 +17,7 @@ def get_found_recipes(request):
     search_query = request.GET.get('search-bar') \
         if request.GET.get('search-bar') else ''
     recipes = Recipe.objects.distinct().filter(Q(is_approved=True) &
-                                    (Q(title__icontains=search_query) | Q(ingredients__icontains=search_query)))
+                                               (Q(title__icontains=search_query) |
+                                                Q(ingredients__icontains=search_query)))
 
     return recipes, search_query
