@@ -1,17 +1,4 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-    <g id="SVGRepo_iconCarrier">
-
-        <path d="M15.75 5H8.25C7.55964 5 7 5.58763 7 6.3125V19L12 15.5L17 19V6.3125C17 5.58763 16.4404 5 15.75 5Z"
-              stroke="#e66060" stroke-linecap="round" stroke-linejoin="round"/>
-
-    </g>
-
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M34.6122 7H15.0204C13.217 7 11.7551 8.56701 11.7551 10.5V44.3333L24.8163 35L37.8775 44.3333V10.5C37.8775 8.56701 36.4157 7 34.6122 7Z"
+          stroke="#E66060" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
