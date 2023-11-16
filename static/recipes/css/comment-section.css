@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .comment-form {
@@ -42,10 +42,16 @@
     padding-bottom: 50px;
 }
 
+.all-recipe-comments {
+    padding-top: 20px;
+    border-top: 2px solid #efefef;
+}
+
 .one-comment {
     min-height: 150px;
     margin-bottom: 30px;
     border-bottom: 1px solid #efefef;
+    position: relative;
 }
 
 .comment-owner-image img {
@@ -77,4 +83,15 @@
 .date-created {
     font-size: 13px;
     text-transform: uppercase;
+}
+
+.delete-comment {
+    position: absolute;
+    right: 7px;
+    bottom: 30%;
+}
+
+.delete-comment img {
+    width: 25px;
+    height: 25px;
 }
