@@ -23,7 +23,7 @@
 }
 
 .recipe-image img {
-    width: 400px;
+    width: 428px;
     height: 400px;
 }
 
@@ -41,7 +41,23 @@
     color: #B8B8B8FF;
 }
 
-.comments-link a {
+.rating-comments-link {
+    display: flex;
+    flex-direction: row;
+    max-width: 220px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70px;
+    justify-content: space-between;
+}
+
+.rating-comments-link a:nth-child(2) {
     text-decoration: underline;
 }
 
@@ -70,7 +86,8 @@
     align-items: center;
 }
 
-.add-to-favourites {
+.add-to-favourites,
+.print-recipe {
     margin-right: 40px;
 }
 
@@ -86,17 +103,24 @@
     max-width: max-content;
     text-transform: uppercase;
     min-height: 42px;
-    min-width: 100px;
+    min-width: 115px;
     justify-content: space-around;
 }
 
 .button-favorites-link img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
 }
 
+.delete-link img {
+    width: 25px;
+    height: 25px;
+}
 
-
+.delete-link {
+    border: 1px solid #a91313;
+    border-radius: 2px;
+}
 
 .ingredients,
 .steps-heading {
