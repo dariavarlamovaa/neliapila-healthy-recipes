@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 
@@ -118,6 +119,9 @@ def add_recipe_to_favorites(request, pk):
 @login_required(login_url='login')
 def delete_favorite(request, pk):
     favourite = get_object_or_404(Favorite, favorite_recipe_id=pk, profile=request.user.profile)
+    if not request.user.id == favourite.profile.user.id:
+        return HttpResponseForbidden('You do not have permission to access this page.')
+
     if request.method == 'GET':
         favourite.delete()
         messages.success(request, 'Recipe deleted from favorites')
