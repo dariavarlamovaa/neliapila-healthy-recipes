@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'recipes/css/delete.css' %}">
+{% endblock %}
+{% block content %}
+<section class="delete-recipe-page">
+    <div class="delete container">
+        <div class="delete-confirmation">
+            <h1>Delete recipe</h1>
+            <div class="delete-block">
+                <div class="confirmation-letter">
+                    <p>Are you sure you want to delete recipe - "{{ recipe.title }}"?</p>
+                    <p>This action cannot be reversed.</p>
+                </div>
+                <div class="delete-form form">
+                    <form class="form-delete-recipe" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="Delete">
+                    </form>
+                    <a href="{% url 'specific-recipe' recipe.id %}">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
