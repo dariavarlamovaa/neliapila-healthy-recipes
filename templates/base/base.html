@@ -157,11 +157,7 @@
                         </div>
                     </div>
                 </div>
-                {% if user.is_authenticated %}
                 <a class="add-a-recipe right-links" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
-                {% else %}
-                <a class="add-a-recipe right-links" href="{% url 'login' %}">ADD A RECIPE</a>
-                {% endif %}
             </div>
         </div>
     </div>
