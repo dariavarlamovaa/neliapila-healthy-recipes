@@ -19,8 +19,8 @@
                 </div>
                 <div class="menu">
                     <ul class="menu-list">
-                        <li><a href="/">Recipes</a></li>
-                        <li><a href="#">Authors</a></li>
+                        <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                        <li><a href="{% url 'authors' %}">Authors</a></li>
                     </ul>
                 </div>
             </div>
@@ -183,9 +183,9 @@
         <div class="site-links">
             <div class="links-list">
                 <ul class="list-of-links">
-                    <li><a href="/">Explore</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Help & Feedback</a></li>
+                    <li><a href="{% url 'recipes' %}">Explore</a></li>
+                    <li><a href="{% url 'about-us' %}">About</a></li>
+                    <li><a href="{% url 'contact-us' %}">Contact</a></li>
                 </ul>
             </div>
         </div>
