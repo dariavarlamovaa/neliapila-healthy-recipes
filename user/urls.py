@@ -19,6 +19,8 @@ urlpatterns = [
     # edit profile info
     path('profile/<pk>/edit', views.edit_profile, name='edit-profile'),
 
+    path('contact-us/', views.contact_view, name='contact-us')
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
