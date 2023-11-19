@@ -23,3 +23,14 @@ class Favorite(models.Model):
 
     def __str__(self):
         return self.favorite_recipe.title
+
+
+class Contact(models.Model):
+    sender = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
+    email = models.EmailField(max_length=200, null=True, blank=True)
+    subject = models.CharField(max_length=200, null=True, blank=True)
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.subject}'
