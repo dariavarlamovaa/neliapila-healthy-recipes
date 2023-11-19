@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 
 from recipes.models import Recipe
-from .forms import NewUserCreationForm, ProfileForm
+from .forms import NewUserCreationForm, ProfileForm, ContactForm
 from .models import Profile, Favorite
 
 
@@ -126,3 +126,26 @@ def delete_favorite(request, pk):
         favourite.delete()
         messages.success(request, 'Recipe deleted from favorites')
         return redirect('favorites')
+
+
+def contact_view(request):
+    form = ContactForm()
+    sender = None
+    if request.user.is_authenticated:
+        del form.fields['email']
+        sender = request.user.profile
+
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            message = form.save(commit=False)
+            message.sender = sender
+            if sender:
+                message.email = sender.email
+
+            messages.success(request, 'Your message successfully sent')
+            message.save()
+
+            return redirect('recipes')
+    context = {'form': form}
+    return render(request, 'user/contact-form.html', context)
