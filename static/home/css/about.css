@@ -1,0 +1,14 @@
+.about-us-info h1 {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.about-us-info p {
+    font-size: 23px;
+    text-align: justify;
+}
+
+.about-us-info span {
+    color: #74924a;
+    font-weight: bold;
+}
