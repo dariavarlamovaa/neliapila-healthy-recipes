@@ -52,12 +52,12 @@
                                 <div class="button-favorites">
                                     {% if recipe in favorites %}
                                     <a class="button-favorites-link" href="{% url 'delete-from-favorites' recipe.id %}">
-                                        <img src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
+                                        <img class="bookmark-img" src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
                                         Added to favorites
                                     </a>
                                     {% else %}
                                     <a class="button-favorites-link" href="{% url 'add-to-favorites' recipe.id %}">
-                                        <img src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
+                                        <img class="bookmark-img" src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
                                         Add to favorites
                                     </a>
                                     {% endif %}
