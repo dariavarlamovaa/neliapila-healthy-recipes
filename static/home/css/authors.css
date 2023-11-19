@@ -1,0 +1,42 @@
+.authors h1 {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.all-authors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.one-author {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 32%;
+    border: 1px solid #efefef;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.one-author:nth-child(3n+2) {
+    margin-right: 25px;
+    margin-left: 24px;
+}
+
+.author-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: calc(100% - 120px);
+    text-align: center;
+}
