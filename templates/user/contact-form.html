@@ -1,0 +1,28 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'user/css/contact.css' %}">
+{% endblock %}
+{% block content %}
+<section class="contact-form-page">
+    <div class="contact container">
+        <div class="contact-main">
+            <h1>Contact us</h1>
+            <div class="contact-form-division">
+                <form class="form contact-form" method="post">
+                    {% csrf_token %}
+                    <div class="labels">
+                        {% for field in form %}
+                        <div class="form__field">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <input class="contact-us btn" type="submit" value="SUBMIT"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
