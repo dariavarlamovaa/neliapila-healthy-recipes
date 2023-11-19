@@ -1,0 +1,66 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/css/authors.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="authors-page">
+    <section class="recipes-authors">
+        <div class="authors container">
+            <h1>Authors</h1>
+            <div class="all-authors">
+                {% for person in authors_with_recipe_count%}
+                <div class="one-author">
+                    <div class="author-image">
+                        <a href="{% url 'profile' person.author.user.id %}">
+                            <img src="{{ person.author.image.url}}" alt="Author Photo">
+                        </a>
+                    </div>
+                    <div class="author-info">
+                        <a href="{% url 'profile' person.author.user.id %}">
+                            @{{ person.author.username }}
+                        </a>
+                        <a href="{% url 'profile' person.author.user.id %}">
+                            {{ person.recipe_count }} recipe{{ person.recipe_count | pluralize:"s" }}
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="paginator-section">
+        {% if all_authors.has_other_pages %}
+        <div class="pagination container">
+            <div class="pag">
+                <ul class="pag-list">
+                    {% if all_authors.has_previous %}
+                    <li>
+                        <a href="?page={{ all_authors.previous_page_number }}"
+                           class="btn page-link">&lt; Prev.</a></li>
+                    {% endif %}
+                    {% for page in custom_range %}
+                    {% if page == all_authors.number %}
+                    <li><a href="?page={{ page }}"
+                           class="btn page-link">{{ page }}</a></li>
+                    {% else %}
+                    <li><a href="?page={{ page }}"
+                           class="btn page-link">{{ page }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if all_authors.has_next %}
+                    <li>
+                        <a href="?page={{ all_authors.next_page_number }}"
+                           class="btn page-link">Next &gt;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+    </section>
+</section>
+{% endblock %}
