@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="about-us-page">
+    <div class="about-us container">
+        <div class="about-us-info">
+            <h1>About Neliapila</h1>
+            <br>
+            <p>Welcome to <span>Neliapila</span>, where delicious meets nutritious!</p>
+            <br>
+            <p>We're a community-driven platform dedicated to healthy recipes. Here, you can
+                discover a diverse range of wholesome dishes and share your own favorites with fellow
+                foodies.</p>
+            <br>
+            <p>Explore a variety of recipes suited for different dietary needs and tastes, from energizing breakfasts to
+                satisfying dinners and everything in between. Join our community, swap ideas, and celebrate the joy of
+                nourishing your body with flavorful, homemade meals.</p>
+            <br>
+            <p>Become a part of our journey to healthy and happy eating!</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
