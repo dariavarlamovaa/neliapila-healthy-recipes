@@ -1,8 +1,8 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.forms import ModelForm
-from .models import Profile
+from django.forms import ModelForm, Textarea
+from .models import Profile, Contact
 
 
 class NewUserCreationForm(UserCreationForm):
@@ -47,3 +47,17 @@ class ProfileForm(ModelForm):
         super().__init__(*args, **kwargs)
 
         self.fields['image'].widget = forms.FileInput(attrs={'accept': 'image/*'})
+
+
+class ContactForm(ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['email', 'subject', 'body']
+
+        labels = {'body': ''}
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['body'].widget = Textarea(attrs={'placeholder': 'Write your message here'})
+        self.fields['email'].required = True
