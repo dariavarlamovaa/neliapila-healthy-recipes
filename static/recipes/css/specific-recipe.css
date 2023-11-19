@@ -98,7 +98,7 @@
     font-size: 15px;
     border: 1px solid #E5E5E5FF;
     border-radius: 2px;
-    padding-right: 5px;
+    padding: 0 5px;
     box-sizing: border-box;
     max-width: max-content;
     text-transform: uppercase;
@@ -107,9 +107,13 @@
     justify-content: space-around;
 }
 
+.button-favorites-link {
+    min-width: 200px;
+}
+
 .button-favorites-link img {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
 }
 
 .delete-link img {
