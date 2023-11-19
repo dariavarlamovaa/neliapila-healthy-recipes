@@ -3,27 +3,28 @@ from django.shortcuts import render
 
 from home.utilis import get_sorted_recipes, get_found_recipes
 from recipes.models import Recipe
+from user.models import Profile
 
 
-def paginate_recipes(request, recipes, results=6):
+def paginate_recipes(request, items, results=6):
     page = request.GET.get('page')
-    paginator = Paginator(recipes, results)
+    paginator = Paginator(items, results)
 
     try:
-        recipes = paginator.page(page)
+        items = paginator.page(page)
     except PageNotAnInteger:
         page = 1
-        recipes = paginator.page(page)
+        items = paginator.page(page)
     except EmptyPage:
         page = paginator.num_pages
-        recipes = paginator.page(page)
+        items = paginator.page(page)
 
     page = int(page)
     left_index = page - 3 if page > 3 else 1
     right_index = page + 4 if page < paginator.num_pages - 3 else paginator.num_pages + 1
     custom_range = range(left_index, right_index)
 
-    return recipes, paginator, custom_range
+    return items, paginator, custom_range
 
 
 def sort_recipes(request):
@@ -68,3 +69,22 @@ def search_recipes(request):
     context = {'recipes': recipes, 'favorites': favorite_recipes, 'recipes_count': recipes_count,
                'search_query': search_query, 'paginator': paginator, 'custom_range': custom_range}
     return render(request, 'recipes/found-recipes.html', context)
+
+
+def authors(request):
+    all_authors = Profile.objects.filter(user__is_superuser=False)
+    all_authors, paginator, custom_range = paginate_recipes(request, all_authors, results=9)
+
+    authors_with_recipe_count = []
+    for author in all_authors:
+        recipe_count = Recipe.objects.filter(author=author.user, is_approved=True).count()
+        authors_with_recipe_count.append({'author': author, 'recipe_count': recipe_count})
+    authors_and_recipes_count = sorted(authors_with_recipe_count, key=lambda x: x['recipe_count'], reverse=True)
+
+    context = {'authors_with_recipe_count': authors_and_recipes_count, 'paginator': paginator,
+               'custom_range': custom_range, 'all_authors': all_authors}
+    return render(request, 'home/authors.html', context)
+
+
+def about_us(request):
+    return render(request, 'home/about.html')
