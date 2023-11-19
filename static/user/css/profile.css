@@ -75,6 +75,11 @@
     margin-right: 10px;
 }
 
+.button-favorites-link img {
+    width: 25px;
+    height: 25px;
+}
+
 .recipe-category {
     color: #74924a;
     font-size: 15px;
@@ -137,9 +142,10 @@
     font-size: 15px;
     border: 1px solid #E5E5E5FF;
     border-radius: 2px;
-    padding-right: 10px;
+    padding: 0 5px;
     box-sizing: border-box;
     max-width: max-content;
+    min-height: 35px;
 }
 
 .profile-card {
@@ -163,6 +169,8 @@
 .profile-name {
     font-size: 24px;
     text-transform: capitalize;
+    word-break: break-all;
+    text-align: center;
 }
 
 .profile-username {
