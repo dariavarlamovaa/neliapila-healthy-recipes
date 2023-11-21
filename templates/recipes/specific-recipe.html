@@ -73,7 +73,7 @@
                                 </a>
                             </div>
                         </div>
-                        {% if request.user.id == recipe.author.id %}
+                        {% if request.user.id == recipe.author.id or request.user.is_staff %}
                         <div class="delete-recipe">
                             <div class="delete">
                                 <a class="delete-link button-link" href="{% url 'delete-recipe' recipe.id %}">
@@ -156,7 +156,7 @@
                         <div class="comment-body">
                             <p>{{ comment.body }}</p>
                         </div>
-                        {% if request.user.id == comment.owner.id %}
+                        {% if request.user.id == comment.owner.id or user.is_staff %}
                         <div class="delete-comment">
                             <a href="{% url 'delete-comment' comment.id %}">
                                 <img src="{% static 'user/images/delete.svg' %}" alt="Delete">
