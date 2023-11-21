@@ -37,6 +37,7 @@
 .form-delete-recipe input[type=submit] {
     background-color: #a91313;
     color: #efefef;
+    cursor: pointer;
 }
 
 .delete-form a {
