@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+{% block content %}
+<section class="pending-recipes-page">
+    <section class="pending-recipes container">
+        <h1 class="pending-recipes-heading">Pending recipes</h1>
+        {% if recipes %}
+        <div class="all-recipes">
+            {% for recipe in recipes %}
+            <div class="sp-recipe sp-pending">
+                <div class="recipe-image">
+                    <a href="{% url 'approve-recipe' recipe.id %}">
+                        <img src="{{ recipe.image.url }}" alt="Recipe Image">
+                    </a>
+                </div>
+                <div class="recipe-title">
+                    <a href="{% url 'approve-recipe' recipe.id %}">
+                        <h2>{{ recipe.title|truncatechars:30 }}</h2></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="no-pending-recipes">There is no pending recipes</p>
+        {% endif %}
+    </section>
+</section>
+{% endblock %}
