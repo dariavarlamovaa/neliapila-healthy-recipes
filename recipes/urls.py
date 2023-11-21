@@ -9,5 +9,13 @@ urlpatterns = [
 
     path('delete-recipe/<pk>', views.delete_recipe, name='delete-recipe'),
 
-    path('delete-comment/<pk>', views.delete_comment, name='delete-comment')
+    path('delete-comment/<pk>', views.delete_comment, name='delete-comment'),
+
+
+    # admin
+    path('pending-recipes/', views.pending_recipes, name='pending-recipes'),
+    path('pending-comments/', views.pending_comments, name='pending-comments'),
+
+    path('approve-recipe/<pk>/', views.approve_recipe, name='approve-recipe'),
+    path('approve-comment/<pk>/', views.approve_comment, name='approve-comment')
 ]
