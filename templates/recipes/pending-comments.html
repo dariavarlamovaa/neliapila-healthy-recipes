@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'recipes/css/comment-section.css' %}">
+{% endblock %}
+{% block content %}
+<section class="pending-comments-page">
+    <section class="pending-comments container">
+        <h1 class="pending-comments-heading">Pending comments</h1>
+        {% if comments %}
+        <section class="all-recipe-comments">
+            <div class="comments">
+                {% for comment in comments %}
+                <div class="one-comment">
+                    <div class="comment-owner-info">
+                        <div class="comment-owner-info-left">
+                            <div class="comment-owner-image">
+                                <img src="{{ comment.owner.image.url }}" alt="Commentator`s image">
+                            </div>
+                            <div class="owner-name-and-date-created">
+                                <div class="owner-name">
+                                    <a href="{% url 'profile' comment.owner.user.id %}">
+                                        {{ comment.owner.username }}</a>
+                                </div>
+                                <div class="date-created">
+                                    <p>{{ comment.created_date | date:"j F y"}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-rating">
+                            <p>{{ comment.rating }} / 5</p>
+                        </div>
+                    </div>
+                    <div class="comment-body">
+                        <p>{{ comment.body }}</p>
+                    </div>
+                    <div class="delete-comment">
+                        <a href="{% url 'delete-comment' comment.id %}">
+                            <img src="{% static 'user/images/delete.svg' %}" alt="Delete">
+                        </a>
+                    </div>
+                    <div class="approve-comment">
+                        <a href="{% url 'approve-comment' comment.id %}">
+                            <img src="{% static 'recipes/images/check-mark.svg' %}" alt="Check mark">
+                        </a>
+                    </div>
+                    <div class="recipe-info">
+                        <p>Recipe - <a href="{% url 'specific-recipe' comment.recipe.id %}">{{ comment.recipe }}</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% else %}
+        <p class="no-pending-comments">There is no pending comments</p>
+        {% endif %}
+    </section>
+</section>
+{% endblock %}
