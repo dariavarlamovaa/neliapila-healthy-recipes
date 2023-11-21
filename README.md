@@ -13,6 +13,8 @@
 - Python
 - Django
 - SQLite
+- JavaScript
+- xhtml2pdf
 
 
 ## Features
