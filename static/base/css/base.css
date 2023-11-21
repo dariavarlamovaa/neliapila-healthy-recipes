@@ -58,6 +58,12 @@ input, select, textarea {
     outline: none;
 }
 
+select {
+    background-color: #FFFFFF;
+    height: 45px;
+    appearance: inherit;
+}
+
 input:focus,
 textarea:focus {
     outline: 1px solid rgba(116, 146, 74, 0.5);
@@ -102,7 +108,10 @@ main {
     flex-direction: row;
     align-items: center;
     min-width: 500px;
-    justify-content: space-between;
+}
+
+.logo {
+    margin-right: 40px;
 }
 
 .logo img {
@@ -115,7 +124,6 @@ main {
     text-transform: uppercase;
     font-size: 20px;
     min-width: 235px;
-    justify-content: space-between;
 }
 
 .menu ul {
@@ -124,6 +132,7 @@ main {
 
 .menu-list li {
     color: #74924a;
+    margin-right: 20px;
 }
 
 .search-bar {
