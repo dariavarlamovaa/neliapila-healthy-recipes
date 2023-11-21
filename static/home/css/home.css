@@ -175,3 +175,17 @@
 .recommendations {
     font-weight: 500;
 }
+
+
+.pending-recipes-heading {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.no-pending-recipes {
+    text-align: center;
+}
+
+.sp-pending {
+    min-height: 380px;
+}

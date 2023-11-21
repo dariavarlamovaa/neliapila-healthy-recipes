@@ -42,12 +42,6 @@
     width: 100%;
 }
 
-.new-recipe-form-field select {
-    background-color: #FFFFFF;
-    height: 45px;
-    appearance: inherit;
-}
-
 .new_recipe_submit {
     text-transform: uppercase;
 }
