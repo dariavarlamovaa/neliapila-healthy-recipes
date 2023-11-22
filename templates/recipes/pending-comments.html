@@ -16,7 +16,9 @@
                     <div class="comment-owner-info">
                         <div class="comment-owner-info-left">
                             <div class="comment-owner-image">
-                                <img src="{{ comment.owner.image.url }}" alt="Commentator`s image">
+                                <a href="{% url 'profile' comment.owner.user.id %}">
+                                    <img src="{{ comment.owner.image.url }}" alt="Commentator`s image">
+                                </a>
                             </div>
                             <div class="owner-name-and-date-created">
                                 <div class="owner-name">
@@ -24,7 +26,7 @@
                                         {{ comment.owner.username }}</a>
                                 </div>
                                 <div class="date-created">
-                                    <p>{{ comment.created_date | date:"j F y"}}</p>
+                                    <p>{{ comment.created_date | date:"j F Y"}}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,6 +56,35 @@
         </section>
         {% else %}
         <p class="no-pending-comments">There is no pending comments</p>
+        {% endif %}
+    </section>
+    <section class="paginator-section">
+        {% if comments.has_other_pages %}
+        <div class="pagination container">
+            <div class="pag">
+                <ul class="pag-list">
+                    {% if comments.has_previous %}
+                    <li>
+                        <a href="?page={{ comments.previous_page_number }}"
+                           class="btn page-link">&lt; Prev.</a></li>
+                    {% endif %}
+                    {% for page in custom_range %}
+                    {% if page == comments.number %}
+                    <li><a href="?page={{ page }}"
+                           class="btn page-link btn__filled">{{ page }}</a></li>
+                    {% else %}
+                    <li><a href="?page={{ page }}"
+                           class="btn page-link">{{ page }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if comments.has_next %}
+                    <li>
+                        <a href="?page={{ comments.next_page_number }}"
+                           class="btn page-link">Next &gt;</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
         {% endif %}
     </section>
 </section>
