@@ -11,11 +11,14 @@
         <div class="one-recipe">
             <img class="pending-recipe-image" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
 
-            <form method="post" class="recipe-edit-form" enctype="multipart/form-data">
+            <form method="post" class="recipe-edit-form">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input class="new_recipe_submit btn" type="submit" value="APPROVE"/>
             </form>
+        </div>
+        <div class="delete-recipe-div btn">
+            <a class="delete-recipe-link" href="{% url 'delete-recipe' recipe.id %}">DELETE</a>
         </div>
     </section>
 </section>
