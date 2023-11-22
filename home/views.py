@@ -6,7 +6,7 @@ from recipes.models import Recipe
 from user.models import Profile
 
 
-def paginate_recipes(request, items, results=6):
+def paginate(request, items, results=6):
     page = request.GET.get('page')
     paginator = Paginator(items, results)
 
@@ -48,7 +48,7 @@ def get_recipes(request):
     except AttributeError:
         favorite_recipes = ''
 
-    recipes, paginator, custom_range = paginate_recipes(request, recipes)
+    recipes, paginator, custom_range = paginate(request, recipes)
 
     context = {'recipes': recipes, 'favorites': favorite_recipes,
                'recipes_count': recipes_count, 'paginator': paginator, 'custom_range': custom_range,
@@ -64,7 +64,7 @@ def search_recipes(request):
     recipes, search_query = get_found_recipes(request)
     recipes_count = recipes.count()
 
-    recipes, paginator, custom_range = paginate_recipes(request, recipes, results=9)
+    recipes, paginator, custom_range = paginate(request, recipes, results=9)
 
     context = {'recipes': recipes, 'favorites': favorite_recipes, 'recipes_count': recipes_count,
                'search_query': search_query, 'paginator': paginator, 'custom_range': custom_range}
@@ -73,7 +73,7 @@ def search_recipes(request):
 
 def authors(request):
     all_authors = Profile.objects.filter(user__is_superuser=False)
-    all_authors, paginator, custom_range = paginate_recipes(request, all_authors, results=9)
+    all_authors, paginator, custom_range = paginate(request, all_authors, results=9)
 
     authors_with_recipe_count = []
     for author in all_authors:
