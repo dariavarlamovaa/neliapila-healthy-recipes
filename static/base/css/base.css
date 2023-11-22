@@ -419,3 +419,8 @@ main {
     display: flex;
     flex-direction: row;
 }
+
+.pag .btn__filled {
+    background-color: #74924a;
+    color: #FFFFFF;
+}
