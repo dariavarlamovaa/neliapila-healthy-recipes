@@ -46,10 +46,10 @@
                     {% for page in custom_range %}
                     {% if page == all_authors.number %}
                     <li><a href="?page={{ page }}"
-                           class="btn page-link">{{ page }}</a></li>
+                           class="btn page-link btn__filled">{{ page }}</a></li>
                     {% else %}
                     <li><a href="?page={{ page }}"
-                           class="btn page-link btn__filled">{{ page }}</a></li>
+                           class="btn page-link">{{ page }}</a></li>
                     {% endif %}
                     {% endfor %}
                     {% if all_authors.has_next %}
