@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
+{% block title %}Found recipes{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock %}
@@ -67,7 +68,7 @@
                                 {% for page in custom_range %}
                                 {% if page == recipes.number %}
                                 <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
-                                       class="btn page-link">{{ page }}</a></li>
+                                       class="btn page-link btn__filled">{{ page }}</a></li>
                                 {% else %}
                                 <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
                                        class="btn page-link">{{ page }}</a></li>

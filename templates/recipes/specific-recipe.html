@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
+{% block title %}{{ recipe.title }}{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'recipes/css/specific-recipe.css' %}">
 <link rel="stylesheet" href="{% static 'recipes/css/comment-section.css' %}">
@@ -137,7 +138,7 @@
                         <div class="comment-owner-info">
                             <div class="comment-owner-info-left">
                                 <div class="comment-owner-image">
-                                    <img src="{{ comment.owner.image.url }}" alt="Commentator`s image">
+                                    <a href="{% url 'profile' comment.owner.user.id %}"><img src="{{ comment.owner.image.url }}" alt="Commentator`s image"></a>
                                 </div>
                                 <div class="owner-name-and-date-created">
                                     <div class="owner-name">
