@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect
 from django.template.loader import get_template
 from django.contrib import messages
 
+from home.views import paginate
 from recipes.forms import NewRecipe, CommentForm
 from recipes.models import Recipe, Comment
 
@@ -64,6 +65,11 @@ def delete_comment(request, pk):
         return HttpResponseForbidden('You do not have permission to access this page.')
 
 
+def count_recipe_average_rating(recipe_ratings):
+    average_rating = round(sum(recipe_ratings) / len(recipe_ratings), 1)
+    return average_rating
+
+
 def show_specific_recipe(request, pk):
     specific_recipe = Recipe.objects.get(pk=pk, is_approved=True)
     recipe_ingredients = specific_recipe.ingredients.split('\n')
@@ -74,7 +80,7 @@ def show_specific_recipe(request, pk):
     comments_count = comments.count()
     recipe_ratings = [comment.rating for comment in comments]
     if recipe_ratings:
-        average_recipe_rating = round(sum(recipe_ratings) / len(recipe_ratings), 1)
+        average_recipe_rating = count_recipe_average_rating(recipe_ratings)
     else:
         average_recipe_rating = ''
     try:
@@ -134,7 +140,8 @@ def delete_recipe(request, pk):
 @staff_member_required
 def pending_recipes(request):
     all_pending_recipes = Recipe.objects.filter(is_approved=False).all()
-    context = {'recipes': all_pending_recipes}
+    all_pending_recipes, paginator, custom_range = paginate(request, all_pending_recipes)
+    context = {'recipes': all_pending_recipes, 'paginator': paginator, 'custom_range': custom_range}
     return render(request, 'recipes/pending-recipes.html', context)
 
 
@@ -162,8 +169,9 @@ def approve_recipe(request, pk):
 @staff_member_required
 def pending_comments(request):
     all_pending_comments = Comment.objects.filter(is_approved=False).all()
+    all_pending_comments, paginator, custom_range = paginate(request, all_pending_comments)
     if request.method == 'GET':
-        context = {'comments': all_pending_comments}
+        context = {'comments': all_pending_comments, 'paginator': paginator, 'custom_range': custom_range}
         return render(request, 'recipes/pending-comments.html', context)
 
 
