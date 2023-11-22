@@ -1,3 +1,8 @@
+.one-pending-recipe {
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
 .pending-recipe-heading {
     text-align: center;
     padding: 50px 0;
@@ -15,7 +20,7 @@
 
 .one-recipe input,
 .one-recipe textarea,
-.one-recipe select{
+.one-recipe select {
     width: 100%;
     margin-bottom: 20px;
 }
@@ -23,4 +28,26 @@
 .pending-recipe-image {
     width: 300px;
     height: 280px;
+}
+
+.delete-recipe-div {
+    border-color: #a91313;
+    max-height: 40px;
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 15px;
+
+    .delete-recipe-link {
+        color: #a91313;
+        font-weight: 500;
+    }
+}
+
+.delete-recipe-div:hover {
+    background-color: #a91313;
+
+    .delete-recipe-link {
+        color: #FFFFFF;
+    }
 }
