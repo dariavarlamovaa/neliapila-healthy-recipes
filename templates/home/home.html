@@ -61,12 +61,12 @@
                         <div class="recipe-cooking-time info">
                             <img src="{% static 'recipes/images/clock-svg.svg' %}" alt="Clock">
                             {% if recipe.cooking_hours != 0 and recipe.cooking_minutes != 0 %}
-                            <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}
-                                {{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}</span>
+                            <span>{{ recipe.cooking_hours }} hr{{ recipe.cooking_hours | pluralize:'s' }}
+                                {{ recipe.cooking_minutes }} min{{ recipe.cooking_minutes | pluralize:'s' }}</span>
                             {% elif recipe.cooking_hours != 0 and recipe.cooking_minutes == 0 %}
-                            <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}</span>
+                            <span>{{ recipe.cooking_hours }} hr{{ recipe.cooking_hours | pluralize:'s' }}</span>
                             {% elif recipe.cooking_hours == 0 and recipe.cooking_minutes != 0 %}
-                            <span>{{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}
+                            <span>{{ recipe.cooking_minutes }} min{{ recipe.cooking_minutes | pluralize:'s' }}
                                 </span>
                             {% endif %}
                         </div>
