@@ -19,7 +19,9 @@ urlpatterns = [
     # edit profile info
     path('profile/<pk>/edit', views.edit_profile, name='edit-profile'),
 
-    path('contact-us/', views.contact_view, name='contact-us')
+    # contact
+    path('contact-us/', views.contact_view, name='contact-us'),
+    path('messages/', views.get_messages, name='messages')
 
 ]
 
