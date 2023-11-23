@@ -57,7 +57,7 @@
     justify-content: space-between;
 }
 
-.rating-comments-link a:nth-child(2) {
+.comments-counter {
     text-decoration: underline;
 }
 

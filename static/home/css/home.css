@@ -4,7 +4,8 @@
 }
 
 .home-slogan,
-.recipes-counter {
+.recipes-counter,
+.pending-recipes {
     width: 1300px;
     box-sizing: border-box;
 }
