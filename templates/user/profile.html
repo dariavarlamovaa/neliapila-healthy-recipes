@@ -20,15 +20,31 @@
                     {% for recipe in recipes %}
                     <div class="one-recipe">
                         <div class="recipe-image">
-                            <a href="{% url 'specific-recipe' recipe.id %}"><img src="{{ recipe.image.url }}" alt="Recipe Image"></a>
+                            {% if recipe.is_approved %}
+                            <a href="{% url 'specific-recipe' recipe.id %}">
+                                <img src="{{ recipe.image.url }}" alt="Recipe Image"></a>
+                            {% elif not recipe.is_approved and request.user.is_staff %}
+                            <a href="{% url 'approve-recipe' recipe.id %}">
+                                <img src="{{ recipe.image.url }}" alt="Recipe Image"></a>
+                            {% else %}
+                            <img src="{{ recipe.image.url }}" alt="Recipe Image">
+                            {% endif %}
                         </div>
                         <div class="recipe-info">
-                            <p class="recipe-category">{{ recipe.category }}</p>
-                            {% if request.user == profile.user and recipe.is_approved == False %}
+                            <a href="{% url 'recipes' %}?sort_by={{ recipe.category }}"
+                               class="recipe-category">{{ recipe.category }}</a>
+                            {% if request.user == profile.user or request.user.is_staff and not recipe.is_approved %}
                             <p class="on-moderation">Pending</p>
                             {% endif %}
+                            {% if recipe.is_approved %}
                             <a href="{% url 'specific-recipe' recipe.id %}" class="recipe-title">{{ recipe.title }}</a>
-                            <a href="{% url 'profile' profile.user_id %}" class="recipe-author">
+                            {% elif not recipe.is_approved and request.user.is_staff %}
+                            <a href="{% url 'approve-recipe' recipe.id %}"
+                               class="recipe-title">{{ recipe.title }}</a>
+                            {% else %}
+                            <p class="recipe-title">{{ recipe.title }}</p>
+                            {% endif %}
+                            <a href="{% url 'profile' profile.user.id %}" class="recipe-author">
                                 By {{ recipe.author }}</a>
                             <div class="recipe-details">
                                 <div class="portions-details">
@@ -41,9 +57,11 @@
                                     <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}
                                 {{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}</span>
                                     {% elif recipe.cooking_hours != 0 and recipe.cooking_minutes == 0 %}
-                                    <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}</span>
+                                    <span>{{ recipe.cooking_hours }} hour{{ recipe.cooking_hours | pluralize:'s' }}
+                                    </span>
                                     {% elif recipe.cooking_hours == 0 and recipe.cooking_minutes != 0 %}
-                                    <span>{{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}
+                                    <span>
+                                        {{ recipe.cooking_minutes }} minute{{ recipe.cooking_minutes | pluralize:'s' }}
                                 </span>
                                     {% endif %}
                                 </div>
@@ -53,12 +71,14 @@
                                 <div class="button-favorites">
                                     {% if recipe in favorites %}
                                     <a class="button-favorites-link" href="{% url 'delete-from-favorites' recipe.id %}">
-                                        <img class="bookmark-img" src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
+                                        <img class="bookmark-img"
+                                             src="{% static 'user/images/filled-bookmark-svg.svg' %}" alt="Bookmark">
                                         Added to favorites
                                     </a>
                                     {% else %}
                                     <a class="button-favorites-link" href="{% url 'add-to-favorites' recipe.id %}">
-                                        <img class="bookmark-img" src="{% static 'user/images/bookmark-svg.svg' %}" alt="Bookmark">
+                                        <img class="bookmark-img" src="{% static 'user/images/bookmark-svg.svg' %}"
+                                             alt="Bookmark">
                                         Add to favorites
                                     </a>
                                     {% endif %}
