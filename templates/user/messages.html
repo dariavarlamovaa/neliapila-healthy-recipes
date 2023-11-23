@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'user/css/messages.css' %}">
+{% endblock %}
+{% block content %}
+<section class="messages-page">
+    <section class="messages container">
+        <h1>Messages</h1>
+        {% if messages %}
+        {% for msg in all_messages %}
+        <div class="message-info">
+            <div class="sender-email-date">
+                <div class="sender-email">
+                    <a href="mailto: {{ msg.email }}" class="msg-email">{{ msg.email }}</a>
+                    {% if msg.sender %}
+                    <a class="msg-sender" href="{% url 'profile' msg.sender.user.id %}">@{{ msg.sender.username }}</a>
+                    {% endif %}
+                </div>
+                <p class="msg-date">{{ msg.created | date:"j.n.Y H:i" }}</p>
+            </div>
+            {% if msg.subject %}
+            <p class="msg-subject">Subject - {{ msg.subject }}</p>
+            {% endif %}
+            <p class="msg-body">{{ msg.body }}</p>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="no-messages">There is no messages</p>
+        {% endif %}
+    </section>
+</section>
+{% endblock %}
