@@ -57,7 +57,11 @@ class ContactForm(ModelForm):
         labels = {'body': ''}
 
     def __init__(self, *args, **kwargs):
+        authenticated = kwargs.pop('authenticated', False)
         super().__init__(*args, **kwargs)
 
         self.fields['body'].widget = Textarea(attrs={'placeholder': 'Write your message here'})
-        self.fields['email'].required = True
+        if authenticated:
+            del self.fields['email']
+        else:
+            self.fields['email'].required = True
