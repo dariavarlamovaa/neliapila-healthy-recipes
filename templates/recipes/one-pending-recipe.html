@@ -9,8 +9,8 @@
     <section class="one-pending-recipe container">
         <h1 class="pending-recipe-heading">{{ recipe.title }}</h1>
         <div class="one-recipe">
+            <a class="author-link" href="{% url 'profile' recipe.author.id %}">Author - @{{ recipe.author }}</a>
             <img class="pending-recipe-image" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
-
             <form method="post" class="recipe-edit-form">
                 {% csrf_token %}
                 {{ form.as_p }}
