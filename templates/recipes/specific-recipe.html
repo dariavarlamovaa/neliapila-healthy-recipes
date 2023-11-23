@@ -23,12 +23,14 @@
                                                                      alt="heart">
                             <span>{{ average_recipe_rating }}</span></a>
                         {% endif %}
-                        <a href="#comments">{{ comments_count }} comment{{ comments_count | pluralize:'s' }}</a>
+                        <a class="comments-counter" href="#comments">
+                            {{ comments_count }} comment{{ comments_count | pluralize:'s' }}</a>
                     </div>
                     <div class="recipe-info">
                         <div class="category-details">
                             <img src="{% static 'recipes/images/food-category-svg.svg' %}" alt="Category">
-                            <span class="recipe-category">{{ recipe.category }}</span>
+                            <a href="{% url 'recipes' %}?sort_by={{ recipe.category }}"
+                               class="recipe-category">{{ recipe.category }}</a>
                         </div>
                         <div class="portions-details">
                             <img src="{% static 'recipes/images/pot-svg.svg' %}" alt="Pot">
@@ -138,7 +140,8 @@
                         <div class="comment-owner-info">
                             <div class="comment-owner-info-left">
                                 <div class="comment-owner-image">
-                                    <a href="{% url 'profile' comment.owner.user.id %}"><img src="{{ comment.owner.image.url }}" alt="Commentator`s image"></a>
+                                    <a href="{% url 'profile' comment.owner.user.id %}"
+                                    ><img src="{{ comment.owner.image.url }}" alt="Commentator`s image"></a>
                                 </div>
                                 <div class="owner-name-and-date-created">
                                     <div class="owner-name">
