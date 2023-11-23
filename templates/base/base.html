@@ -23,7 +23,8 @@
                         <li><a href="{% url 'authors' %}">Authors</a></li>
                         {% if user.is_staff %}
                         <li><a href="{% url 'pending-recipes' %}">Pending recipes</a></li>
-                        <li><a href="{% url 'pending-comments' %}">Pending comments</a></li>
+                        <li><a href="{% url 'pending-comments' %}">Comments</a></li>
+                        <li><a href="{% url 'messages' %}">Msgs</a></li>
                         {% endif %}
                     </ul>
                 </div>
