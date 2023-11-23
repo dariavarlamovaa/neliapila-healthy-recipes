@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 
 from recipes.models import Recipe
 from .forms import NewUserCreationForm, ProfileForm, ContactForm
-from .models import Profile, Favorite
+from .models import Profile, Favorite, Contact
 
 
 def signup_user(request):
@@ -55,7 +55,7 @@ def logout_user(request):
 
 def author_profile(request, pk):
     profile = Profile.objects.get(user=pk)
-    if request.user == profile.user:
+    if request.user == profile.user or request.user.is_staff:
         recipes = Recipe.objects.filter(author=pk).all().order_by('-date_created')
     else:
         recipes = Recipe.objects.filter(author=pk, is_approved=True).all().order_by('-date_created')
@@ -129,14 +129,15 @@ def delete_favorite(request, pk):
 
 
 def contact_view(request):
-    form = ContactForm()
-    sender = None
     if request.user.is_authenticated:
-        del form.fields['email']
+        form = ContactForm(authenticated=True)
         sender = request.user.profile
+    else:
+        form = ContactForm()
+        sender = None
 
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST, authenticated=request.user.is_authenticated)
         if form.is_valid():
             message = form.save(commit=False)
             message.sender = sender
@@ -149,3 +150,9 @@ def contact_view(request):
             return redirect('recipes')
     context = {'form': form}
     return render(request, 'user/contact-form.html', context)
+
+
+def get_messages(request):
+    all_messages = Contact.objects.order_by('-created').all()
+    context = {'all_messages': all_messages}
+    return render(request, 'user/messages.html', context)
