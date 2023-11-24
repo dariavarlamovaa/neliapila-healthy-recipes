@@ -6,9 +6,9 @@
 {% endblock %}
 {% block content %}
 <section class="messages-page">
-    <section class="messages container">
+    <section class="all-messages container">
         <h1>Messages</h1>
-        {% if messages %}
+        {% if all_messages %}
         {% for msg in all_messages %}
         <div class="message-info">
             <div class="sender-email-date">
