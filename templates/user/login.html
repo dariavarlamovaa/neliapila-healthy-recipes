@@ -27,7 +27,7 @@
                 <span class="error-form-label-input">{{ error }}</span>
                 {% endif %}
                 <div class="forgot-password">
-                    <span><a class="link-forget-password" href="#">Forgot password?</a></span>
+                    <span><a class="link-forget-password" href="{% url 'password-reset' %}">Forgot password?</a></span>
                 </div>
                 <div class="authenticate">
                     <button class="btn">LOGIN</button>
