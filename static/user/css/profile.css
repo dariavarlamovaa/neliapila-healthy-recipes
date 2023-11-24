@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 60px 30px 0 30px;
+    padding: 60px 30px 10px 30px;
     min-height: 500px;
 }
 
@@ -17,12 +17,12 @@
 
 .no-recipes img {
     margin-bottom: 30px;
-    width: 200px;
+    width: 150px;
 }
 
 .no-recipes p {
     color: #B8B8B8FF;
-    font-size: 15px;
+    font-size: 11px;
 }
 
 .no-recipes span {
@@ -43,7 +43,7 @@
 .one-recipe {
     display: flex;
     flex-direction: row;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
     position: relative;
 }
 
@@ -53,8 +53,8 @@
 }
 
 .recipe-image img {
-    width: 218px;
-    height: 200px;
+    width: 180px;
+    height: 162px;
 }
 
 .recipe-category,
@@ -70,19 +70,19 @@
 }
 
 .recipe-info img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
 }
 
 .button-favorites-link img {
-    width: 25px;
-    height: 25px;
+    width: 18px;
+    height: 18px;
 }
 
 .recipe-category {
     color: #74924a;
-    font-size: 15px;
+    font-size: 11px;
 }
 
 .recipe-category:hover {
@@ -94,19 +94,19 @@
     right: 0;
     text-transform: uppercase;
     color: #a91313;
-    font-size: 15px;
+    font-size: 11px;
 }
 
 .recipe-title {
     font-weight: 900;
     letter-spacing: 1px;
     line-height: 30px;
-    font-size: 25px;
+    font-size: 20px;
     word-break: break-word;
 }
 
 .recipe-author {
-    font-size: 15px;
+    font-size: 11px;
     color: #B8B8B8FF;
 }
 
@@ -132,20 +132,20 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 15px;
+    font-size: 11px;
 }
 
 .button-favorites-link {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 15px;
+    font-size: 11px;
     border: 1px solid #E5E5E5FF;
     border-radius: 2px;
     padding: 0 5px;
     box-sizing: border-box;
     max-width: max-content;
-    min-height: 35px;
+    min-height: 25px;
 }
 
 .profile-card {
@@ -160,8 +160,8 @@
 }
 
 .profile-avatar {
-    width: 130px;
-    height: 130px;
+    width: 110px;
+    height: 110px;
     margin-bottom: 30px;
     border-radius: 100%;
 }
@@ -171,6 +171,7 @@
     text-transform: capitalize;
     word-break: break-all;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .profile-username {
@@ -189,7 +190,7 @@
 }
 
 .count-recipes {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -199,11 +200,11 @@
 .count,
 .profile-edit-link {
     border: 1px solid;
-    padding: 10px 20px;
+    padding: 10px 10px;
     box-sizing: border-box;
     border-radius: 2px;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 10px;
     display: inline-block;
     margin-bottom: 10px;
 }
@@ -220,4 +221,9 @@
 .profile-edit-link:hover {
     background-color: #efefef;
     color: #211f1f;
+}
+
+.delete-from-favorites img {
+    width: 25px;
+    height: 25px;
 }

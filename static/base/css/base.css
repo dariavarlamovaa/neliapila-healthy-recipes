@@ -8,7 +8,7 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 14px;
     color: #211f1f;
     background-color: #FFFFFF;
     margin: 0;
@@ -52,9 +52,9 @@ form label {
 input, select, textarea {
     border-radius: 6px;
     border: 1px solid rgba(116, 146, 74, 0.5);
-    padding: 10px 30px;
+    padding: 8px 20px;
     box-sizing: border-box;
-    font-size: 15px;
+    font-size: 12px;
     outline: none;
 }
 
@@ -98,7 +98,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 35px 0;
+    padding: 25px 0;
     box-sizing: border-box;
     position: relative;
 }
@@ -115,14 +115,14 @@ main {
 }
 
 .logo img {
-    height: 50px;
+    height: 35px;
 }
 
 .menu-list {
     display: flex;
     flex-direction: row;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 13px;
     min-width: 235px;
 }
 
@@ -137,13 +137,13 @@ main {
 
 .search-bar {
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     border: 1px solid rgba(116, 146, 74, 0.5);
     border-radius: 6px;
-    padding: 5px 15px;
+    padding: 0 10px;
     box-sizing: border-box;
     position: absolute;
-    right: 355px;
+    right: 325px;
     z-index: 999;
     display: none;
 }
@@ -158,12 +158,12 @@ main {
     flex: 1;
     border: 0;
     outline: none;
-    font-size: 18px;
+    font-size: 10px;
 }
 
 
 .search-bar-form button img {
-    width: 25px;
+    width: 15px;
     text-align: center;
 }
 
@@ -185,7 +185,7 @@ main {
 }
 
 .right-items-login {
-    min-width: 350px;
+    min-width: 270px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -211,8 +211,8 @@ main {
 }
 
 .profile-image {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
 }
 
@@ -223,15 +223,15 @@ main {
     padding-left: 10px;
     display: flex;
     align-items: center;
-    height: 40px;
-
+    height: 30px;
+    font-size: 15px;
 }
 
 .arrow-button,
 .search-logo {
     background-color: transparent;
     cursor: pointer;
-    height: 40px;
+    height: 30px;
     border: none;
     padding: 0;
 }
@@ -241,9 +241,9 @@ main {
 }
 
 .profile-popup {
-    min-width: 150px;
-    min-height: 110px;
-    max-width: 235px;
+    min-width: 110px;
+    min-height: 95px;
+    max-width: 183px;
     position: absolute;
     top: 50px;
     right: 0;
@@ -257,6 +257,11 @@ main {
     flex-direction: column;
     justify-content: space-between;
 
+}
+
+.profile-popup span,
+.profile-popup button {
+    font-size: 12px;
 }
 
 .profile-popup svg {
@@ -294,7 +299,7 @@ main {
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding: 40px 0 20px;
+    padding: 15px 0 10px;
 }
 
 .list-of-links li {
@@ -306,8 +311,8 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 20px 0;
-    font-size: 15px;
+    padding: 10px 0;
+    font-size: 10px;
     align-items: center;
 }
 
@@ -346,9 +351,10 @@ main {
     gap: 2rem;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 7px;
-    max-height: 450px;
+    max-height: 200px;
+    max-width: 400px;
     box-sizing: border-box;
     text-align: center;
     margin-top: 10px;
@@ -358,7 +364,7 @@ main {
 .alert > .alert__message {
     background-color: #FFFFFF;
     color: #FFFFFF;
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 
 .alert.alert--error,
@@ -391,13 +397,14 @@ main {
 .btn {
     width: 100%;
     border: 1px solid rgba(116, 146, 74, 0.5);
-    padding: 10px 30px;
+    padding: 10px 20px;
     box-sizing: border-box;
     background-color: transparent;
     border-radius: 6px;
     color: #74924a;
     font-weight: 500;
-    min-height: 40px;
+    min-height: 33px;
+    max-height: 33px;
     cursor: pointer;
 }
 

@@ -1,4 +1,8 @@
-.messages h1 {
+.all-messages {
+    width: 1000px;
+}
+
+.all-messages h1 {
     text-align: center;
     padding: 50px 0;
 }
@@ -30,7 +34,7 @@
 }
 
 .msg-date {
-    font-size: 15px;
+    font-size: 10px;
     color: #777777;
 }
 
