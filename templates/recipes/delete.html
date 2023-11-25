@@ -19,7 +19,7 @@
                         {% csrf_token %}
                         <input type="submit" value="Delete">
                     </form>
-                    <a href="{% url 'specific-recipe' recipe.id %}">Cancel</a>
+                    <a href="{% if recipe.is_approved %}{% url 'specific-recipe' recipe.id %}{% else %}{% url 'approve-recipe' recipe.id %}{% endif %}">Cancel</a>
                 </div>
             </div>
         </div>
