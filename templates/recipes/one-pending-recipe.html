@@ -17,9 +17,11 @@
                 <input class="new_recipe_submit btn" type="submit" value="APPROVE"/>
             </form>
         </div>
-        <div class="delete-recipe-div btn">
-            <a class="delete-recipe-link" href="{% url 'delete-recipe' recipe.id %}">DELETE</a>
-        </div>
+        <a href="{% url 'delete-recipe' recipe.id %}">
+            <div class="delete-recipe-div btn">
+                DELETE
+            </div>
+        </a>
     </section>
 </section>
 {% endblock %}
