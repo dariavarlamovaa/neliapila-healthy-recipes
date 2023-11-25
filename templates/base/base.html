@@ -111,7 +111,7 @@
                     <div class="profile-popup" id="profile-popup-settings">
                         <div class="popup-profile-username">
                             <a class="profile-user-link" href="{% url 'profile' user.id %}">
-                                <svg class="svg-user" width="15px" height="15px" viewBox="0 0 24 24" fill="none"
+                                <svg class="svg-user" width="17px" height="17px" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -129,7 +129,7 @@
                         </div>
                         <div class="edit-profile">
                             <a class="edit-profile-link" href="{% url 'edit-profile' user.id %}">
-                                <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none"
+                                <svg width="17px" height="17px" viewBox="0 0 24 24" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -146,7 +146,7 @@
                             </a>
                         </div>
                         <div class="logout-form">
-                            <svg class="logout-svg" width="15px" height="15px" viewBox="0 0 24 24" fill="none"
+                            <svg class="logout-svg" width="17px" height="17px" viewBox="0 0 24 24" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -155,7 +155,7 @@
                                           stroke="#000000" stroke-width="1" stroke-linecap="round"></path>
                                 </g>
                             </svg>
-                            <form action="{% url 'logout' %}" method="post">
+                            <form class="logout-form-form" action="{% url 'logout' %}" method="post">
                                 {% csrf_token %}
                                 <button class="logout-btn">Logout</button>
                             </form>
