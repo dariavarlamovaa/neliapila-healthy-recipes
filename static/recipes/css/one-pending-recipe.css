@@ -9,7 +9,7 @@
 }
 
 .author-link {
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     font-weight: 500;
 }
 
@@ -40,22 +40,15 @@
 
 .delete-recipe-div {
     border-color: #a91313;
-    max-height: 40px;
+    max-height: 33px;
     max-width: 624px;
     text-align: center;
     margin: 0 auto;
     font-size: 12px;
-
-    .delete-recipe-link {
-        color: #a91313;
-        font-weight: 500;
-    }
+    color: #a91313;
 }
 
 .delete-recipe-div:hover {
     background-color: #a91313;
-
-    .delete-recipe-link {
-        color: #FFFFFF;
-    }
+    color: #FFFFFF;
 }

@@ -1,3 +1,7 @@
+.sp-recipe {
+    width: 980px;
+}
+
 .information-about-recipe {
     display: flex;
     padding: 50px 0 100px 0;
@@ -12,7 +16,7 @@
 
 .recipe-main-information,
 .steps {
-    width: 57%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     padding-left: 50px;
@@ -23,28 +27,27 @@
 }
 
 .recipe-image img {
-    width: 428px;
-    height: 400px;
+    width: 320px;
+    height: 302px;
 }
 
 .recipe-heading {
     font-weight: 900;
     letter-spacing: 1px;
     line-height: 50px;
-    font-size: 4rem;
+    font-size: 2.3rem;
     word-break: break-word;
-    margin-top: 20px;
 }
 
 .recipe-author {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     color: #B8B8B8FF;
 }
 
 .rating-comments-link {
     display: flex;
     flex-direction: row;
-    max-width: 220px;
+    max-width: 150px;
     align-items: center;
     justify-content: space-between;
 }
@@ -53,7 +56,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 70px;
+    width: 50px;
     justify-content: space-between;
 }
 
@@ -66,9 +69,9 @@
 }
 
 .recipe-info img {
-    width: 40px;
-    height: 40px;
-    padding-right: 15px;
+    width: 25px;
+    height: 25px;
+    padding-right: 10px;
 }
 
 .category-details,
@@ -88,37 +91,37 @@
 
 .add-to-favourites,
 .print-recipe {
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 .button-link {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 15px;
+    font-size: 12px;
     border: 1px solid #E5E5E5FF;
     border-radius: 2px;
     padding: 0 5px;
     box-sizing: border-box;
     max-width: max-content;
     text-transform: uppercase;
-    min-height: 42px;
-    min-width: 115px;
+    min-height: 35px;
+    min-width: 100px;
     justify-content: space-around;
 }
 
 .button-favorites-link {
-    min-width: 200px;
+    min-width: 175px;
 }
 
 .button-favorites-link img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
 }
 
 .delete-link img {
-    width: 25px;
-    height: 25px;
+    width: 18px;
+    height: 18px;
 }
 
 .delete-link {
@@ -141,7 +144,7 @@
 .ingredient-list,
 .steps-list {
     list-style: none;
-    font-size: 23px;
+    font-size: 17px;
     font-weight: 200;
 }
 

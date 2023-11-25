@@ -25,7 +25,7 @@
 }
 
 .form {
-    min-height: 325px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,6 +84,10 @@
     margin-right: 30px;
 }
 
+.comment-body {
+    margin-bottom: 10px;
+}
+
 .date-created {
     font-size: 10px;
     text-transform: uppercase;
@@ -92,12 +96,12 @@
 .delete-comment {
     position: absolute;
     right: 7px;
-    bottom: 30%;
+    top: 45%;
 }
 
 .delete-comment img {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 }
 
 .pending-comments-heading {
@@ -107,10 +111,18 @@
 
 .approve-comment {
     position: absolute;
-    bottom: 28%;
-    right: 60px;
+    top: 43%;
+    right: 47px;
+}
+
+.recipe-info-link a{
+    color: #74924a;
 }
 
 .no-pending-comments {
     text-align: center;
+}
+
+.submit {
+    text-transform: uppercase;
 }

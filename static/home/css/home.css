@@ -3,6 +3,10 @@
     background-size: cover;
 }
 
+.home-slogan {
+    width: 1100px;
+}
+
 .home-slogan,
 .recipes-counter,
 .pending-recipes {
@@ -37,8 +41,8 @@
 .categories,
 .all-approved-recipes,
 .recipes-counter,
-.pending-recipes{
-    margin-bottom: 50px;
+.pending-recipes {
+    margin-bottom: 30px;
     width: 1100px;
 }
 
@@ -54,7 +58,7 @@
     justify-content: space-around;
     border: 1px solid rgba(116, 146, 74, 0.5);
     border-radius: 60px;
-    padding: 15px 0;
+    padding: 10px 0;
     box-sizing: border-box;
 }
 
@@ -83,10 +87,6 @@
     transform: scaleX(1);
 }
 
-.selected-recipes-counter {
-    margin-bottom: 50px;
-}
-
 .selected-recipes-counter p {
     color: #8f8d8d;
 }
@@ -104,7 +104,7 @@
 }
 
 .sp-recipe {
-    min-width: 30%;
+    min-width: 28%;
     text-align: center;
     padding: 30px 37px;
     box-sizing: border-box;
@@ -115,12 +115,12 @@
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 30px;
-    max-width: 311px;
+    max-width: 309px;
 }
 
 .sp-recipe:nth-child(3n+2) {
-    margin-right: 55px;
-    margin-left: 55px;
+    margin-right: 86px;
+    margin-left: 87px;
     width: 335px;
 }
 
@@ -146,7 +146,7 @@
 .recipe-short-info img {
     width: 20px;
     height: 20px;
-    margin-right: 10px;
+    margin-right: 7px;
 }
 
 .info {

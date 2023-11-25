@@ -1,3 +1,7 @@
+.profile {
+    width: 1100px;
+}
+
 .profile-parts {
     display: flex;
     flex-direction: row;
@@ -167,7 +171,7 @@
 }
 
 .profile-name {
-    font-size: 24px;
+    font-size: 20px;
     text-transform: capitalize;
     word-break: break-all;
     text-align: center;

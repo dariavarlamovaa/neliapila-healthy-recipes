@@ -60,7 +60,7 @@ input, select, textarea {
 
 select {
     background-color: #FFFFFF;
-    height: 45px;
+    height: 33px;
     appearance: inherit;
 }
 
@@ -122,7 +122,7 @@ main {
     display: flex;
     flex-direction: row;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 14px;
     min-width: 235px;
 }
 
@@ -137,13 +137,13 @@ main {
 
 .search-bar {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     border: 1px solid rgba(116, 146, 74, 0.5);
     border-radius: 6px;
     padding: 0 10px;
     box-sizing: border-box;
     position: absolute;
-    right: 325px;
+    right: 285px;
     z-index: 999;
     display: none;
 }
@@ -241,14 +241,14 @@ main {
 }
 
 .profile-popup {
-    min-width: 110px;
-    min-height: 95px;
-    max-width: 183px;
+    min-width: 120px;
+    min-height: 110px;
+    max-width: 185px;
     position: absolute;
-    top: 50px;
+    top: 45px;
     right: 0;
     z-index: 900;
-    padding: 10px 20px;
+    padding: 10px 15px;
     box-sizing: border-box;
     border: 1px solid #D9D9D9FF;
     background-color: #FFFFFF;
@@ -261,7 +261,7 @@ main {
 
 .profile-popup span,
 .profile-popup button {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .profile-popup svg {
@@ -279,6 +279,10 @@ main {
 
 .logout-form button {
     cursor: pointer;
+}
+
+.logout-form-form {
+    display: flex;
 }
 
 .logout-btn {
@@ -348,13 +352,13 @@ main {
 
 .alert {
     display: inline-flex;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1.5rem;
     border-radius: 7px;
     max-height: 200px;
-    max-width: 400px;
+    max-width: 405px;
     box-sizing: border-box;
     text-align: center;
     margin-top: 10px;
