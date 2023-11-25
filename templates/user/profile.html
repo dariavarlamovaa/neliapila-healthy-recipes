@@ -33,8 +33,10 @@
                         <div class="recipe-info">
                             <a href="{% url 'recipes' %}?sort_by={{ recipe.category }}"
                                class="recipe-category">{{ recipe.category }}</a>
-                            {% if request.user == profile.user or request.user.is_staff and not recipe.is_approved %}
+                            {% if not recipe.is_approved %}
+                            {% if request.user == profile.user or request.user.is_staff %}
                             <p class="on-moderation">Pending</p>
+                            {% endif %}
                             {% endif %}
                             {% if recipe.is_approved %}
                             <a href="{% url 'specific-recipe' recipe.id %}" class="recipe-title">{{ recipe.title }}</a>
