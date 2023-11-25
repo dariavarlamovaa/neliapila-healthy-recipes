@@ -137,7 +137,7 @@ main {
 
 .search-bar {
     width: 100%;
-    max-width: 300px;
+    max-width: 330px;
     border: 1px solid rgba(116, 146, 74, 0.5);
     border-radius: 6px;
     padding: 0 10px;
