@@ -77,17 +77,19 @@ textarea {
 }
 
 .container {
-    width: 1240px;
+    max-width: 1240px;
+    min-width: 280px;
+    box-sizing: border-box;
     margin: 0 auto;
     position: relative;
 }
 
 main {
     flex: 1;
+    height: 100%;
 }
 
 .header {
-    width: 100%;
     padding: 0 2%;
     box-sizing: border-box;
     font-size: 10px;
@@ -294,8 +296,8 @@ main {
 }
 
 .page-footer_wrapper {
-    width: 1300px;
     box-sizing: border-box;
+    padding: 0 20px;
 }
 
 .list-of-links {

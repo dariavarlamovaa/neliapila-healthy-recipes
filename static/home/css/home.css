@@ -3,8 +3,12 @@
     background-size: cover;
 }
 
+.home-page > section:not(:first-child) {
+    padding: 0 60px;
+}
+
 .home-slogan {
-    width: 1100px;
+    padding: 0 60px
 }
 
 .home-slogan,
@@ -43,7 +47,6 @@
 .recipes-counter,
 .pending-recipes {
     margin-bottom: 30px;
-    width: 1100px;
 }
 
 .pag {
@@ -98,15 +101,15 @@
 
 
 .all-recipes {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 48px
 }
 
 .sp-recipe {
-    min-width: 28%;
     text-align: center;
-    padding: 30px 37px;
+    padding: 30px 20px;
     box-sizing: border-box;
     border: 1px solid #efefef;
     border-radius: 6px;
@@ -114,14 +117,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 30px;
-    max-width: 309px;
-}
-
-.sp-recipe:nth-child(3n+2) {
-    margin-right: 86px;
-    margin-left: 87px;
-    width: 335px;
 }
 
 .recipe-image img {
