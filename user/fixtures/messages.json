@@ -1,0 +1,46 @@
+[
+  {
+    "model": "user.contact",
+    "pk": 7,
+    "fields": {
+      "sender": null,
+      "email": "test@test.ru",
+      "subject": "Test",
+      "body": "Test",
+      "created": "2023-11-23T13:39:58.925Z"
+    }
+  },
+  {
+    "model": "user.contact",
+    "pk": 11,
+    "fields": {
+      "sender": 10,
+      "email": "doriana@mail.ru",
+      "subject": "Forget password",
+      "body": "Forget password doesn't work.",
+      "created": "2023-11-23T14:42:36.598Z"
+    }
+  },
+  {
+    "model": "user.contact",
+    "pk": 12,
+    "fields": {
+      "sender": 1,
+      "email": "admin@admin.com",
+      "subject": null,
+      "body": "Test",
+      "created": "2023-11-24T20:04:23.628Z"
+    }
+  },
+  {
+    "model": "user.contact",
+    "pk": 13,
+    "fields": {
+      "sender": null,
+      "email": "test@test.test",
+      "subject": "Test",
+      "body": "Test",
+      "created": "2023-11-25T08:10:28.019Z"
+    }
+  }
+]

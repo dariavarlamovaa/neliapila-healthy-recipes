@@ -1,0 +1,80 @@
+[
+  {
+    "model": "user.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "name": "Admin Adminovich",
+      "email": "admin@admin.com",
+      "username": "admin",
+      "bio": "",
+      "image": "profiles/default-profile-pic.png",
+      "created": "2023-10-06T12:29:05.183Z"
+    }
+  },
+  {
+    "model": "user.profile",
+    "pk": 9,
+    "fields": {
+      "user": 18,
+      "name": "Daria",
+      "email": "doradora@mail.ru",
+      "username": "doradoraaaaaaaa",
+      "bio": "",
+      "image": "profiles/default-profile-pic.png",
+      "created": "2023-10-11T17:08:02.919Z"
+    }
+  },
+  {
+    "model": "user.profile",
+    "pk": 10,
+    "fields": {
+      "user": 20,
+      "name": "Doriana",
+      "email": "doriana@mail.ru",
+      "username": "doriana",
+      "bio": "",
+      "image": "profiles/804952.png",
+      "created": "2023-10-19T10:13:20.907Z"
+    }
+  },
+  {
+    "model": "user.profile",
+    "pk": 11,
+    "fields": {
+      "user": 21,
+      "name": null,
+      "email": "test@test.ru",
+      "username": "test1",
+      "bio": null,
+      "image": "profiles/default-profile-pic.png",
+      "created": "2023-11-19T15:47:02.778Z"
+    }
+  },
+  {
+    "model": "user.profile",
+    "pk": 12,
+    "fields": {
+      "user": 22,
+      "name": null,
+      "email": "test2@test.ru",
+      "username": "test2",
+      "bio": null,
+      "image": "profiles/default-profile-pic.png",
+      "created": "2023-11-19T15:47:33.860Z"
+    }
+  },
+  {
+    "model": "user.profile",
+    "pk": 13,
+    "fields": {
+      "user": 23,
+      "name": null,
+      "email": "user1@mail.ru",
+      "username": "user1",
+      "bio": null,
+      "image": "profiles/default-profile-pic.png",
+      "created": "2023-11-25T08:23:28.129Z"
+    }
+  }
+]

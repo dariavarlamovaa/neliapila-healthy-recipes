@@ -1,0 +1,648 @@
+[
+  {
+    "model": "recipes.recipe",
+    "pk": 10,
+    "fields": {
+      "author": 20,
+      "title": "Turkey meatballs",
+      "portions": 4,
+      "cooking_hours": 1,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-08/doriana/turkey-meatballs-3eb6493.jpg",
+      "category": "Dinner",
+      "ingredients": "1 tbsp rapeseed oil\r\n1 onion, finely chopped\r\n2 carrots, finely diced\r\n2 celery sticks, finely diced\r\n2 garlic cloves, thinly sliced\r\n1 fennel bulb, halved and thinly sliced, fronds reserved\r\n500g carton tomato passata\r\n2 tbsp chopped parsley\r\nbroccoli and potatoes or pasta and salad, to serve\r\n400g pack lean turkey breast mince\r\n4 tbsp porridge oats\r\n1 tsp fennel seeds, crushed\r\n1 garlic clove, crushed\r\nspray of oil",
+      "steps": "Step1 - Heat the oil in a large non-stick frying pan with a lid, then tip in the onion, carrots, celery, garlic and fennel, and stir well. Cover the pan and cook over a medium heat for 8 mins, stirring every now and then. Pour in the passata and season well with salt and pepper. Cover and leave to simmer for 20 mins.\r\nStep 2 - Meanwhile, tip the mince into a large bowl. Add the oats, fennel seeds and leaves, the garlic and plenty of black pepper, and mix in with your hands. Lightly shape into 25 meatballs about the size of a walnut. Spray or rub a non-stick pan with a little oil and gently cook the meatballs until they take on a little colour. Give the sauce a stir, then add the meatballs and parsley. Cover and cook for 10 mins until they are cooked through and the veg in the sauce is tender. Serve with broccoli and baby potatoes in their skins, or pasta and salad.",
+      "is_approved": true,
+      "date_created": "2023-10-22T16:58:27.038Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 12,
+    "fields": {
+      "author": 20,
+      "title": "Salmon pasta",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 30,
+      "image": "recipes_images/2023-10-28/Admin/recipe-image-legacy-id-1244455_7-e831545_UkSUrxa.jpg",
+      "category": "Miscellaneous",
+      "ingredients": "350g penne\r\n2 salmon steaks\r\n1 tbsp olive oil\r\n2 tbsp pine nut\r\n1 red pepper\r\n300g mushroom\r\nhandful basil leaves",
+      "steps": "Step 1 - Cook the pasta following pack instructions, adding the salmon to the water 6 mins before the end of the cooking time.\r\nStep 2 - Heat the oil in a pan, then cook the pine nuts until toasted. Add the pepper and fry until softened. Tip in the mushrooms and stir until they start to soften, then add a ladleful of the pasta water.\r\nStep 3 - When the pasta is cooked, remove the salmon to a plate, then drain the pasta. Fork the salmon into flakes and add to the vegetables along with the pasta and the basil leaves. Season with pepper and lightly toss together before serving",
+      "is_approved": true,
+      "date_created": "2023-10-25T15:03:25.281Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 13,
+    "fields": {
+      "author": 20,
+      "title": "Pancakes",
+      "portions": 10,
+      "cooking_hours": 0,
+      "cooking_minutes": 45,
+      "image": "recipes_images/2023-11-08/doriana/healthy-fc28587.jpg",
+      "category": "Breakfast",
+      "ingredients": "50g self-raising flour\r\n50g wholemeal or wholegrain flour\r\n2 small eggs, separated\r\n150ml skimmed milk\r\nberries and low-fat yogurt or fromage frais to serve",
+      "steps": "Step 1 - Sift the flours into a bowl or wide jug and tip any bits in the sieve back into the bowl. Add the egg yolks and a splash of milk then stir to a thick paste. Add the remaining milk a little at a time so you don’t make lumps in the batter.\r\nStep 2 - Whisk the egg whites until they stand up in stiff peaks, then fold them carefully into the batter – try not to squash out all the air.\r\nStep 3 - Heat a non-stick pan over a medium heat and pour in enough batter to make a pancake about 10 cm across. Cook for just under a minute until bubbles begin to pop on the surface and the edges are looking a little dry. Carefully turn the pancake over. If it is a bit wet on top, it may squirt out a little batter as you do so. In that case, leave it on the other side a little longer. Keep warm while you make the remaining pancakes. Serve with your favourite healthy toppings.",
+      "is_approved": true,
+      "date_created": "2023-10-27T14:35:49.029Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 14,
+    "fields": {
+      "author": 20,
+      "title": "Almond butter & banana protein smoothie",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-11/doriana/3759133-ebdd948e605d413fb41ecaee67307cf8.jpg",
+      "category": "Drinks",
+      "ingredients": "1 small frozen banana\r\n1 cup unsweetened almond milk\r\n2 tablespoons almond butter\r\n2 tablespoons unflavored protein powder\r\n1 tablespoon sweetener of your choice (optional)\r\n½ teaspoon ground cinnamon\r\n4-6 ice cubes",
+      "steps": "Step 1 - Combine all ingredients in a blender and blend until smooth.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:17:42.893Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 15,
+    "fields": {
+      "author": 20,
+      "title": "Peanut butter banana ice cream",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 10,
+      "image": "recipes_images/2023-11-11/doriana/45259731-b55a29307adb491ebc358ce00f10e224.jpg",
+      "category": "Desserts",
+      "ingredients": "2 medium bananas, peeled, halved and frozen\r\n¼ cup natural peanut butter\r\nUnsweetened shredded coconut for garnish",
+      "steps": "Step 1 - Place bananas and peanut butter in a food processor. \r\nStep 2 - Pulse and process until mostly smooth, stopping to scrape down the sides as needed. Garnish with coconut, if desired. Serve immediately.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:19:22.113Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 16,
+    "fields": {
+      "author": 20,
+      "title": "Ricotta & yogurt parfait",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-11/doriana/4027929-8647f2f146314907a1a48d8b073fe352.jpg",
+      "category": "Desserts",
+      "ingredients": "¾ cup nonfat vanilla Greek yogurt\r\n¼ cup part-skim ricotta\r\n½ teaspoon lemon zest\r\n¼ cup raspberries\r\n1 tablespoon slivered almonds\r\n1 teaspoon chia seeds",
+      "steps": "Step 1 - Combine yogurt, ricotta and lemon zest in a bowl. \r\nStep 2 - Top with raspberries, almonds and chia seeds.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:20:54.527Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 17,
+    "fields": {
+      "author": 20,
+      "title": "Raspberry-kefir power smoothie",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-11/doriana/4784570-2e8a2f95fb744edd9eb8b9db188d3e26.jpg",
+      "category": "Drinks",
+      "ingredients": "½ frozen banana\r\n½ cup raspberries, fresh or frozen\r\n⅓ cup low-fat plain kefir\r\n2 teaspoons natural peanut butter\r\n½ teaspoon flaxmeal\r\n1 tablespoon 1-2 tablespoons water",
+      "steps": "Step 1 - Combine banana, raspberries, kefir, peanut butter and flaxmeal in a blender. \r\nStep 2 - Process until smooth, adding water a tablespoon at a time, if necessary.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:22:45.878Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 18,
+    "fields": {
+      "author": 18,
+      "title": "Strawberry-banana green smoothie",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-11/Admin/37592851-baca726fa0054619bf285842cbcb15bd.jpg",
+      "category": "Drinks",
+      "ingredients": "1 medium banana\r\n1 cup baby spinach\r\n½ cup low-fat plain Greek yogurt\r\n½ cup nonfat milk\r\n6 frozen strawberries\r\n1 tablespoon flaxseeds",
+      "steps": "Step 1 - Puree banana, spinach, yogurt, milk, strawberries and flaxseeds in a blender until smooth.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:38:49.667Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 19,
+    "fields": {
+      "author": 20,
+      "title": "Cola chicken",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 45,
+      "image": "recipes_images/2023-11-11/Admin/Diet-cola-chicken-83cfb5c.jpg.webp",
+      "category": "Lunch",
+      "ingredients": "1 tsp olive oil\r\n640g boneless and skinless chicken thighs\r\n1 onion, finely chopped\r\n300ml chicken stock\r\n2 garlic cloves, finely chopped\r\n1 red pepper, deseeded and cut into chunks\r\n1 yellow pepper, deseeded and cut into chunks\r\n1 tsp dried oregano\r\n1 tsp light brown soft sugar\r\n½ tsp mustard powder\r\n1 tbsp Worcestershire sauce\r\n3 tbsp tomato purée\r\n330ml diet cola\r\n2 tbsp reduced-salt-and-sugar ketchup\r\n2 spring onions, trimmed and finely sliced",
+      "steps": "Step 1 - Heat the oil in a large non-stick saucepan over a high heat. Season, then brown the chicken thighs all over for 4-5 mins. Remove with tongs and set aside on a plate.\r\n\r\nStep 2 - Lower the heat, add the onion to the pan and cook for 8-10 mins until softened, adding a splash of stock if needed to prevent burning. Stir in the garlic and cook for 1 min until fragrant, then add the yellow pepper.\r\n\r\nStep 3 - Stir in the oregano, brown sugar, mustard, Worcestershire sauce, tomato purée, diet cola, remaining stock and ketchup. Bring to the boil, then reduce the heat, add the chicken back to the pan and simmer for 10 mins, covered, until the chicken is cooked through.\r\n\r\nStep 4 - Turn the heat up and bubble for 10 mins until the sauce has reduced and thickened slightly. Serve sprinkled with the spring onion over rice or pasta.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:51:01.168Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 20,
+    "fields": {
+      "author": 18,
+      "title": "Salmon salad with sesame dressing",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 25,
+      "image": "recipes_images/2023-11-11/Admin/salmon-salad-440-400-67a0abd.jpg.webp",
+      "category": "Lunch",
+      "ingredients": "250g new potatoes, sliced\r\n160g French beans, trimmed\r\n2 wild salmon fillets\r\n80g salad leaves\r\n4 small clementines, 3 sliced, 1 juiced\r\nhandful of basil, chopped\r\nhandful of coriander, chopped\r\n2 tsp sesame oil\r\n2 tsp tamari\r\n½ lemon, juiced\r\n1 red chilli, deseeded and chopped\r\n2 tbsp finely chopped onion (¼ small onion)",
+      "steps": "Step 1 - Steam the potatoes and beans in a steamer basket set over a pan of boiling water for 8 mins. Arrange the salmon fillets on top and steam for a further 6-8 mins, or until the salmon flakes easily when tested with a fork.\r\n\r\nStep 2 - Meanwhile, mix the dressing ingredients together along with the clementine juice. If eating straightaway, divide the salad leaves between two plates and top with the warm potatoes and beans and the clementine slices. Arrange the salmon fillets on top, scatter over the herbs and spoon over the dressing. If taking to work, prepare the potatoes, beans and salmon the night before, then pack into a rigid airtight container with the salad leaves kept separate. Put the salad elements together and dress just before eating to prevent the leaves from wilting.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:52:44.669Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 21,
+    "fields": {
+      "author": 20,
+      "title": "Smoky chickpea salad",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 20,
+      "image": "recipes_images/2023-11-11/Admin/Peach-mozzarella-and-chicken-panzanella-eb27990.jpg.webp",
+      "category": "Lunch",
+      "ingredients": "1 tbsp sunflower oil\r\n2 x 400g can chickpeas, drained and rinsed\r\n200g carrots, peeled into ribbons or grated\r\n200g spinach\r\n1 small head of broccoli, roughly chopped\r\n2 tsp smoked paprika\r\n2 tsp garlic granules\r\n2 tsp dried mixed herbs\r\n4 tsp maple syrup\r\n2 tbsp low-sodium soy sauce\r\n4 tsp rice vinegar\r\n2 tsp sesame oil",
+      "steps": "Step 1 - Heat the oil in a large pan over a medium heat. Tip in the chickpeas and fry gently for 3-4 mins until sizzling and slightly crispy.\r\nStep 2 - Whisk together the dressing ingredients in a bowl, then pour over the chickpeas along with 4 tbsp water and bring to a boil. Cook for 1-2 mins until reduced slightly, remove from the heat, season well and set aside.\r\nStep 3 -Toss the carrots, spinach and raw broccoli together and divide between plates. Scatter over the chickpeas and a spoonful of the pan juices to dress.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:53:53.644Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 22,
+    "fields": {
+      "author": 18,
+      "title": "Lemon & spinach rice with feta",
+      "portions": 4,
+      "cooking_hours": 1,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-11/Admin/Greek-spinach-and-rice-d16d518.jpg.webp",
+      "category": "Lunch",
+      "ingredients": "1 tbsp rapeseed oil\r\n2 onions (320g), finely chopped\r\n3 large garlic cloves, sliced\r\n300g easy-cook brown rice\r\n700ml hot vegetable stock, made with 1 tsp bouillon powder\r\n400g frozen spinach\r\n15g dill, finely chopped\r\n1 lemon, zested, 1/2 juiced, 1/2 cut into 4 wedges\r\n40g walnuts, chopped\r\n75g feta, crumbled",
+      "steps": "Step 1 - Heat the oil in a large pan over a medium heat and fry the onions and garlic for 10 mins, stirring often until softened.\r\nStep 2 - Tip in the rice, then the stock, frozen spinach and half each of the dill and lemon zest. Cover, reduce the heat to low and cook for 25 mins until the rice is tender.\r\nStep 3 - Scatter over the remaining dill and lemon zest, the nuts and feta, then gently toss together along with the lemon juice. Serve half of the rice straightaway with two lemon wedges on the side for squeezing over. Leave the rest of the rice to cool completely and keep chilled for up to three days. Reheat in the microwave until piping hot, then serve with the remaining lemon wedges.",
+      "is_approved": true,
+      "date_created": "2023-11-11T16:58:37.169Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 25,
+    "fields": {
+      "author": 18,
+      "title": "Egg wraps",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 15,
+      "image": "recipes_images/2023-11-11/Admin/breakfast-egg-wraps-c0880fe.jpg.webp",
+      "category": "Breakfast",
+      "ingredients": "500g pack closed cup mushrooms\r\n4 tsp rapeseed oil, plus 2 drops\r\n320g cherry tomatoes, halved, or 8 tomatoes, cut into wedges\r\n2 generous handfuls parsley, finely chopped\r\n8 tbsp porridge oats (40g)\r\n10 eggs\r\n4 tsp English mustard powder made up with water",
+      "steps": "Step 1 - Thickly slice half the pack of mushrooms. Heat 2 tsp rapeseed oil in a non-stick pan. Add the mushrooms, stir briefly then fry with the lid on the pan for 6-8 mins. Stir in half the tomatoes then cook 1-2 mins more with the lid off until softened.\r\nStep 2 - Beat together the eggs really well with the parsley and oats. Heat a drop of oil in a large non-stick frying pan. Pour in a ¼ of the egg mix and fry for 1 min until almost set, flip over as if making a pancake. Tip from the pan, spread with a quarter of the mustard, spoon a ¼ the filling down the centre and roll up. Now make a second wrap using another ¼ of the egg mix and filling. If you're following our Healthy Diet Plan, save the rest for the following day.",
+      "is_approved": true,
+      "date_created": "2023-11-11T17:19:07.345Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 26,
+    "fields": {
+      "author": 20,
+      "title": "Smoky mushroom & potato hash with oaty thins",
+      "portions": 2,
+      "cooking_hours": 1,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-16/doriana/Hash-with-eggs-26ad895.jpg",
+      "category": "Breakfast",
+      "ingredients": "100g porridge oats\r\n70ml fortified soya milk\r\n½ tsp baking powder\r\n2 medium potatoes (275g), unpeeled, cut into slim wedges\r\n2 tbsp rapeseed oil\r\n160g mushrooms, thickly sliced\r\n1 red onion, roughly chopped\r\n1 tsp smoked paprika\r\n4 vine tomatoes, halved\r\n2 eggs",
+      "steps": "Step 1 - Tip the oats and soya milk into a large bowl and blitz using a hand blender to break down the oats to a less coarse texture. Set aside for 10 mins to soak.\r\nStep 2 - Meanwhile, boil the potatoes for 5 mins, then drain. Heat the oil in a large non-stick frying pan over a medium heat, and cook the mushrooms, onion and paprika for a few minutes until softened. Tip in the potatoes and cook for 10 mins, turning the mixture over every now and then. Stir in the halved tomatoes and leave to cook for 5 mins.\r\nStep 3 - The oat mixture should now be stiff. Work in the baking powder using your hands, then halve the mixture. With wet hands, press out one half of the mixture on a plastic chopping board to make a thin disc, like a pancake. Carefully lift it off with a palette knife and cook in a dry non-stick frying pan for 2 mins on each side. Remove to a plate, and repeat with the other half.\r\nStep 4 - While the second one cooks, push the potato mixture to the side in the other pan, break in the eggs and cook until the whites are set and the yolks are runny, around 2-3 mins. Serve the oat thins topped with the mushroom hash and eggs.",
+      "is_approved": true,
+      "date_created": "2023-11-16T09:09:46.199Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 27,
+    "fields": {
+      "author": 20,
+      "title": "Breakfast burrito",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 20,
+      "image": "recipes_images/2023-11-16/doriana/breakfast-burrito-b086548.jpg",
+      "category": "Breakfast",
+      "ingredients": "1 tsp chipotle paste\r\n1 egg\r\n1 tsp rapeseed oil\r\n50g kale\r\n7 cherry tomatoes, halved\r\n½ small avocado, sliced\r\n1 wholemeal tortilla wrap, warmed",
+      "steps": "Step 1 - Whisk the chipotle paste with the egg and some seasoning in a jug. Heat the oil in a large frying pan, add the kale and tomatoes.\r\nStep 2 - Cook until the kale is wilted and the tomatoes have softened, then push everything to the side of the pan. Pour the beaten egg into the cleared half of the pan and scramble. Layer everything into the centre of your wrap, topping with the avocado, then wrap up and eat immediately.",
+      "is_approved": true,
+      "date_created": "2023-11-16T09:11:12.550Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 28,
+    "fields": {
+      "author": 20,
+      "title": "Budget porridge",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 15,
+      "image": "recipes_images/2023-11-16/doriana/Budget-porridge-b68e2f2.jpg",
+      "category": "Breakfast",
+      "ingredients": "85g porridge oats\r\n½tsp ground cinnamon, plus extra to serve (optional)\r\n250ml fortified soya milk, plus 4 tbsp to serve\r\n2 small apples, preferably red\r\n15g raisins\r\n7-8 walnut halves, about 15g, broken",
+      "steps": "Step 1 - Tip the oats and cinnamon into a non-stick pan with 150ml water and the 250ml soya milk. Put the pan over a gentle heat. Once simmering, leave for 5 mins, stirring frequently (as soya milk has a tendency to stick) until the porridge has thickened.\r\nStep 2 - Meanwhile, coarsely grate the apples, including the skin, into a bowl, until you're just left with the cores.\r\nStep 3 - Serve the porridge with the apple, raisins and nuts on top, and sprinkle over some extra cinnamon, if you like. Stir through the extra soya milk to loosen.",
+      "is_approved": true,
+      "date_created": "2023-11-16T09:12:19.286Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 29,
+    "fields": {
+      "author": 20,
+      "title": "Homemade muesli with oats, dates & berries",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 10,
+      "image": "recipes_images/2023-11-16/doriana/homemade-muesli-with-oats-dates-berries-copy-f17fb44.jpg",
+      "category": "Breakfast",
+      "ingredients": "100g traditional oats\r\n12 pecan nuts, broken into pieces\r\n2 tbsp sunflower seeds\r\n6 pitted medjool dates, snipped into pieces\r\n25g high-fibre puffed wheat\r\n4 x pots bio yogurt\r\n300g mixed berries, such as raspberries, strawberries and blueberries\r\ngenerous sprinkling of ground cinnamon (optional)",
+      "steps": "Step 1 - Tip the oats into a frying pan and heat gently, stirring frequently until they are just starting to toast. Add the pecans and seeds to warm briefly, then tip into a large bowl and toss so they cool quickly.\r\nStep 2 - Add the dates and puffed wheat, mix well until thoroughly combined, then serve topped with the yogurt and fruit, and a sprinkling of cinnamon, if you like.",
+      "is_approved": true,
+      "date_created": "2023-11-16T09:13:32.942Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 30,
+    "fields": {
+      "author": 20,
+      "title": "Curried broccoli & boiled eggs on toast",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 25,
+      "image": "recipes_images/2023-11-16/doriana/curried-broccoli-boiled-eggs-on-toast-75381e4.jpg",
+      "category": "Breakfast",
+      "ingredients": "½ tsp turmeric\r\n1 tsp garam masala\r\n½ tbsp rapeseed oil\r\n200g long-stem broccoli\r\n2 medium eggs\r\n2 slices wholemeal sourdough\r\n1 tbsp natural yogurt\r\n1 tbsp pomegranate seeds",
+      "steps": "Step 1 - Heat oven to 200C/180C/gas 6. Mix together the spices and oil, then toss with the broccoli and some seasoning on a baking tray. Roast for 12-15 mins until tender.\r\nStep 2 - Meanwhile, bring a small pan of water to the boil, lower in the eggs and boil for 6-8 mins, depending on how you like them, then immediately rinse under cold water, peel and halve. Toast the bread, then spread with the yogurt. Top each slice with the roasted broccoli and an egg, then scatter over the pomegranate seeds.",
+      "is_approved": true,
+      "date_created": "2023-11-16T09:18:58.372Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 31,
+    "fields": {
+      "author": 20,
+      "title": "Oat & chia porridge",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 15,
+      "image": "recipes_images/2023-11-16/doriana/oat-and-chia-porridge-440-400-acb11f5.jpg",
+      "category": "Breakfast",
+      "ingredients": "150g porridge oats\r\n50g milled seeds with flax and chia\r\n400ml fortified oat milk\r\n200g coconut yogurt\r\n40g flaked almonds,toasted\r\n2 pink grapefruit, segmented and chopped (4 portions)",
+      "steps": "Step 1 - Soak the oats and seeds in 800ml water overnight. Toast your flaked almonds in a dry frying pan over a medium heat until golden brown on each side, about 2-3mins. Set aside in an airtight container.\r\nStep 2 - Tip into a pan with 200ml oat milk and heat, stirring, until bubbling and thick. Will keep in the fridge for two days. Divide the rest between two bowls, along with 50ml oat milk each and topping with a quarter portion each of the yogurt, almonds and grapefruit.\r\nStep 3 - The next day, prepare the second grapefruit and reheat the leftover porridge in a pan with a splash more oat milk before serving with the toppings as described in step 2.",
+      "is_approved": true,
+      "date_created": "2023-11-16T09:21:16.982Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 32,
+    "fields": {
+      "author": 20,
+      "title": "Microwave shakshuka",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 10,
+      "image": "recipes_images/2023-11-16/doriana/microwave-shakshuka-abeb868.jpg",
+      "category": "Breakfast",
+      "ingredients": "1 tbsp olive oil\r\n200ml passata or canned tomatoes, whizzed to a paste\r\n1 garlic clove, finely sliced\r\n1 heaped tbsp red pepper salsa (we used Gran Luchito) or ¼-½ red pepper, chopped\r\n1 medium egg\r\n1 tbsp chopped coriander and pitta bread, to serve",
+      "steps": "Step 1 - Brush a microwave bowl or dish with a little of the oil. Stir the passata, garlic and salsa together and season well. Tip into the bowl and make a dip in the centre. Break in the egg, then prick the yolk with the tip of a sharp knife.\r\nStep 2 - Cover the bowl with its lid or clingfilm. Microwave on high for 1 min, and then in 20 sec bursts until the white is set. Scatter over the coriander and serve with the warmed pitta.",
+      "is_approved": true,
+      "date_created": "2023-11-16T09:22:11.264Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 33,
+    "fields": {
+      "author": 20,
+      "title": "Quick chicken hummus bowl",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 10,
+      "image": "recipes_images/2023-11-16/doriana/quick-chicken-and-hummus-bowl-3863168.jpg",
+      "category": "Lunch",
+      "ingredients": "200g hummus\r\n1 small lemon, zested and juiced\r\n200g pouch cooked mixed grains\r\n150g baby spinach, roughly chopped\r\n1 small avocado, halved and sliced\r\n1cooked chicken breast, sliced at an angle\r\n100g pomegranate seeds\r\n½ red onion, finely sliced\r\n2 tbsp toasted almonds",
+      "steps": "Step 1 - Mix 2 tbsp of the hummus with half the lemon juice, the lemon zest and enough water to make a drizzly dressing. Squeeze the grain pouch to separate the grains, then divide between two shallow bowls and toss through the dressing. Top each bowl with a handful of the spinach.\r\nStep 2 - Squeeze the remaining lemon juice over the avocado halves, then add one half to each bowl. Divide the chicken, pomegranate seeds, onion, almonds and remaining hummus between the two bowls and gently mix everything together just before eating.",
+      "is_approved": true,
+      "date_created": "2023-11-16T10:00:00.867Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 34,
+    "fields": {
+      "author": 20,
+      "title": "Bulgur & aubergine pilaf",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 45,
+      "image": "recipes_images/2023-11-16/doriana/Bulgur-and-aubergine-pilaf-1efa5fc.jpg",
+      "category": "Lunch",
+      "ingredients": "4 tsp rapeseed oil\r\n2 onions, halved and thinly sliced (about 280g), scrunched to separate the pieces\r\n1 tbsp finely chopped ginger\r\n75g bulgur wheat\r\n1 tsp vegetable bouillon powder\r\n½ tsp cumin seeds\r\n400g can chickpeas, drained\r\n1 aubergine (about 260g), thinly sliced, or halved and sliced if it’s a thicker one\r\n20g coriander, chopped\r\n30g feta, crumbled (vegetarian, if necessary)\r\n10g toasted flaked almonds",
+      "steps": "Step 1 - Heat 2 tsp of the the oil in a large non-stick frying pan over a medium heat and fry the onions and ginger for 10 mins, stirring frequently until softened and golden. Set aside on a plate.\r\nStep 2 - Meanwhile, tip the bulgur, bouillon and cumin into a pan and cover with 400ml water. Stir well, then bring to the boil, cover and cook over a low heat for 10-15 mins, or until the liquid has completely absorbed. Tip the chickpeas into the pan, then cover and set aside.\r\nStep 3 - Meanwhile, heat the remaining oil in the pan you used to fry the onion over a medium-high heat, and fry the aubergine slices for 8-10 mins, keeping them in a single layer as much as possible. Flip them over halfway through the cooking time. After this time, cover and cook for a few minutes more until soft.\r\nStep 4 - Toss the cooked aubergine into the bulgur mixture along with the onions and coriander, then pile onto a platter and scatter over the feta and almonds before serving.",
+      "is_approved": true,
+      "date_created": "2023-11-16T10:01:33.149Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 35,
+    "fields": {
+      "author": 20,
+      "title": "Roasted cauli-broc bowl with tahini hummus",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 40,
+      "image": "recipes_images/2023-11-16/doriana/roasted-cauli-bowl-a7bb279.jpg",
+      "category": "Lunch",
+      "ingredients": "400g pack cauliflower & broccoli florets\r\n2 tbsp olive oil\r\n250g ready-to-eat quinoa\r\n2 cooked beetroots, sliced\r\nlarge handful baby spinach\r\n10 walnuts, toasted and chopped\r\n2 tbsp tahini\r\n3 tbsp hummus\r\n1 lemon, 1/2 juiced, 1/2 cut into wedges",
+      "steps": "Step 1 - The night before, heat oven to 200C/180C fan/gas 6. Put the cauliflower and broccoli in a large roasting tin with the oil and a sprinkle of flaky sea salt. Roast for 25-30 mins until browned and cooked. Leave to cool completely.\r\nStep 2 - Build each bowl by putting half the quinoa in each. Lay the slices of beetroot on top, followed by the spinach, cauliflower, broccoli and walnuts. Combine the tahini, hummus, lemon juice and 1 tbsp water in a small pot. Before eating, coat in the dressing. Serve with the lemon wedges.",
+      "is_approved": true,
+      "date_created": "2023-11-16T10:05:25.861Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 36,
+    "fields": {
+      "author": 20,
+      "title": "Feta & kale loaded sweet potato",
+      "portions": 2,
+      "cooking_hours": 1,
+      "cooking_minutes": 0,
+      "image": "recipes_images/2023-11-16/doriana/feta-kale-sweet-potato-92ade52.jpg",
+      "category": "Lunch",
+      "ingredients": "2 sweet potatoes\r\nchickpeas, drained\r\n1 red onion, thinly sliced\r\n2tbsp red wine vinegar\r\n30g feta, cut into small cubes\r\n1 tsp caster sugar\r\n1tbsp olive oil\r\nchilli flakes\r\n100g kale\r\n1tbsp pumpkin seeds, toasted\r\nrocket",
+      "steps": "Step 1 - Heat oven to 200C/180C fan/gas 6. Prick the sweet potatoes all over with a fork, then put them in a roasting tin and roast for 40 mins. Add the chickpeas to the tray, then roast for 10 mins more, until the potatoes are completely tender and the chickpeas have crisped a little.\r\nStep 2 - Meanwhile, mix the onion with the vinegar and a pinch of sugar and salt, and set aside to quick pickle. In another bowl, marinate the feta with the oil and chilli flakes.\r\nStep 3 - When the potatoes are nearly cooked, cook the kale in a pan with 50ml water for 3 mins until wilted, then season to taste. Halve the potatoes, divide between two plates and top each with the kale, chickpeas, red onion (reserving the vinegar), marinated feta and pumpkin seeds. Toss the rocket with the reserved vinegar, then serve on the side.",
+      "is_approved": true,
+      "date_created": "2023-11-16T10:07:14.529Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 37,
+    "fields": {
+      "author": 20,
+      "title": "Lentil & tuna salad",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 15,
+      "image": "recipes_images/2023-11-16/doriana/Lentil-and-tuna-salad-76f39e2.jpg",
+      "category": "Lunch",
+      "ingredients": "2 tbsp sherry vinegar\r\n1 tsp Dijon mustard\r\n2 garlic cloves, finely grated\r\n50ml olive oil\r\n2 x 250g pouches ready-cooked puy lentils\r\n2 x 160g cans tuna steaks in spring water, drained and flaked\r\n160g cherry tomatoes, halved (about 10)\r\n2 ready-roasted peppers, chopped\r\nhandful of parsley, finely chopped\r\n½ small bunch of chives, finely chopped, plus extra to garnish",
+      "steps": "Step 1 - Whisk the vinegar, mustard and garlic together in a small bowl. Slowly drizzle in the oil, whisking as you go, until emulsified, then season to taste.\r\nStep 2 - Add the lentils, tuna, tomatoes, peppers and herbs to a large bowl and toss together. Pour over the dressing and toss again. Divide between four bowls and garnish with the remaining chives.",
+      "is_approved": true,
+      "date_created": "2023-11-16T10:08:49.856Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 42,
+    "fields": {
+      "author": 20,
+      "title": "Peanut lime salad",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 40,
+      "image": "recipes_images/2023-11-23/doriana/Peanut-lime-salad-b82980d.jpg",
+      "category": "Dinner",
+      "ingredients": "2 tbsp olive oil\r\n60g plain peanuts\r\n1 tsp black mustard seeds\r\n10 fresh curry leaves\r\n1 red onion, roughly chopped\r\n1 large potato, chopped into 1cm cubes\r\n½ tsp ground turmeric\r\n300g rice, cooked and cooled\r\n1 Ruby or Little Gem lettuce, roughly chopped\r\n½ cucumber, deseeded and roughly chopped\r\n50ml olive oil\r\n50ml lime juice\r\n1 tsp Dijon mustard",
+      "steps": "Step 1 - Heat the oil in a frying pan over a low heat and cook the peanuts for 5 mins until roasted and golden. Add the mustard seeds and curry leaves and sizzle for a few seconds.\r\nStep 2 - Add the onions, potatoes and 2 tbsp water, then cover and cook for 10 mins until the potatoes are soft. Remove from the heat, add ½ tsp salt and ¼ tsp freshly ground black pepper, and mix well. Leave to cool slightly, about 30 mins.\r\nStep 3 - Transfer to a large bowl and add the remaining ingredients.\r\nStep 4 - Mix the dressing ingredients together in a separate small bowl, pour this over the salad, toss well to coat everything, and serve.",
+      "is_approved": true,
+      "date_created": "2023-11-23T11:38:05.120Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 43,
+    "fields": {
+      "author": 20,
+      "title": "Sardine tomato pasta with gremolata",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 20,
+      "image": "recipes_images/2023-11-23/doriana/Sardine-tomato-pasta-with-gremolata-5a4d85b.jpg",
+      "category": "Dinner",
+      "ingredients": "75g wholemeal spaghetti\r\n1⁄2 x 120g can sardines in oil\r\n½ tbsp capers, drained\r\n2 garlic cloves, crushed\r\n2 tomatoes, roughly chopped\r\n30g rocket\r\n½ lemon, zested\r\nsmall handful of parsley, finely chopped",
+      "steps": "Step 1 - Cook the pasta following pack instructions in a large pan of boiling salted water. Heat 1 tbsp oil from the can of sardines in a non-stick frying pan over a medium heat and sizzle the capers and half the garlic for 1-2 mins until fragrant. Tip in the tomatoes and fry for 4-5 mins more until softened and bursting. Stir in the sardines and rocket, tossing a few times to break up the fish and wilt the leaves. Season.\r\nStep 2 - For the gremolata, combine the lemon zest, parsley and remaining garlic in a small bowl, and season. Drain the pasta and top with the sardine sauce and gremolata.",
+      "is_approved": true,
+      "date_created": "2023-11-23T11:39:38.092Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 44,
+    "fields": {
+      "author": 20,
+      "title": "Curried satay noodles",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 35,
+      "image": "recipes_images/2023-11-23/doriana/Curried-sate-noodles-75bdc86.jpg",
+      "category": "Dinner",
+      "ingredients": "150g dried wholewheat noodles\r\n2 tsp rapeseed oil\r\n1 red pepper, halved seeded and thinly sliced\r\n1 carrot, cut into matchsticks (about 90g)\r\n1 tbsp finely chopped ginger\r\n3 garlic cloves, finely chopped\r\n1 chilli, deseeded and finely chopped (optional)\r\n½ tsp cumin seeds\r\n1-2 tsp curry powder\r\n2 ½ -3 tbsp crunchy peanut butter\r\n1 tbsp tomato purée\r\n150ml vegetable stock, made with 1⁄2 tsp vegetable bouillon\r\n100g frozen peas\r\n½ lemon, juiced",
+      "steps": "Step 1 - Boil the noodles following pack instructions, then rinse well to ensure the strands are separate. Meanwhile, heat the oil in a wok or sauté pan over a high heat and stir-fry the pepper, carrot, ginger, garlic and chilli, if using, for 5 mins until softened. Stir in the cumin seeds and curry powder and cook for 30 seconds or so until aromatic.\r\nStep 2 - Mix the peanut butter and tomato purée with the vegetable stock until smooth. Add the drained noodles to the wok along with the frozen peas, then pour in the peanut and tomato mixture and toss everything together. If it seems a bit claggy, stir in a drop more water. Squeeze in the lemon juice, toss well and serve.",
+      "is_approved": true,
+      "date_created": "2023-11-23T11:41:01.157Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 45,
+    "fields": {
+      "author": 20,
+      "title": "Balsamic beef stew with veggie mash",
+      "portions": 4,
+      "cooking_hours": 3,
+      "cooking_minutes": 30,
+      "image": "recipes_images/2023-11-23/doriana/Balsamic-beef-stew-with-veggie-mash-cb74238.jpg",
+      "category": "Dinner",
+      "ingredients": "1 tbsp olive or rapeseed oil\r\n2 large onions, (325g), halved and sliced\r\n600g diced lean stewing beef\r\n2 garlic cloves, chopped\r\n10g dried porcini mushrooms\r\n2 tbsp balsamic vinegar\r\n2 tbsp tomato purée\r\n2 tsp vegetable bouillon powder\r\n1 tsp English mustard powder\r\n320g carrots, finely chopped\r\n200g large chestnut mushrooms, quartered\r\nfew fresh thyme sprigs\r\n4 x 80g portions broccoli, cut into florets\r\n750g swede, cut into chunks\r\n500g potatoes, cut into small chunks",
+      "steps": "Step 1 - Heat the oven to 170C/150C fan/ gas 3. Heat the oil in a heavy-based ovenproof casserole, then fry the onions for about 8 mins, stirring, until golden. Add the beef and garlic, and stir-fry over a high heat until browned all over.\r\nStep 2 - Pour 500ml boiling water over the dried mushrooms in a bowl to briefly hydrate, then pour into the casserole with the liquid, and stir in the balsamic vinegar, tomato purée, bouillon and mustard. Pile in the carrots, chestnut mushrooms, thyme and some seasoning. Cover, then put in the oven for 3 hrs until the meat is tender. Towards the end of cooking, add a splash of water if the stew is looking dry.\r\nStep 3 - When the stew is nearly ready, make the mash. Boil the swede and potatoes together for 12-15 mins in a pan over a medium heat. Drain well, then mash with a grating of black pepper. Steam or boil half the broccoli for 5 mins until tender. 4 Serve half the stew with the cooked broccoli. The remaining stew will keep chilled for up to three days and frozen for up a month. Defrost thoroughly before reheating. Reheat the stew and mash in the microwave and steam or boil the remaining broccoli on the night to help preserve the vitamins.",
+      "is_approved": true,
+      "date_created": "2023-11-23T11:43:51.451Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 46,
+    "fields": {
+      "author": 20,
+      "title": "Smoky mushroom & potato hash with oaty thins",
+      "portions": 2,
+      "cooking_hours": 0,
+      "cooking_minutes": 35,
+      "image": "recipes_images/2023-11-23/doriana/Tuna-Caper-Chilli-Spaghetti-0d409ad.jpg",
+      "category": "Dinner",
+      "ingredients": "150g spaghetti or linguine\r\n1 tbsp olive oil\r\n1 garlic clove, sliced\r\n1 red chilli, deseeded and finely chopped, plus extra to serve (optional)\r\n1 tbsp drained capers\r\nsmall bunch of parsley, finely chopped (stalks included)\r\n145g tuna in spring water, drained\r\n90g rocket or baby spinach leaves\r\n½ lemon, juiced",
+      "steps": "Step 1 - Cook the spaghetti for 9-11 mins in a large pan of well-salted water until al dente.\r\nStep 2 - Heat the oil in a wide frying pan over a very low heat, and gently cook the garlic and chilli to infuse the oil. Remove from the heat if the garlic is turning past light golden, as this will make it bitter.\r\nStep 3 - Drain the pasta, keeping a cupful of the cooking water, and tip the spaghetti into the frying pan. Toss the pasta in the oil over a low heat, adding a little of the pasta water to emulsify into a sauce that coats the pasta, then fold in the capers, parsley, tuna and some seasoning. Don’t stir too vigorously – you want to keep larger chunks of tuna. Toss the rocket and lemon juice through the spaghetti, and serve with extra chilli scattered over, if you like.",
+      "is_approved": true,
+      "date_created": "2023-11-23T11:47:10.087Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 47,
+    "fields": {
+      "author": 20,
+      "title": "Flapjacks",
+      "portions": 9,
+      "cooking_hours": 0,
+      "cooking_minutes": 40,
+      "image": "recipes_images/2023-11-23/doriana/Vegan-date-walnut-flapjacks-09e488f.jpg",
+      "category": "Snacks",
+      "ingredients": "100g pitted medjool dates\r\n1 ripe banana\r\n1 tsp ground cinnamon\r\n1 tsp vanilla extract\r\n100g walnut halves\r\n250g porridge oats\r\n50g hemp seeds",
+      "steps": "Step 1 - Line a 20 x 20cm square tin with parchment. Roughly chop the dates and cover with 100ml boiling water. Leave to soak for 10 mins.\r\nStep 2 - Put the banana in a bowl, mash with a fork, then stir in the cinnamon, vanilla, a pinch of sea salt and the soaked dates along with their liquid.\r\nStep 3 - Tip the mixture into a food processor with half of the walnuts and 100g of the oats. Pulse until you have a thick paste. Tip into a bowl and combine with most of the remaining nuts, oats and hemp seeds.\r\nStep 4 - Heat the oven to 180C/160C fan/gas 4. Press the mixture into the lined tin, top with the remaining nuts and seeds and, bake for 20-25 mins until golden and firm. Leave to cool completely before cutting into nine squares.",
+      "is_approved": true,
+      "date_created": "2023-11-23T12:12:46.429Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 48,
+    "fields": {
+      "author": 20,
+      "title": "High-fiber guacamole snack jar",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 10,
+      "image": "recipes_images/2023-11-23/doriana/bell-pepper-pepper-jack-and-guacamole-snack-3x2-8479-2_RJ6yyQb.jpg",
+      "category": "Snacks",
+      "ingredients": "1 small red bell pepper, cut into strips\r\n2 tablespoons cubed pepper Jack cheese (1/2 ounce)\r\n1 (2-oz.) guacamole cup",
+      "steps": "Step 1 - Place bell pepper strips in a 16-ounce container. \r\nStep 2 - Top with cheese. Rinse and dry exterior of guacamole cup; add the cup to the container. Cover and refrigerate for up to 3 days.",
+      "is_approved": true,
+      "date_created": "2023-11-23T12:14:08.131Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 49,
+    "fields": {
+      "author": 20,
+      "title": "Pistachio & peach toast",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-23/doriana/5633992-a5fa296d72ce4ed08c65a26b04e1c191.jpg",
+      "category": "Snacks",
+      "ingredients": "1 tablespoon part-skim ricotta cheese\r\n1 teaspoon honey, divided\r\n⅛ teaspoon cinnamon\r\n1 slice 100% whole-wheat bread, toasted\r\n½ medium peach, sliced\r\n1 tablespoon chopped pistachios",
+      "steps": "Step 1 - Combine ricotta, ½ teaspoon honey and cinnamon in a small bowl.\r\nStep 2 - Spread the ricotta mixture on toast and top with peach and pistachios. Drizzle with the remaining 1/2 teaspoon honey.",
+      "is_approved": true,
+      "date_created": "2023-11-23T12:15:12.480Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 50,
+    "fields": {
+      "author": 20,
+      "title": "Apple & peanut butter toast",
+      "portions": 1,
+      "cooking_hours": 0,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-23/doriana/6534108-1955e7b79af94c4db1c780d33d12c549.jpg",
+      "category": "Snacks",
+      "ingredients": "1 slice whole-grain bread, toasted\r\n2 tablespoons peanut butter\r\n¼ cup sliced apple\r\nPinch ground cardamom",
+      "steps": "Step 1 - Top toast with peanut butter, apple and cardamom.",
+      "is_approved": true,
+      "date_created": "2023-11-23T12:16:22.156Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 51,
+    "fields": {
+      "author": 20,
+      "title": "Healthy apple crunch",
+      "portions": 4,
+      "cooking_hours": 1,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-23/doriana/Healthy-apple-crunch-b15b94a.jpg",
+      "category": "Desserts",
+      "ingredients": "240g Bramley cooking apples, peeled, cored and chopped\r\n3-4 small dessert apples, peeled, cored and sliced\r\n340g porridge oats\r\n2 tbsp ground cinnamon\r\n2 tsp vanilla extract\r\n3 tbsp rapeseed oil\r\n400g fortified soya yogurt",
+      "steps": "Step 1 - Heat the oven to 180C/160C fan/gas 4. Tip all the apples into a small pan with 6 tbsp water, then cover and cook over a medium heat for 6 mins, stirring halfway through, until the apples are just cooked. The cooking apples should be pulpy, but the dessert apples will retain their shape.\r\nStep 2 - Tip the oats, cinnamon and vanilla into a bowl and add 3 tbsp of the apple mixture, the oil and 100g of the yogurt. Mix everything together well using your hands, until the mixture has formed into chunky clusters similar to granola. Spread the clusters out over a large baking sheet lined with baking parchment, and bake for 10 mins. Shake the tray to turn the clusters over and bake for 10 mins more until firm. Leave to cool for 5 mins so the clusters can firm up slightly more.\r\nStep 3 - Meanwhile, spoon the remaining yogurt into a small, shallow ovenproof dish, then spoon the rest of the apples on top. Scatter over the oat clusters, and bake for 10 mins until the topping is firm and golden and the apple mixture has warmed through.",
+      "is_approved": false,
+      "date_created": "2023-11-23T12:35:15.224Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 52,
+    "fields": {
+      "author": 20,
+      "title": "No-sugar-added vegan oatmeal cookies",
+      "portions": 12,
+      "cooking_hours": 1,
+      "cooking_minutes": 15,
+      "image": "recipes_images/2023-11-23/doriana/4572432-542a2a1b6c98477480ec4e17c1851b7f.jpg",
+      "category": "Desserts",
+      "ingredients": "1 cup quick-cooking oats (see Tip)\r\n¾ cup almond flour or almond meal\r\n¾ teaspoon ground cinnamon\r\n¼ teaspoon salt\r\n2 medium ripe bananas, mashed\r\n½ cup almond butter or natural peanut butter\r\n1 teaspoon vanilla extract\r\n¾ cup raisins or chopped dates",
+      "steps": "Step 1 - Preheat oven to 350 degrees F. Line a large baking sheet with parchment paper or a silicone baking mat.\r\nStep 2 - Whisk oats, almond flour (or almond meal), cinnamon and salt in a medium bowl. Mash bananas, almond butter (or peanut butter) and vanilla together in a large bowl until creamy and well combined. Add the dry ingredients and raisins (or dates) to the banana mixture and stir with a wooden spoon until combined. Scoop or roll level tablespoons of dough into balls and place on the prepared baking sheet, making 12 cookies per batch. Press with a fork to flatten slightly.\r\nStep 3 - Bake until firm to the touch and light brown on the bottom, about 15 minutes. Transfer to a wire rack to cool completely. Repeat with the remaining batter.",
+      "is_approved": true,
+      "date_created": "2023-11-23T12:36:45.378Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 53,
+    "fields": {
+      "author": 20,
+      "title": "Apple pie energy balls",
+      "portions": 6,
+      "cooking_hours": 0,
+      "cooking_minutes": 30,
+      "image": "recipes_images/2023-11-23/doriana/apple-pie-energy-balls-6fea429144b244b19b40c711677d9c00.jpg",
+      "category": "Desserts",
+      "ingredients": "¾ cup Medjool dates, pitted and chopped\r\n½ cup rolled oats\r\n½ cup chopped dried apples\r\n½ cup unsweetened almond butter\r\n¼ cup chopped pecans, toasted\r\n1 tablespoon ground cinnamon",
+      "steps": "Step 1 - Soak dates in a small bowl of hot water until softened, 5 to 10 minutes. Drain.\r\nStep 2 - Combine oats, dried apples, almond butter, pecans, cinnamon and the soaked dates in a food processor; process until very finely chopped.\r\nStep 3 - Roll the mixture into 12 balls (about 2 tablespoons each). Refrigerate for at least 15 minutes or up to 1 week.",
+      "is_approved": true,
+      "date_created": "2023-11-23T12:41:21.092Z"
+    }
+  },
+  {
+    "model": "recipes.recipe",
+    "pk": 54,
+    "fields": {
+      "author": 20,
+      "title": "Apple \"donuts\"",
+      "portions": 4,
+      "cooking_hours": 0,
+      "cooking_minutes": 5,
+      "image": "recipes_images/2023-11-23/doriana/4525964-7df14eaacf1b4b5985f7bc2af8dc3ea1.jpg",
+      "category": "Desserts",
+      "ingredients": "1 medium apple\r\n3 tablespoons almond butter\r\n2 teaspoons shredded unsweetened coconut",
+      "steps": "Step 1 - Remove apple core with an apple coring tool. \r\nStep 2 - Slice the apple crosswise into 8 thin rings, about 1/4 inch thick. \r\nStep 3 - Spread each apple ring with almond butter. Sprinkle with coconut.",
+      "is_approved": false,
+      "date_created": "2023-11-23T12:43:48.550Z"
+    }
+  }
+]
