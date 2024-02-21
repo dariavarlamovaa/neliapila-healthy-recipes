@@ -45,7 +45,7 @@ def login_user(request):
             return redirect('recipes')
 
 
-@login_required(login_url='login')
+@login_required
 def logout_user(request):
     if request.method == 'POST':
         logout(request)
@@ -70,7 +70,7 @@ def author_profile(request, pk):
     return render(request, 'user/profile.html', context)
 
 
-@login_required(login_url='login')
+@login_required
 def edit_profile(request, pk):
     profile = Profile.objects.get(user=request.user.pk)
     form = ProfileForm(instance=profile)
@@ -93,7 +93,7 @@ def edit_profile(request, pk):
     return render(request, 'user/profile-form.html', context)
 
 
-@login_required(login_url='login')
+@login_required
 def get_favorites(request):
     profile = Profile.objects.get(user=request.user.id)
     favorite_recipes = profile.favorite_set.all()
@@ -102,7 +102,7 @@ def get_favorites(request):
     return render(request, 'user/favorites.html', context)
 
 
-@login_required(login_url='login')
+@login_required
 def add_recipe_to_favorites(request, pk):
     recipe = get_object_or_404(Recipe, id=pk)
     if recipe.is_approved:
@@ -116,7 +116,7 @@ def add_recipe_to_favorites(request, pk):
         return redirect('favorites')
 
 
-@login_required(login_url='login')
+@login_required
 def delete_favorite(request, pk):
     favourite = get_object_or_404(Favorite, favorite_recipe_id=pk, profile=request.user.profile)
     if not request.user.id == favourite.profile.user.id:

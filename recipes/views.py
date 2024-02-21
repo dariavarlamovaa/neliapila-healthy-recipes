@@ -14,7 +14,7 @@ from recipes.forms import NewRecipe, CommentForm
 from recipes.models import Recipe, Comment
 
 
-@login_required(login_url='login')
+@login_required
 def add_a_recipe(request):
     profile = request.user
     form = NewRecipe()
@@ -121,7 +121,7 @@ def get_pdf(request, pk):
     return response
 
 
-@login_required(login_url='login')
+@login_required
 def delete_recipe(request, pk):
     recipe_to_delete = Recipe.objects.get(pk=pk)
 
