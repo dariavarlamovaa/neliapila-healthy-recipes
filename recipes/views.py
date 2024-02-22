@@ -76,7 +76,7 @@ def show_specific_recipe(request, pk):
     recipe_ingredients = [ingredient.strip() for ingredient in recipe_ingredients if ingredient.strip()]
     recipe_steps = specific_recipe.steps.split('\n')
     recipe_steps = [step.strip() for step in recipe_steps if step.strip()]
-    comments = Comment.objects.filter(recipe=specific_recipe, is_approved=True)
+    comments = Comment.objects.select_related('owner__user__profile').filter(recipe=specific_recipe, is_approved=True)
     comments_count = comments.count()
     recipe_ratings = [comment.rating for comment in comments]
     if recipe_ratings:

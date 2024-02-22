@@ -140,12 +140,12 @@
                         <div class="comment-owner-info">
                             <div class="comment-owner-info-left">
                                 <div class="comment-owner-image">
-                                    <a href="{% url 'profile' comment.owner.user.id %}"
+                                    <a href="{% url 'profile' comment.owner.id %}"
                                     ><img src="{{ comment.owner.image.url }}" alt="Commentator`s image"></a>
                                 </div>
                                 <div class="owner-name-and-date-created">
                                     <div class="owner-name">
-                                        <a href="{% url 'profile' comment.owner.user.id %}">
+                                        <a href="{% url 'profile' comment.owner.id %}">
                                             {{ comment.owner.username }}</a>
                                     </div>
                                     <div class="date-created">

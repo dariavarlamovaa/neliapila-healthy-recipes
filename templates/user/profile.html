@@ -46,7 +46,7 @@
                             {% else %}
                             <p class="recipe-title">{{ recipe.title }}</p>
                             {% endif %}
-                            <a href="{% url 'profile' profile.user.id %}" class="recipe-author">
+                            <a href="{% url 'profile' profile.id %}" class="recipe-author">
                                 By {{ recipe.author }}</a>
                             <div class="recipe-details">
                                 <div class="portions-details">

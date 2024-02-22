@@ -1,6 +1,5 @@
 import os
 from django.utils import timezone
-from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -24,7 +23,7 @@ class Recipe(models.Model):
         (True, 'Approved'),
         (False, 'On moderation'),
     ]
-    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    author = models.ForeignKey('user.Profile', on_delete=models.CASCADE, null=True, blank=True)
     title = models.CharField(max_length=50)
     portions = models.PositiveIntegerField(default=1, blank=True, null=True)
     cooking_hours = models.PositiveIntegerField(default=0)

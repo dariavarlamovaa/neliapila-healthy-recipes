@@ -77,7 +77,7 @@ def authors(request):
 
     authors_with_recipe_count = []
     for author in all_authors:
-        recipe_count = Recipe.objects.filter(author=author.user, is_approved=True).count()
+        recipe_count = Recipe.objects.filter(author=author, is_approved=True).count()
         authors_with_recipe_count.append({'author': author, 'recipe_count': recipe_count})
     authors_and_recipes_count = sorted(authors_with_recipe_count, key=lambda x: x['recipe_count'], reverse=True)
 
