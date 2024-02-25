@@ -1,3 +1,6 @@
-@media screen and (max-width: 1179px) {
-
+@media screen and (max-width: 900px) {
+    .all-recipes {
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 50px;
+    }
 }

@@ -54,7 +54,7 @@ def logout_user(request):
 
 
 def author_profile(request, pk):
-    profile = Profile.objects.get(user=pk)
+    profile = Profile.objects.select_related('user').get(id=pk)
     if request.user == profile.user or request.user.is_staff:
         recipes = Recipe.objects.filter(author=pk).all().order_by('-date_created')
     else:
@@ -81,7 +81,7 @@ def edit_profile(request, pk):
             edition.username = edition.username.lower().strip()
             edition.save()
             messages.success(request, 'Profile edited successfully')
-            return redirect('profile', request.user.id)
+            return redirect('profile', request.user.profile.id)
         else:
             email_error = form.errors.get('email')
             username_error = form.errors.get('username')

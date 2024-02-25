@@ -16,15 +16,15 @@
                 {% for person in authors_with_recipe_count%}
                 <div class="one-author">
                     <div class="author-image">
-                        <a href="{% url 'profile' person.author.user.id %}">
+                        <a href="{% url 'profile' person.author.id %}">
                             <img src="{{ person.author.image.url}}" alt="Author Photo">
                         </a>
                     </div>
                     <div class="author-info">
-                        <a href="{% url 'profile' person.author.user.id %}">
+                        <a href="{% url 'profile' person.author.id %}">
                             @{{ person.author.username }}
                         </a>
-                        <a href="{% url 'profile' person.author.user.id %}">
+                        <a href="{% url 'profile' person.author.id %}">
                             {{ person.recipe_count }} recipe{{ person.recipe_count | pluralize:"s" }}
                         </a>
                     </div>

@@ -102,7 +102,7 @@
 
 .all-recipes {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 48px
 }
@@ -136,12 +136,18 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .recipe-short-info img {
     width: 20px;
     height: 20px;
     margin-right: 7px;
+}
+
+.button-favorites-link {
+    display: flex;
 }
 
 .info {

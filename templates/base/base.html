@@ -30,52 +30,39 @@
                     </ul>
                 </div>
             </div>
-            <div class="search-bar" id="search-bar">
-                <form action="{% url 'found-recipes' %}" class="search-bar-form" method="GET">
-                    <button type="submit"><img src="{% static 'base/images/search_logo.svg' %}" alt="ENTER"></button>
-                    <input type="text" placeholder="Search Recipes" name="search-bar">
-                </form>
-            </div>
             <div class="right-items-login">
-                <button class="search-logo" id="search_logo">
-                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                        <g id="SVGRepo_iconCarrier">
-                            <g clip-path="url(#clip0_15_152)">
-                                <rect width="24" height="24" fill="none"/>
-                                <circle cx="10.5" cy="10.5" r="6.5" stroke="#74924a" stroke-linejoin="round"/>
-                                <path d="M19.6464 20.3536C19.8417 20.5488 20.1583 20.5488 20.3536 20.3536C20.5488 20.1583 20.5488 19.8417 20.3536 19.6464L19.6464 20.3536ZM20.3536 19.6464L15.3536 14.6464L14.6464 15.3536L19.6464 20.3536L20.3536 19.6464Z"
-                                      fill="#74924a"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_15_152">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </g>
+                <div class="search-block">
+                    <button class="search-logo" id="search_logo">
+                        <img src="{% static 'base/images/search-logo.svg' %}" alt="Search">
 
-                    </svg>
-                </button>
+                    </button>
+                    <div class="search-bar" id="search-bar">
+                        <div role="button" id="close-search-bar-block" aria-label="Close search window" tabindex="0"
+                             class="search-bar-close"></div>
+                        <div class="search-bar-block-form">
+                            <form action="{% url 'found-recipes' %}" class="search-bar-form sbf" method="GET">
+                                <button type="submit"><img src="{% static 'base/images/search_logo.svg' %}" alt="ENTER">
+                                </button>
+                                <input type="text" placeholder="Search Recipes" name="search-bar">
+                            </form>
+                            <button type="button" class="close-search-bar" id="close-search-bar"><img
+                                    src="{% static 'user/images/delete.svg' %}"></button>
+
+                        </div>
+                    </div>
+                </div>
+
                 {% if user.is_authenticated %}
                 <a class="user-favourites" href="{% url 'favorites' %}">
                     {% else %}
                     <a class="user-favourites" href="{% url 'login' %}">
                         {% endif %}
-                        <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                            <g id="SVGRepo_iconCarrier">
-                                <path d="M5 6c0-1.4 0-2.1.272-2.635a2.5 2.5 0 0 1 1.093-1.093C6.9 2 7.6 2 9 2h6c1.4 0 2.1 0 2.635.272a2.5 2.5 0 0 1 1.092 1.093C19 3.9 19 4.6 19 6v13.208c0 1.056 0 1.583-.217 1.856a1 1 0 0 1-.778.378c-.349.002-.764-.324-1.593-.976L12 17l-4.411 3.466c-.83.652-1.245.978-1.594.976a1 1 0 0 1-.778-.378C5 20.791 5 20.264 5 19.208V6z"
-                                      fill="#e66060"/>
-                            </g>
-                        </svg>
+                        <img src="{% static 'base/images/favs.svg' %}" alt="Favorites">
                     </a>
                 </a>
                 <div class="user-profile-next-links">
                     {% if user.is_authenticated %}
-                    <a href="{% url 'profile' user.id %}">
+                    <a href="{% url 'profile' user.profile.id %}">
                         {% else %}
                         <a href="{% url 'login' %}">
                             {% endif %}
@@ -83,87 +70,89 @@
                             {% if user.is_authenticated %}
                             <img class="profile-image" src="{{ user.profile.image.url }}" alt="Profile picture">
                             {% else %}
-                            <svg class="svg-user" width="30px" height="30px" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                                          stroke="#74924a" stroke-width="1" stroke-linecap="round"
-                                          stroke-linejoin="round"></path>
-                                    <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
-                                          stroke="#74924a"
-                                          stroke-width="1" stroke-linecap="round"
-                                          stroke-linejoin="round"></path>
-                                </g>
-                            </svg>
+                            <img class="svg-user" src="{% static 'base/images/unauthorized-user.svg' %}" alt="User">
                             {% endif %}
                         </a>
                     </a>
                     {% if user.is_authenticated %}
                     <button class="arrow-button" id="arrow-button">
-                        <svg id="arrow" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </svg>
+                        <img id="arrow" src="{% static 'base/images/arrow.svg' %}" alt="Arrow">
                     </button>
-                    {% endif %}
                     <div class="profile-popup" id="profile-popup-settings">
                         <div class="popup-profile-username">
-                            <a class="profile-user-link" href="{% url 'profile' user.id %}">
-                                <svg class="svg-user" width="17px" height="17px" viewBox="0 0 24 24" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
-                                              stroke="#000000" stroke-width="1" stroke-linecap="round"
-                                              stroke-linejoin="round"></path>
-                                        <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z"
-                                              stroke="#000000"
-                                              stroke-width="1" stroke-linecap="round"
-                                              stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
+                            <a class="profile-user-link" href="{% url 'profile' user.profile.id %}">
+                                <img class="svg-user" src="{% static 'base/images/user2.svg' %}" alt="User">
                                 <span>{{ user.profile.username }}</span></a>
                         </div>
                         <div class="edit-profile">
-                            <a class="edit-profile-link" href="{% url 'edit-profile' user.id %}">
-                                <svg width="17px" height="17px" viewBox="0 0 24 24" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
-                                              stroke="#000000" stroke-width="1" stroke-linecap="round"
-                                              stroke-linejoin="round"></path>
-                                        <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
-                                              stroke="#000000" stroke-width="1" stroke-linecap="round"
-                                              stroke-linejoin="round"></path>
-                                    </g>
-                                </svg>
+                            <a class="edit-profile-link" href="{% url 'edit-profile' user.profile.id %}">
+                                <img class="svg-user" src="{% static 'base/images/edit-profile.svg' %}"
+                                     alt="Edit profile">
                                 <span>Edit</span>
                             </a>
                         </div>
                         <div class="logout-form">
-                            <svg class="logout-svg" width="17px" height="17px" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                <g id="SVGRepo_iconCarrier">
-                                    <path d="M16 6.07026C18.3912 7.45349 20 10.0389 20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 10.0389 5.60879 7.45349 8 6.07026M12 3V13"
-                                          stroke="#000000" stroke-width="1" stroke-linecap="round"></path>
-                                </g>
-                            </svg>
+                            <img class="logout-svg" src="{% static 'base/images/logout.svg' %}" alt="Logout">
                             <form class="logout-form-form" action="{% url 'logout' %}" method="post">
                                 {% csrf_token %}
                                 <button class="logout-btn">Logout</button>
                             </form>
                         </div>
                     </div>
+                    {% endif %}
+
                 </div>
                 <a class="add-a-recipe right-links" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
+                <nav class="navigation">
+                    <div class="burger-menu" id="burger">
+                        <span></span>
+                    </div>
+                    <div class="main-nav-menu">
+                        <div class="profile-info">
+                            <a class="profile-user-link" href="{% url 'profile' user.profile.id %}">
+                                <img class="profile-image" src="{{ user.profile.image.url }}" alt="User image">
+                                <span>@{{ user.profile.username }}</span>
+                            </a>
+                            <img class="arrow-menu" src="{% static 'base/images/arrow.svg' %}" alt="Arrow">
+                        </div>
+                        <div class="profile-links">
+                            <div class="popup-profile-username">
+                                <a class="profile-user-link" href="{% url 'profile' user.profile.id %}">
+                                    <img class="svg-user" src="{% static 'base/images/user2.svg' %}" alt="User">
+                                    <span>{{ user.profile.username }}</span></a>
+                            </div>
+                            <div class="edit-profile">
+                                <a class="edit-profile-link" href="{% url 'edit-profile' user.profile.id %}">
+                                    <img class="svg-user" src="{% static 'base/images/edit-profile.svg' %}"
+                                         alt="Edit profile">
+                                    <span>Edit</span>
+                                </a>
+                            </div>
+                            <div class="logout-form">
+                                <img class="logout-svg" src="{% static 'base/images/logout.svg' %}" alt="Logout">
+                                <form class="logout-form-form" action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="logout-btn">Logout</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="menu-links">
+                            <a href="{% url 'recipes' %}">Recipes</a>
+                            <a href="{% url 'authors' %}">Authors</a>
+                        </div>
+                        <a class="menu-link-add-a-recipe" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="search-bar-mob search" id="search-bar-mob">
+            <div class="search-bar-block-form-mob">
+                <form action="{% url 'found-recipes' %}" class="search-bar-form-mob sbf" method="GET">
+                    <button type="submit"><img src="{% static 'base/images/search_logo.svg' %}" alt="ENTER">
+                    </button>
+                    <input type="text" placeholder="Search Recipes" name="search-bar">
+                </form>
             </div>
         </div>
     </div>
@@ -228,6 +217,7 @@
     </div>
 </footer>
 <script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/burger-menu.js' %}"></script>
 {% block script_block %}
 {% endblock %}
 </body>

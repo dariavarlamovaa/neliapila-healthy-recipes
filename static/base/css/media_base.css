@@ -1,0 +1,118 @@
+@media screen and (max-width: 768px) {
+    .search-bar-mob {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .search-bar-form-mob {
+        border: 1px solid #74924a;
+        border-radius: 5px;
+        box-sizing: border-box
+    }
+
+    .sbf button {
+        border-right: 1px solid #D9D9D9FF;
+    }
+
+    .sbf button img {
+        width: 20px;
+    }
+
+    .sbf input {
+        font-size: 15px;
+    }
+
+    .search-logo,
+    .user-profile-next-links,
+    .add-a-recipe,
+    .menu {
+        display: none;
+    }
+
+    .right-items-login {
+        min-width: auto;
+    }
+
+    .user-favourites {
+        border: 0;
+    }
+
+    .user-favourites img {
+        height: auto;
+        width: 35px;
+        display: flex;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        transition: transform .5s;
+        height: max-content;
+        z-index: 50;
+        background-color: white;
+        animation: burgerAnimation 0.4s;
+        padding-right: 5px;
+    }
+
+    .burger-menu {
+        display: flex;
+        position: relative;
+        z-index: 50;
+        align-items: center;
+        width: 30px;
+        height: 27px;
+        cursor: pointer;
+    }
+
+    .burger-menu span {
+        height: 2px;
+        width: 80%;
+        transform: scale(1);
+        background-color: #74924a;
+    }
+
+    .burger-menu:before, .burger-menu:after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background-color: #74924a;
+        transition: all 0.5s ease 0s;
+    }
+
+    .burger-menu:before {
+        top: 0;
+    }
+
+    .burger-menu:after {
+        bottom: 0;
+    }
+
+    .burger-menu.active span {
+        transform: scale(0);
+    }
+
+    .burger-menu.active::before {
+        top: 50%;
+        transform: rotate(-45deg) translate(0, -50%);
+    }
+
+    .burger-menu.active:after {
+        bottom: 50%;
+        transform: rotate(45deg) translate(0, 50%);
+    }
+
+    .active-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        bottom: -56%;
+        padding: 10px 30px;
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 20px;
+        z-index: 999;
+    }
+}

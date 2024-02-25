@@ -13,7 +13,7 @@
                 <img src="{{ profile.image.url }}" alt="User`s image">
             </div>
             <div class="settings-form-block">
-                <form action="{% url 'edit-profile' user.id %}" class="settings-form" method="POST"
+                <form action="{% url 'edit-profile' user.profile.id %}" class="settings-form" method="POST"
                       enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="change-profile-pic">
