@@ -5,10 +5,13 @@ const searchLogo = document.getElementById("search_logo")
 const searchBar = document.getElementById("search-bar")
 const searchClose = document.getElementById('close-search-bar')
 const searchBlockClose = document.getElementById('close-search-bar-block')
+const arrowMenuNav = document.getElementById('arrow-menu-nav')
+const profileLinksNav = document.getElementById('profile-links')
 
 
 let isPopupVisible = false;
 let isSearchBarVisible = false
+let isPopupMenuVisible = false
 
 if (arrow != null) {
     arrow.addEventListener("click", () => {
@@ -79,3 +82,18 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+if (arrowMenuNav != null) {
+    arrowMenuNav.addEventListener("click", () => {
+        arrowMenuNav.classList.toggle("rotate");
+
+        if (isPopupMenuVisible) {
+            profileLinksNav.style.display = "none";
+        } else {
+            profileLinksNav.style.display = "flex";
+        }
+
+        isPopupMenuVisible = !isPopupMenuVisible;
+    });
+}
+

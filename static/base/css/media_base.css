@@ -107,12 +107,70 @@
         flex-direction: column;
         position: absolute;
         left: 0;
-        bottom: -56%;
-        padding: 10px 30px;
+        top: 143px;
+        padding: 20px 30px;
         background-color: white;
         width: 100%;
         box-sizing: border-box;
-        font-size: 20px;
+        font-size: 15px;
         z-index: 999;
+    }
+
+    .profile-info {
+        display: flex;
+        padding-bottom: 10px;
+    }
+
+    .profile-link-popup {
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+    }
+
+
+    .profile-link-popup img {
+        margin-right: 15px;
+    }
+
+    .profile-links {
+        display: none;
+        flex-direction: column;
+        min-height: 90px;
+        justify-content: space-between;
+        padding: 10px 0;
+
+    }
+
+    .profile-links img {
+        margin-right: 10px;
+    }
+
+    .logout-btn {
+        font-size: 15px;
+    }
+
+    .menu-links {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .menu-link-add-a-recipe {
+        border: 1px solid #74924a;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #74924a;
+        color: white;
+    }
+
+    .profile-info,
+    .profile-links {
+        border-bottom: 1px solid #efefef;
+    }
+
+    .menu-links a {
+        padding-bottom: 15px;
     }
 }

@@ -303,7 +303,10 @@ main {
     font-size: 19px;
     flex-direction: column;
     justify-content: space-between;
+}
 
+.profile-links {
+    display: none;
 }
 
 .profile-popup span,
