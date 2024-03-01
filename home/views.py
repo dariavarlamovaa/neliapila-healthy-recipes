@@ -20,8 +20,8 @@ def paginate(request, items, results=6):
         items = paginator.page(page)
 
     page = int(page)
-    left_index = page - 3 if page > 3 else 1
-    right_index = page + 4 if page < paginator.num_pages - 3 else paginator.num_pages + 1
+    left_index = page - 1 if page > 2 else 1
+    right_index = page + 2 if page < paginator.num_pages else page + 1
     custom_range = range(left_index, right_index)
 
     return items, paginator, custom_range

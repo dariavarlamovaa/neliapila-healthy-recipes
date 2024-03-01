@@ -6,6 +6,21 @@
 }
 
 @media screen and (max-width: 650px) {
+    .home-page > section:not(:first-child) {
+        padding: 0 20px;
+    }
+
+    .home-slogan {
+        padding: 0 10px 0;
+    }
+
+    .slogan span:nth-child(1),
+    .slogan span:nth-child(2),
+    .slogan span:nth-child(3) {
+        font-size: 60px;
+        text-align: center;
+    }
+
     .all-recipes {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -19,17 +34,36 @@
 }
 
 @media screen and (max-width: 445px) {
-    .slogan span:nth-child(1),
-    .slogan span:nth-child(2),
-    .slogan span:nth-child(3) {
-        font-size: 60px;
+    .categories-ul {
+        display: grid;
+        grid-row-gap: 15px;
+        text-align: center;
+    }
 
+    .pag .btn {
+        padding: 7px 13px;
+    }
+
+}
+
+@media screen and (max-width: 300px) {
+    .home-page > section:not(:first-child) {
+        padding: 0 5px;
+        text-align: center;
+    }
+
+    .home-page-slogan {
+        margin-bottom: 30px;
     }
 
     .categories-ul {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-row-gap: 15px;
-        text-align: center;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .sp-recipe {
+        padding: 20px 10px;
+        min-height: 340px;
     }
 }

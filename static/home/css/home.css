@@ -26,8 +26,8 @@
 .slogan {
     display: flex;
     flex-direction: column;
-    font-weight: 500;
-    color: #FFFFFF;
+    font-weight: 600;
+    color: #74924a;
 }
 
 .slogan span:nth-child(1) {

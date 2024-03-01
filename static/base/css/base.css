@@ -77,7 +77,6 @@ textarea {
 
 .container {
     max-width: 1240px;
-    min-width: 280px;
     box-sizing: border-box;
     margin: 0 auto;
     position: relative;
@@ -373,7 +372,7 @@ main {
 .footer-icons {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 15px;
     padding: 0;
 }
 

@@ -108,12 +108,14 @@
                         <span></span>
                     </div>
                     <div class="main-nav-menu">
+                        {% if user.is_authenticated %}
                         <div class="profile-info">
                             <a class="profile-link-popup" href="{% url 'profile' user.profile.id %}">
                                 <img class="profile-image" src="{{ user.profile.image.url }}" alt="User image">
                                 <span>@{{ user.profile.username }}</span>
                             </a>
-                            <img id="arrow-menu-nav" class="arrow-menu" src="{% static 'base/images/arrow.svg' %}" alt="Arrow">
+                            <img id="arrow-menu-nav" class="arrow-menu" src="{% static 'base/images/arrow.svg' %}"
+                                 alt="Arrow">
                         </div>
                         <div id="profile-links" class="profile-links">
                             <div class="popup-profile-username">
@@ -136,6 +138,11 @@
                                 </form>
                             </div>
                         </div>
+                        {% else %}
+                        <div class="sign-in-link">
+                            <a href="{% url 'login' %}">Sign In</a>
+                        </div>
+                        {% endif %}
                         <div class="menu-links">
                             <a href="{% url 'recipes' %}">Recipes</a>
                             <a href="{% url 'authors' %}">Authors</a>

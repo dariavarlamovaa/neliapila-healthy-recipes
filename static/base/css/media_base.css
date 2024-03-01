@@ -118,7 +118,7 @@
 
     .profile-info {
         display: flex;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
     }
 
     .profile-link-popup {
@@ -166,11 +166,17 @@
     }
 
     .profile-info,
-    .profile-links {
+    .profile-links,
+    .sign-in-link {
         border-bottom: 1px solid #efefef;
     }
 
     .menu-links a {
         padding-bottom: 15px;
     }
+
+    .sign-in-link {
+        padding-bottom: 20px;
+    }
 }
+
