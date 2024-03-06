@@ -3,13 +3,14 @@
 {% block title %}Found recipes{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/media_home.css' %}">
 {% endblock %}
 {% block content %}
 <section class="found-recipes-page">
     <section class="all-approved-recipes container">
         <div class="recipes ">
             <h1 class="found-recipes-heading">"{{ search_query }}" - {{ recipes_count }} recipes</h1>
-            <div class="all-recipes">
+            <div class="all-recipes found-recipes-block">
                 {% if recipes %}
                 {% for recipe in recipes %}
                 <div class="sp-recipe">
@@ -55,45 +56,45 @@
                     </div>
                 </div>
                 {% endfor %}
-                <section class="paginator-section">
-                    {% if recipes.has_other_pages %}
-                    <div class="pagination container">
-                        <div class="pag">
-                            <ul class="pag-list">
-                                {% if recipes.has_previous %}
-                                <li><a href="?page={{ recipes.previous_page_number }}
+            </div>
+            <section class="paginator-section">
+                {% if recipes.has_other_pages %}
+                <div class="pagination container">
+                    <div class="pag">
+                        <ul class="pag-list">
+                            {% if recipes.has_previous %}
+                            <li><a href="?page={{ recipes.previous_page_number }}
                                             {% if search_query %}&search-bar={{ search_query }}{% endif %}"
-                                       class="btn page-link">&lt; Prev.</a></li>
-                                {% endif %}
-                                {% for page in custom_range %}
-                                {% if page == recipes.number %}
-                                <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
-                                       class="btn page-link btn__filled">{{ page }}</a></li>
-                                {% else %}
-                                <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
-                                       class="btn page-link">{{ page }}</a></li>
-                                {% endif %}
-                                {% endfor %}
-                                {% if recipes.has_next %}
-                                <li><a href="?page={{ recipes.next_page_number }}
+                                   class="btn page-link">&lt; Prev.</a></li>
+                            {% endif %}
+                            {% for page in custom_range %}
+                            {% if page == recipes.number %}
+                            <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
+                                   class="btn page-link btn__filled">{{ page }}</a></li>
+                            {% else %}
+                            <li><a href="?page={{ page }}{% if search_query %}&search-bar={{ search_query }}{% endif %}"
+                                   class="btn page-link">{{ page }}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                            {% if recipes.has_next %}
+                            <li><a href="?page={{ recipes.next_page_number }}
                                        {% if search_query %}&search-bar={{ search_query }}{% endif %}"
-                                       class="btn page-link">Next &gt;</a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
+                                   class="btn page-link">Next &gt;</a></li>
+                            {% endif %}
+                        </ul>
                     </div>
-                    {% endif %}
-                </section>
-                {% else %}
-                <div class="recipes-not-found">
-                    <p class="nothing-found">Nothing was found for the query "{{ search_query }}"</p>
-                    <p class="recommendations">Recommendations:</p>
-                    <p>- Make sure that all words are spelled correctly</p>
-                    <p>- Try using other keywords</p>
-                    <p>- Try to reduce the number of query criteria</p>
                 </div>
                 {% endif %}
+            </section>
+            {% else %}
+            <div class="recipes-not-found">
+                <p class="nothing-found">Nothing was found for the query "{{ search_query }}"</p>
+                <p class="recommendations">Recommendations:</p>
+                <p>- Make sure that all words are spelled correctly</p>
+                <p>- Try using other keywords</p>
+                <p>- Try to reduce the number of query criteria</p>
             </div>
+            {% endif %}
         </div>
     </section>
 </section>

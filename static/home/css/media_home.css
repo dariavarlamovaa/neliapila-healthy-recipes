@@ -44,6 +44,10 @@
         padding: 7px 13px;
     }
 
+    .found-recipes-block {
+        padding: 0 10px;
+    }
+
 }
 
 @media screen and (max-width: 300px) {

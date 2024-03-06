@@ -196,3 +196,8 @@
 .sp-pending {
     min-height: 300px;
 }
+
+.found-recipes-block {
+    padding: 0 60px;
+    margin-bottom: 30px;
+}

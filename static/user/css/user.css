@@ -7,21 +7,23 @@
 
 .login,
 .signup {
-    min-height: 665px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 750px
+}
+
+.log-main-block {
+    padding: 0 15px;
 }
 
 .login-block,
 .sign-up-block {
-    min-width: 500px;
-    max-width: 500px;
     min-height: 400px;
     text-align: center;
-    padding: 50px 100px;
+    padding: 50px;
     background-color: #FFFFFF;
-    border-radius: 60px;
+    border-radius: 25px;
     color: #74924a;
     box-sizing: border-box;
     display: flex;
@@ -54,6 +56,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    min-width: 275px;
 }
 
 .form__field {

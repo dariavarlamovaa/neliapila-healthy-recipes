@@ -88,7 +88,7 @@ main {
 }
 
 .header {
-    padding: 0 2%;
+    padding: 0 20px;
     box-sizing: border-box;
     font-size: 10px;
     border-bottom: 1px solid #efefef;
@@ -344,15 +344,15 @@ main {
 
 .page-footer_wrapper {
     box-sizing: border-box;
-    padding: 0 20px;
+    padding: 30px 20px 0;
+    border-top: 1px solid #efefef;
+
 }
 
 .list-of-links {
-    border-top: 1px solid #efefef;
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding: 15px 0 10px;
 }
 
 .list-of-links li {

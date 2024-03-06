@@ -4,17 +4,18 @@
 }
 
 .all-authors {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    padding: 0 20px 40px;
+    display: grid;
+    grid-template-columns: repeat( auto-fill, 290px);
+    grid-column-gap: 10px;
+    grid-row-gap: 25px;
+    justify-content: center;
 }
 
 .one-author {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 23%;
     border: 1px solid #efefef;
     padding: 10px 15px;
     box-sizing: border-box;

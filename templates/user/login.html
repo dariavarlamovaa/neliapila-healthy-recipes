@@ -3,37 +3,41 @@
 {% block title %}Log In{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'user/css/user.css' %}">
+<link rel="stylesheet" href="{% static 'user/css/media_user.css' %}">
 {% endblock %}
 {% block content %}
 <section class="login-user">
     <div class="login container">
-        <div class="login-block">
-            <h1>LOGIN</h1>
-            <form method="post" class="sign-in-form">
-                {% csrf_token %}
-                <p>
-                    <label for="id_username">Username</label>
-                    <input type="text" name="username" autofocus="" autocapitalize="none"
-                           autocomplete="username" required id="id_username">
+        <div class="log-main-block">
+            <div class="login-block">
+                <h1>LOGIN</h1>
+                <form method="post" class="sign-in-form">
+                    {% csrf_token %}
+                    <p>
+                        <label for="id_username">Username</label>
+                        <input type="text" name="username" autofocus="" autocapitalize="none"
+                               autocomplete="username" required id="id_username">
 
-                </p>
-                <p>
-                    <label for="id_password">Password</label>
-                    <input type="password" name="password"
-                           autocomplete="current-password" required
-                           id="id_password">
-                </p>
-                {% if error %}
-                <span class="error-form-label-input">{{ error }}</span>
-                {% endif %}
-                <div class="forgot-password">
-                    <span><a class="link-forget-password" href="{% url 'password-reset' %}">Forgot password?</a></span>
-                </div>
-                <div class="authenticate">
-                    <button class="btn">LOGIN</button>
-                </div>
-            </form>
-            <p>Don't have an account? <a class="sign-up-link link" href="{% url 'signup' %}">Sign up</a></p>
+                    </p>
+                    <p>
+                        <label for="id_password">Password</label>
+                        <input type="password" name="password"
+                               autocomplete="current-password" required
+                               id="id_password">
+                    </p>
+                    {% if error %}
+                    <span class="error-form-label-input">{{ error }}</span>
+                    {% endif %}
+                    <div class="forgot-password">
+                        <span><a class="link-forget-password"
+                                 href="{% url 'password-reset' %}">Forgot password?</a></span>
+                    </div>
+                    <div class="authenticate">
+                        <button class="btn">LOGIN</button>
+                    </div>
+                </form>
+                <p>Don't have an account? <a class="sign-up-link link" href="{% url 'signup' %}">Sign up</a></p>
+            </div>
         </div>
     </div>
 </section>
