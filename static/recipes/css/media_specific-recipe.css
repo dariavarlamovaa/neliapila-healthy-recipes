@@ -1,0 +1,109 @@
+@media screen and (max-width: 1050px) {
+    .information-about-recipe {
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 50px;
+    }
+
+    .recipe-heading {
+        text-align: center;
+    }
+
+    .recipe-main-information {
+        padding-left: unset;
+        max-width: unset;
+        padding-top: 30px;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .recipe-image img {
+        width: 400px;
+        height: 382px;
+    }
+
+    .recipe-author,
+    .recipe-info,
+    .comments-counter {
+        font-size: 1rem;
+    }
+
+    .rating-comments-link {
+        max-width: unset;
+        gap: 10px;
+    }
+
+    .recipe-image, .ingredients {
+        width: unset;
+        min-width: unset;
+    }
+
+    .ingredients {
+        min-width: 275px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cooking-information {
+        flex-direction: column;
+    }
+
+    .recipe-heading {
+        font-size: 1.4rem;
+    }
+
+    .recipe-info {
+        flex-direction: column;
+        align-items: center;
+        min-height: 150px;
+        justify-content: space-between;
+    }
+
+    .category-details, .portions-details, .cooking-time-details {
+        padding-right: unset;
+    }
+
+    .steps {
+        padding-left: unset;
+        max-width: unset;
+        padding-top: 50px;
+    }
+
+    .ingredients {
+        min-width: unset;
+    }
+
+    .ingredients ul {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .recipe-image img {
+        max-width: 320px;
+        max-height: 302px;
+        padding: 0 10px;
+    }
+
+
+    .favorite-and-print-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .add-to-favourites, .print-recipe {
+        margin-right: unset;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .recipe-image img {
+        max-width: 240px;
+        max-height: 222px;
+    }
+
+    .recipe-author, .recipe-info, .comments-counter {
+        font-size: 1rem;
+    }
+}
+

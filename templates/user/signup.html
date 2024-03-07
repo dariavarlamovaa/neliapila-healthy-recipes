@@ -9,27 +9,29 @@
 
 <section class="signup-user">
     <div class="signup container">
-        <div class="sign-up-block">
-            <h1>SIGN UP</h1>
-            <form action="{% url 'signup' %}" class="form auth__form" method="post">
-                <div class="sign-up-form-parts form-parts">
-                    {% csrf_token %}
-                    {% for field in form %}
-                    <div class="form__field">
-                        <label>{{ field.label }}</label>
-                        {{ field }}
-                        {% for error in field.errors %}
-                        <p class="error-form-label-input">{{ error }}</p>
+        <div class="sign-up-main-block">
+            <div class="sign-up-block">
+                <h1>SIGN UP</h1>
+                <form action="{% url 'signup' %}" class="form auth__form" method="post">
+                    <div class="sign-up-form-parts form-parts">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <div class="form__field">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                            {% for error in field.errors %}
+                            <p class="error-form-label-input">{{ error }}</p>
+                            {% endfor %}
+                        </div>
                         {% endfor %}
+                        <div class="authenticate">
+                            <button class="sign-up-btn btn">SIGN UP</button>
+                        </div>
                     </div>
-                    {% endfor %}
-                    <div class="authenticate">
-                        <button class="sign-up-btn btn">SIGN UP</button>
-                    </div>
-                </div>
-            </form>
-            <p>Already have an account? <a class="sign-in-link link" href="{% url 'login' %}">Login</a></p>
+                </form>
+                <p>Already have an account? <a class="sign-in-link link" href="{% url 'login' %}">Login</a></p>
 
+            </div>
         </div>
     </div>
 </section>

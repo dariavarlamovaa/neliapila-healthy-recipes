@@ -4,6 +4,7 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'recipes/css/specific-recipe.css' %}">
 <link rel="stylesheet" href="{% static 'recipes/css/comment-section.css' %}">
+<link rel="stylesheet" href="{% static 'recipes/css/media_specific-recipe.css' %}">
 {% endblock %}
 {% block content %}
 <section class="specific-recipe-page">
@@ -76,7 +77,7 @@
                                 </a>
                             </div>
                         </div>
-                        {% if request.user.id == recipe.author.id or request.user.is_staff %}
+                        {% if request.user.id == recipe.author.user_id or request.user.is_staff %}
                         <div class="delete-recipe">
                             <div class="delete">
                                 <a class="delete-link button-link" href="{% url 'delete-recipe' recipe.id %}">

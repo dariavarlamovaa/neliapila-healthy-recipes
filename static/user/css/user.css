@@ -13,7 +13,8 @@
     height: 750px
 }
 
-.log-main-block {
+.log-main-block,
+.sign-up-main-block {
     padding: 0 15px;
 }
 

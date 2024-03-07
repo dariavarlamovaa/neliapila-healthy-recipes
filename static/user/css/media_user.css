@@ -1,6 +1,6 @@
 @media screen and (max-width: 445px){
     .login-block, .sign-up-block {
-        padding: 50px 20px;
+        padding: 50px 40px;
     }
 
     .sign-in-form p {
@@ -8,6 +8,10 @@
         min-height: 60px;
         align-items: unset;
         min-width: unset;
+    }
+
+    .link-to-signup {
+        font-size: 13px;
     }
 
 }

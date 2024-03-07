@@ -1,5 +1,5 @@
 .sp-recipe {
-    width: 980px;
+    padding: 0 25px;
 }
 
 .information-about-recipe {
@@ -9,14 +9,15 @@
 
 .recipe-image,
 .ingredients {
-    width: 35%;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .recipe-main-information,
 .steps {
-    width: 65%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     padding-left: 50px;
