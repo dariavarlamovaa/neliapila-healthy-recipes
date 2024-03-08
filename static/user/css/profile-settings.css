@@ -5,7 +5,8 @@
 }
 
 .settings {
-    min-height: 670px;
+    height: 700px;
+    padding: 50px 0;
 }
 
 .profile-image-settings img {
@@ -14,18 +15,23 @@
     border-radius: 100%;
 }
 
+.wrapper-settings-parts {
+    padding: 0 20px;
+}
+
 .settings-parts {
-    float: right;
+    max-width: max-content;
     text-align: center;
-    min-width: 600px;
-    min-height: 600px;
     color: #74924a;
-    padding: 20px 70px;
+    padding: 25px 30px;
     box-sizing: border-box;
-    border-radius: 60px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    gap: 10px;
 }
 
 .settings-form {
@@ -46,7 +52,10 @@
 
 .change-profile-pic input {
     border: none;
+    padding: 1px;
+    font-size: 10px;
 }
+
 
 .form-field input,
 .form-field textarea {

@@ -7,29 +7,31 @@
 {% block content %}
 <section class="profile-settings">
     <div class="settings container">
-        <div class="settings-parts">
-            <h1>Profile Settings</h1>
-            <div class="profile-image-settings">
-                <img src="{{ profile.image.url }}" alt="User`s image">
-            </div>
-            <div class="settings-form-block">
-                <form action="{% url 'edit-profile' user.profile.id %}" class="settings-form" method="POST"
-                      enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="change-profile-pic">
-                        {{ form.image.label }}
-                        {{ form.image }}
-                    </div>
-                    {% for field in form %}
-                    {% if forloop.counter < 5 %}
-                    <div class="form-field">
-                        <label>{{ field.label }}</label>
-                        <p>{{ field }}</p>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                    <input class="submit btn" type="submit" value="Submit"/>
-                </form>
+        <div class="wrapper-settings-parts">
+            <div class="settings-parts">
+                <h1>Profile Settings</h1>
+                <div class="profile-image-settings">
+                    <img src="{{ profile.image.url }}" alt="User`s image">
+                </div>
+                <div class="settings-form-block">
+                    <form action="{% url 'edit-profile' user.profile.id %}" class="settings-form" method="POST"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="change-profile-pic">
+                            {{ form.image.label }}
+                            {{ form.image }}
+                        </div>
+                        {% for field in form %}
+                        {% if forloop.counter < 5 %}
+                        <div class="form-field">
+                            <label>{{ field.label }}</label>
+                            <p>{{ field }}</p>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        <input class="submit btn" type="submit" value="Submit"/>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
