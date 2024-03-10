@@ -1,39 +1,55 @@
+from braces.views import LoginRequiredMixin
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
+from django.urls import reverse_lazy
+from django.views import View
+from django.views.generic import CreateView, DetailView, TemplateView
+from django.utils.decorators import method_decorator
 
 from recipes.models import Recipe
 from .forms import NewUserCreationForm, ProfileForm, ContactForm
 from .models import Profile, Favorite, Contact
 
 
-def signup_user(request):
-    form = NewUserCreationForm()
-    if request.method == 'POST':
-        form = NewUserCreationForm(request.POST)
-        if request.POST['password1'] == request.POST['password2']:
-            if form.is_valid():
-                user = form.save(commit=False)
-                if len(user.username) > 15:
-                    messages.error(request, 'Username cannot contain more than 15 characters')
-                else:
-                    user.username = user.username.lower().strip()
-                    user.first_name = user.first_name.strip()
-                    user.last_name = user.last_name.strip()
-                    user.email = user.email.lower().strip()
-                    user.save()
-                    messages.success(request, 'User account successfully created')
-                    login(request, user)
-                    return redirect('recipes')
-    return render(request, 'user/signup.html', {'form': form})
+class RegisterView(CreateView):
+    form_class = NewUserCreationForm
+    template_name = 'user/signup.html'
+    success_url = reverse_lazy('recipes')
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('recipes')
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        user = form.save(commit=False)
+
+        user.username = form.cleaned_data['username'].lower().strip()
+        user.email = form.cleaned_data['email'].lower().strip()
+
+        user.set_password(form.cleaned_data['password1'])
+
+        user.save()
+
+        login(self.request, user)
+
+        messages.success(self.request, 'User account successfully created')
+        return redirect('recipes')
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
 
 
-def login_user(request):
-    if request.method == 'GET':
+class UserLoginView(View):
+    template_name = 'user/login.html'
+
+    def get(self, request):
         return render(request, 'user/login.html')
-    else:
+
+    def post(self, request):
         username = request.POST.get('username', '')
         password = request.POST.get('password', '')
         user = authenticate(request, username=username, password=password)
@@ -45,29 +61,41 @@ def login_user(request):
             return redirect('recipes')
 
 
-@login_required
-def logout_user(request):
-    if request.method == 'POST':
+class UserLogoutView(LoginRequiredMixin, View):
+    def post(self, request):
         logout(request)
         messages.success(request, 'You have been logged out')
         return redirect('recipes')
 
 
-def author_profile(request, pk):
-    profile = Profile.objects.select_related('user').get(id=pk)
-    if request.user == profile.user or request.user.is_staff:
-        recipes = Recipe.objects.filter(author=pk).all().order_by('-date_created')
-    else:
-        recipes = Recipe.objects.filter(author=pk, is_approved=True).all().order_by('-date_created')
-    recipes_count = recipes.count()
-    try:
-        favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
-    except AttributeError:
-        favorite_recipes = ''
-    pending_recipes_count = Recipe.objects.filter(author=pk, is_approved=False).count()
-    context = {'profile': profile, 'recipes': recipes, 'recipes_count': recipes_count,
-               'pending_recipes_count': pending_recipes_count, 'favorites': favorite_recipes}
-    return render(request, 'user/profile.html', context)
+class AuthorProfileView(DetailView):
+    model = Profile
+    template_name = 'user/profile.html'
+    pk_url_kwarg = 'pk'
+    context_object_name = 'profile'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        profile = self.object
+        author_id = profile.id
+        if self.request.user == profile.user or self.request.user.is_staff:
+            recipes = Recipe.objects.filter(author=author_id).all().order_by('-date_created')
+        else:
+            recipes = Recipe.objects.filter(author=author_id, is_approved=True).all().order_by('-date_created')
+        recipes_count = recipes.count()
+        try:
+            favorite_recipes = [favorite.favorite_recipe for favorite in self.request.user.profile.favorite_set.all()]
+        except AttributeError:
+            favorite_recipes = ''
+        pending_recipes_count = Recipe.objects.filter(author=author_id, is_approved=False).count()
+
+        context.update({
+            'recipes': recipes,
+            'recipes_count': recipes_count,
+            'pending_recipes_count': pending_recipes_count,
+            'favorites': favorite_recipes,
+        })
+        return context
 
 
 @login_required
@@ -93,13 +121,16 @@ def edit_profile(request, pk):
     return render(request, 'user/profile-form.html', context)
 
 
-@login_required
-def get_favorites(request):
-    profile = Profile.objects.get(user=request.user.id)
-    favorite_recipes = profile.favorite_set.all()
-    favorite_recipes = [favorite.favorite_recipe for favorite in favorite_recipes]
-    context = {'favorites': favorite_recipes}
-    return render(request, 'user/favorites.html', context)
+class FavoritesView(LoginRequiredMixin, TemplateView):
+    template_name = 'user/favorites.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(*kwargs)
+        profile = Profile.objects.get(user=self.request.user.id)
+        favorite_recipes = profile.favorite_set.all()
+        favorite_recipes = [favorite.favorite_recipe for favorite in favorite_recipes]
+        context.update({'favorites': favorite_recipes})
+        return context
 
 
 @login_required
@@ -152,7 +183,16 @@ def contact_view(request):
     return render(request, 'user/contact-form.html', context)
 
 
-def get_messages(request):
-    all_messages = Contact.objects.order_by('-created').all()
-    context = {'all_messages': all_messages}
-    return render(request, 'user/messages.html', context)
+class MessagesView(TemplateView):
+    template_name = 'user/messages.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return HttpResponseForbidden('You do not have permission to access this page.')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(*kwargs)
+        all_messages = Contact.objects.order_by('-created').all()
+        context.update({'all_messages': all_messages})
+        return context

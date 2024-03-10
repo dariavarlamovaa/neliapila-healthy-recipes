@@ -146,6 +146,11 @@
                         <div class="menu-links">
                             <a href="{% url 'recipes' %}">Recipes</a>
                             <a href="{% url 'authors' %}">Authors</a>
+                            {% if user.is_staff %}
+                            <a href="{% url 'pending-recipes' %}">Pending recipes</a>
+                            <a href="{% url 'pending-comments' %}">Comments</a>
+                            <a href="{% url 'messages' %}">Msgs</a>
+                            {% endif %}
                         </div>
                         <a class="menu-link-add-a-recipe" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
 

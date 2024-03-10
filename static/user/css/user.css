@@ -57,7 +57,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    min-width: 275px;
+    gap: 5px;
 }
 
 .form__field {

@@ -10,25 +10,27 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView
 )
 
+from .views import RegisterView, UserLoginView, UserLogoutView, AuthorProfileView, MessagesView, FavoritesView
+
 urlpatterns = [
     # login, signup, logout
-    path('login/', views.login_user, name='login'),
-    path('signup/', views.signup_user, name='signup'),
-    path('logout/', views.logout_user, name='logout'),
+    path('login/', UserLoginView.as_view(), name='login'),
+    path('signup/', RegisterView.as_view(), name='signup'),
+    path('logout/', UserLogoutView.as_view(), name='logout'),
 
     # favorites
-    path('profile/favorites', views.get_favorites, name='favorites'),
+    path('profile/favorites', FavoritesView.as_view(), name='favorites'),
     path('add-to-favorites/<pk>', views.add_recipe_to_favorites, name='add-to-favorites'),
     path('delete-from-favorites/<pk>', views.delete_favorite, name='delete-from-favorites'),
 
     # author(user) profile
-    path('profile/<pk>', views.author_profile, name='profile'),
+    path('profile/<pk>', AuthorProfileView.as_view(), name='profile'),
     # edit profile info
     path('profile/<pk>/edit', views.edit_profile, name='edit-profile'),
 
     # contact
     path('contact-us/', views.contact_view, name='contact-us'),
-    path('messages/', views.get_messages, name='messages'),
+    path('messages/', MessagesView.as_view(), name='messages'),
 
     # reset password
     path('password-reset/', PasswordResetView.as_view(template_name='user/password_reset.html'),
