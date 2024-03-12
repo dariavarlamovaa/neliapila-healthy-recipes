@@ -9,10 +9,10 @@
 .no-recipes {
     display: flex;
     flex-direction: column;
-    width: 70%;
     text-align: center;
     align-items: center;
-    height: 500px;
+    margin: 0 auto;
+    padding: 50px 0;
 }
 
 .no-recipes img {
@@ -197,7 +197,7 @@
 .profile-name {
     font-size: 20px;
     text-transform: capitalize;
-    word-break: break-all;
+    word-break: break-word;
     text-align: center;
 }
 

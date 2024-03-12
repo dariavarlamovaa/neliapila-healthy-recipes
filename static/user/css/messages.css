@@ -1,5 +1,5 @@
 .all-messages {
-    width: 1000px;
+    padding: 0 10px;
 }
 
 .all-messages h1 {
@@ -10,21 +10,23 @@
 .message-info {
     border: 1px solid #efefef;
     border-radius: 6px;
-    padding: 20px 30px;
+    padding: 20px;
     margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .sender-email-date {
     display: flex;
     flex-direction: row;
-    padding-bottom: 30px;
-    align-items: center;
     justify-content: space-between;
 }
 
 .sender-email {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .msg-sender,
@@ -36,10 +38,7 @@
 .msg-date {
     font-size: 10px;
     color: #777777;
-}
-
-.msg-subject {
-    padding-bottom: 30px;
+    text-align: right;
 }
 
 .no-messages {

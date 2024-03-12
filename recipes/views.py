@@ -37,7 +37,7 @@ def add_a_recipe(request):
 def leave_a_comment(request, specific_recipe):
     try:
         if request.method == 'POST':
-            if request.user.profile == specific_recipe.author.profile:
+            if request.user.profile == specific_recipe.author:
                 messages.error(request, 'You can`t leave a comment on your own recipe')
                 return redirect('specific-recipe', pk=specific_recipe.id)
             else:
@@ -123,9 +123,8 @@ def get_pdf(request, pk):
 
 @login_required
 def delete_recipe(request, pk):
-    recipe_to_delete = Recipe.objects.get(pk=pk)
-
-    if request.user.id == recipe_to_delete.author.id or request.user.is_staff:
+    recipe_to_delete = Recipe.objects.select_related('author__user__profile').get(pk=pk)
+    if request.user.id == recipe_to_delete.author.user_id or request.user.is_staff:
         if request.method == 'POST':
             recipe_to_delete.delete()
             messages.success(request, f'Recipe - "{recipe_to_delete.title}" successfully deleted')

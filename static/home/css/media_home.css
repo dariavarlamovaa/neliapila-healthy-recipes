@@ -6,7 +6,8 @@
 }
 
 @media screen and (max-width: 650px) {
-    .home-page > section:not(:first-child) {
+    .home-page > section:not(:first-child),
+    .pending-recipes-page {
         padding: 0 20px;
     }
 
@@ -51,7 +52,8 @@
 }
 
 @media screen and (max-width: 300px) {
-    .home-page > section:not(:first-child) {
+    .home-page > section:not(:first-child),
+    .pending-recipes-page{
         padding: 0 5px;
         text-align: center;
     }

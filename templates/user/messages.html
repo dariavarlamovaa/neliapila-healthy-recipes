@@ -18,12 +18,12 @@
                     <a class="msg-sender" href="{% url 'profile' msg.sender.user.id %}">@{{ msg.sender.username }}</a>
                     {% endif %}
                 </div>
-                <p class="msg-date">{{ msg.created | date:"j.n.Y H:i" }}</p>
             </div>
             {% if msg.subject %}
             <p class="msg-subject">Subject - {{ msg.subject }}</p>
             {% endif %}
             <p class="msg-body">{{ msg.body }}</p>
+            <p class="msg-date">{{ msg.created | date:"j.n.Y H:i" }}</p>
         </div>
         {% endfor %}
         {% else %}

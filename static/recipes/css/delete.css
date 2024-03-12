@@ -1,9 +1,14 @@
 .delete-confirmation {
     text-align: center;
+    padding-bottom: 40px;
 }
 
 .delete-confirmation h1 {
-    padding: 40px 0 80px;
+    padding: 40px 0;
+}
+
+.delete-block-outer {
+    padding: 0 10px;
 }
 
 .delete-block {
@@ -12,10 +17,10 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px 30px;
-    min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .confirmation-letter {
@@ -29,9 +34,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    max-width: 300px;
     margin: 0 auto;
-    min-width: 250px;
+    gap: 15px;
 }
 
 .form-delete-recipe input[type=submit] {

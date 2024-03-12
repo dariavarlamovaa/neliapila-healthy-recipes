@@ -1,20 +1,14 @@
+.one-pending-recipe-page {
+    background-color: #74924AB3;
+}
+
 .one-pending-recipe {
-    padding-bottom: 40px;
+    padding: 40px 10px;
     box-sizing: border-box;
 }
 
-.pending-recipe-heading {
-    text-align: center;
-    padding: 50px 0;
-}
-
 .author-link {
-    padding-bottom: 20px;
     font-weight: 500;
-}
-
-.pending-recipe-image {
-    margin-bottom: 30px;
 }
 
 .one-recipe {
@@ -24,24 +18,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #FFFFFF;
+    padding: 30px 10px;
+    gap: 20px;
 }
 
 .one-recipe input,
 .one-recipe textarea,
 .one-recipe select {
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .pending-recipe-image {
-    width: 300px;
-    height: 280px;
+    max-width: 60%;
+    height: auto;
+}
+
+.recipe-edit-form {
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-recipe-div-outer {
+    width: 100%;
+}
+
+.delete-recipe-div-outer a {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .delete-recipe-div {
     border-color: #a91313;
-    max-height: 33px;
-    max-width: 624px;
     text-align: center;
     margin: 0 auto;
     font-size: 12px;

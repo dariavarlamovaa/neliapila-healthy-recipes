@@ -1,31 +1,32 @@
 .new-recipe {
-    width: 1100px;
+    padding: 0 20px;
 }
 
 .add-a-new-recipe {
-    background-color: #74924a;
+    background-color: #74924AB3;
     padding: 40px 0;
     box-sizing: border-box;
 }
 
 .new-recipe-block {
-    text-align: center;
-    min-height: 1225px;
+    text-align: start;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #FFFFFF;
-    padding: 50px 150px;
+    padding: 50px;
     box-sizing: border-box;
     border-radius: 6px;
-
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .new_recipe__form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 1060px;
+    gap: 20px;
 }
 
 
@@ -34,10 +35,17 @@
 }
 
 .add-a-recipe-form {
-    min-height: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 50px;
+
+}
+
+.new-recipe-form-field {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .new-recipe-form-field input,

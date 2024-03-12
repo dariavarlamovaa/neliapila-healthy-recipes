@@ -7,8 +7,8 @@
 {% block content %}
 <section class="one-pending-recipe-page">
     <section class="one-pending-recipe container">
-        <h1 class="pending-recipe-heading">{{ recipe.title }}</h1>
         <div class="one-recipe">
+            <h1 class="pending-recipe-heading">{{ recipe.title }}</h1>
             <a class="author-link" href="{% url 'profile' recipe.author.id %}">Author - @{{ recipe.author }}</a>
             <img class="pending-recipe-image" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
             <form method="post" class="recipe-edit-form">
@@ -16,12 +16,14 @@
                 {{ form.as_p }}
                 <input class="new_recipe_submit btn" type="submit" value="APPROVE"/>
             </form>
-        </div>
-        <a href="{% url 'delete-recipe' recipe.id %}">
-            <div class="delete-recipe-div btn">
-                DELETE
+            <div class="delete-recipe-div-outer">
+                <a href="{% url 'delete-recipe' recipe.id %}">
+                    <div class="delete-recipe-div btn">
+                        DELETE
+                    </div>
+                </a>
             </div>
-        </a>
+        </div>
     </section>
 </section>
 {% endblock %}

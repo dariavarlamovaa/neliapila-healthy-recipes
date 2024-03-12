@@ -9,17 +9,19 @@
     <div class="delete container">
         <div class="delete-confirmation">
             <h1>Delete recipe</h1>
-            <div class="delete-block">
-                <div class="confirmation-letter">
-                    <p>Are you sure you want to delete recipe - "{{ recipe.title }}"?</p>
-                    <p>This action cannot be reversed.</p>
-                </div>
-                <div class="delete-form form">
-                    <form class="form-delete-recipe" method="post">
-                        {% csrf_token %}
-                        <input type="submit" value="Delete">
-                    </form>
-                    <a href="{% if recipe.is_approved %}{% url 'specific-recipe' recipe.id %}{% else %}{% url 'approve-recipe' recipe.id %}{% endif %}">Cancel</a>
+            <div class="delete-block-outer">
+                <div class="delete-block">
+                    <div class="confirmation-letter">
+                        <p>Are you sure you want to delete recipe - "{{ recipe.title }}"?</p>
+                        <p>This action cannot be reversed.</p>
+                    </div>
+                    <div class="delete-form form">
+                        <form class="form-delete-recipe" method="post">
+                            {% csrf_token %}
+                            <input type="submit" value="Delete">
+                        </form>
+                        <a href="{% if recipe.is_approved %}{% url 'specific-recipe' recipe.id %}{% else %}{% url 'approve-recipe' recipe.id %}{% endif %}">Cancel</a>
+                    </div>
                 </div>
             </div>
         </div>
