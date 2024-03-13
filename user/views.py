@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, logout, authenticate
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, DetailView, TemplateView
+from django.views.generic import CreateView, DetailView, TemplateView, UpdateView, DeleteView
 
 from recipes.models import Recipe
 from .forms import NewUserCreationForm, ProfileForm, ContactForm
@@ -97,27 +97,29 @@ class AuthorProfileView(DetailView):
         return context
 
 
-@login_required
-def edit_profile(request, pk):
-    profile = Profile.objects.get(user=request.user.pk)
-    form = ProfileForm(instance=profile)
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            edition = form.save(commit=False)
-            edition.username = edition.username.lower().strip()
-            edition.save()
-            messages.success(request, 'Profile edited successfully')
-            return redirect('profile', request.user.profile.id)
-        else:
-            email_error = form.errors.get('email')
-            username_error = form.errors.get('username')
-            if form.errors.get('username'):
-                messages.error(request, *username_error)
-            if form.errors.get('email'):
-                messages.error(request, *email_error)
-    context = {'form': form, 'profile': profile}
-    return render(request, 'user/profile-form.html', context)
+class ProfileEditorView(LoginRequiredMixin, UpdateView):
+    model = Profile
+    template_name = 'user/profile-form.html'
+    pk_url_kwarg = 'pk'
+    form_class = ProfileForm
+
+    def get_object(self, queryset=None):
+        return self.request.user.profile
+
+    def form_valid(self, form):
+        edition = form.save(commit=False)
+        edition.username = edition.username.lower().strip()
+        edition.save()
+        messages.success(self.request, 'Profile edited successfully')
+        return redirect('profile', self.request.user.profile.id)
+
+    def form_invalid(self, form):
+        email_error = form.errors.get('email')
+        username_error = form.errors.get('username')
+        if form.errors.get('username'):
+            messages.error(self.request, *username_error)
+        if form.errors.get('email'):
+            messages.error(self.request, *email_error)
 
 
 class FavoritesView(LoginRequiredMixin, TemplateView):
@@ -132,27 +134,28 @@ class FavoritesView(LoginRequiredMixin, TemplateView):
         return context
 
 
-@login_required
-def add_recipe_to_favorites(request, pk):
-    recipe = get_object_or_404(Recipe, id=pk)
-    if recipe.is_approved:
-        favourite, created = Favorite.objects.get_or_create(
-            favorite_recipe=recipe,
-            profile=request.user.profile
-        )
-        if not created:
-            favourite.save()
-        messages.success(request, 'Recipe added to favorites')
-        return redirect('favorites')
+class FavoriteAddingView(LoginRequiredMixin, View):
+    model = Favorite
+
+    def get(self, request, pk):
+        recipe = get_object_or_404(Recipe, id=pk)
+        if recipe.is_approved:
+            favourite, created = self.model.objects.get_or_create(
+                favorite_recipe=recipe,
+                profile=request.user.profile
+            )
+            if not created:
+                favourite.save()
+            messages.success(request, 'Recipe added to favorites')
+            return redirect('favorites')
 
 
-@login_required
-def delete_favorite(request, pk):
-    favourite = get_object_or_404(Favorite, favorite_recipe_id=pk, profile=request.user.profile)
-    if not request.user.id == favourite.profile.user.id:
-        return HttpResponseForbidden('You do not have permission to access this page.')
+class FavoriteDeleterView(LoginRequiredMixin, View):
+    def get_object(self, queryset=None):
+        return self.request.user
 
-    if request.method == 'GET':
+    def get(self, request, pk):
+        favourite = get_object_or_404(Favorite, favorite_recipe_id=pk, profile=request.user.profile)
         favourite.delete()
         messages.success(request, 'Recipe deleted from favorites')
         return redirect('favorites')

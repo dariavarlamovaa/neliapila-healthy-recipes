@@ -115,7 +115,7 @@
                 {% if request.user.is_authenticated %}
                 <div class="leave-comment-section">
                     <div class="comment-form">
-                        <form class="form" action="{% url 'specific-recipe' recipe.id %}" method="POST">
+                        <form class="form" action="{% url 'leave-comment' recipe.id %}" method="POST">
                             {% csrf_token %}
                             {% for field in form %}
                             <div class="form-for-comment">
@@ -161,7 +161,7 @@
                         <div class="comment-body">
                             <p>{{ comment.body }}</p>
                         </div>
-                        {% if request.user.id == comment.owner.id or user.is_staff %}
+                        {% if request.user.profile.id == comment.owner.id or user.is_staff %}
                         <div class="delete-comment">
                             <a href="{% url 'delete-comment' comment.id %}">
                                 <img src="{% static 'user/images/delete.svg' %}" alt="Delete">

@@ -10,7 +10,8 @@ from django.contrib.auth.views import (
     PasswordResetCompleteView
 )
 
-from .views import RegisterView, UserLoginView, UserLogoutView, AuthorProfileView, MessagesView, FavoritesView
+from .views import RegisterView, UserLoginView, UserLogoutView, AuthorProfileView, MessagesView, FavoritesView, \
+    ProfileEditorView, FavoriteAddingView, FavoriteDeleterView
 
 urlpatterns = [
     # login, signup, logout
@@ -20,13 +21,13 @@ urlpatterns = [
 
     # favorites
     path('profile/favorites', FavoritesView.as_view(), name='favorites'),
-    path('add-to-favorites/<pk>', views.add_recipe_to_favorites, name='add-to-favorites'),
-    path('delete-from-favorites/<pk>', views.delete_favorite, name='delete-from-favorites'),
+    path('add-to-favorites/<pk>', FavoriteAddingView.as_view(), name='add-to-favorites'),
+    path('delete-from-favorites/<pk>', FavoriteDeleterView.as_view(), name='delete-from-favorites'),
 
     # author(user) profile
     path('profile/<pk>', AuthorProfileView.as_view(), name='profile'),
     # edit profile info
-    path('profile/<pk>/edit', views.edit_profile, name='edit-profile'),
+    path('profile/<pk>/edit', ProfileEditorView.as_view(), name='edit-profile'),
 
     # contact
     path('contact-us/', views.contact_view, name='contact-us'),

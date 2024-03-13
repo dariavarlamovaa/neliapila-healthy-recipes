@@ -1,15 +1,17 @@
 from django.urls import path
 from recipes import views
+from recipes.views import RecipeCreationView, CommentAddingView, CommentDeleterView
 
 urlpatterns = [
-    path('add-a-recipe/', views.add_a_recipe, name='add-recipe'),
+    path('add-a-recipe/', RecipeCreationView.as_view(), name='add-recipe'),
     path('recipe/<pk>', views.show_specific_recipe, name='specific-recipe'),
 
     path('pdf-view/<pk>', views.get_pdf, name='pdf'),
 
     path('delete-recipe/<pk>', views.delete_recipe, name='delete-recipe'),
+    path('leave-comment/<pk>', CommentAddingView.as_view(), name='leave-comment'),
 
-    path('delete-comment/<pk>', views.delete_comment, name='delete-comment'),
+    path('delete-comment/<pk>', CommentDeleterView.as_view(), name='delete-comment'),
 
 
     # admin

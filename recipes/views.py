@@ -2,6 +2,8 @@ import re
 
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, DeleteView
 from xhtml2pdf import pisa
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseForbidden
@@ -14,29 +16,34 @@ from recipes.forms import NewRecipe, CommentForm
 from recipes.models import Recipe, Comment
 
 
-@login_required
-def add_a_recipe(request):
-    profile = request.user
-    form = NewRecipe()
-    if request.method == 'POST':
-        form = NewRecipe(request.POST, request.FILES)
-        if form.is_valid():
-            user_recipe = form.save(commit=False)
-            user_recipe.author = profile
-            user_recipe.title = user_recipe.title.lower().capitalize().strip()
-            user_recipe.ingredients = re.sub(r'\n\s*\n', '\n', user_recipe.ingredients.strip())
-            user_recipe.steps = re.sub(r'\n\s*\n', '\n', user_recipe.steps.strip())
-            user_recipe.save()
-            messages.success(request,
-                             'The recipe has been added successfully. Wait for the admin\'s approval')
-            return redirect('profile', request.user.id)
-    context = {'form': form}
-    return render(request, 'recipes/add_recipe.html', context)
+class RecipeCreationView(CreateView):
+    template_name = 'recipes/add_recipe.html'
+    form_class = NewRecipe
+    model = Recipe
+
+    def form_valid(self, form):
+        user_recipe = form.save(commit=False)
+        user_recipe.author = self.request.user.profile
+        user_recipe.title = user_recipe.title.lower().capitalize().strip()
+        user_recipe.ingredients = re.sub(r'\n\s*\n', '\n', user_recipe.ingredients.strip())
+        user_recipe.steps = re.sub(r'\n\s*\n', '\n', user_recipe.steps.strip())
+        user_recipe.save()
+        messages.success(self.request,
+                         'The recipe has been added successfully. Wait for the admin\'s approval')
+        return redirect('profile', self.request.user.profile.id)
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
 
 
-def leave_a_comment(request, specific_recipe):
-    try:
-        if request.method == 'POST':
+class CommentAddingView(CreateView):
+    template_name = 'specific-recipe'
+    form_class = CommentForm
+    pk_url_kwarg = 'pk'
+
+    def post(self, request, *args, **kwargs):
+        specific_recipe = Recipe.objects.get(pk=self.kwargs['pk'])
+        try:
             if request.user.profile == specific_recipe.author:
                 messages.error(request, 'You can`t leave a comment on your own recipe')
                 return redirect('specific-recipe', pk=specific_recipe.id)
@@ -49,20 +56,20 @@ def leave_a_comment(request, specific_recipe):
 
                 messages.success(request, 'Your comment posted successfully. Wait for the admin\'s approval')
                 return redirect('specific-recipe', pk=specific_recipe.id)
-    except IntegrityError:
-        messages.error(request, 'You have already posted the comment')
-        return redirect('specific-recipe', pk=specific_recipe.id)
+        except IntegrityError:
+            messages.error(request, 'You have already posted the comment')
+            return redirect('specific-recipe', pk=specific_recipe.id)
 
 
-def delete_comment(request, pk):
-    comment = Comment.objects.get(pk=pk)
-    if request.user.id == comment.owner.id or request.user.is_staff:
-        if request.method == 'GET':
+class CommentDeleterView(DeleteView):
+    def get(self, request, *args, **kwargs):
+        comment = Comment.objects.get(pk=self.kwargs['pk'])
+        if request.user.profile.id == comment.owner.id or request.user.is_staff:
             comment.delete()
             messages.success(request, 'You have deleted your comment')
             return redirect('specific-recipe', pk=comment.recipe.id)
-    else:
-        return HttpResponseForbidden('You do not have permission to access this page.')
+        else:
+            return HttpResponseForbidden('You do not have permission to access this page.')
 
 
 def count_recipe_average_rating(recipe_ratings):
@@ -88,8 +95,7 @@ def show_specific_recipe(request, pk):
     except AttributeError:
         favorite_recipes = ''
     form = CommentForm()
-    if request.method == 'POST':
-        leave_a_comment(request, specific_recipe)
+
     context = {'recipe': specific_recipe, 'comments_count': comments_count,
                'favorites': favorite_recipes, 'ingredients': recipe_ingredients,
                'steps': recipe_steps, 'form': form, 'comments': comments,
