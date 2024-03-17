@@ -1,9 +1,9 @@
 import re
 
 from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth.decorators import login_required
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import View
+from django.views.generic import CreateView, DeleteView, TemplateView, FormView, DetailView
 from xhtml2pdf import pisa
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseForbidden
@@ -77,30 +77,34 @@ def count_recipe_average_rating(recipe_ratings):
     return average_rating
 
 
-def show_specific_recipe(request, pk):
-    specific_recipe = Recipe.objects.get(pk=pk, is_approved=True)
-    recipe_ingredients = specific_recipe.ingredients.split('\n')
-    recipe_ingredients = [ingredient.strip() for ingredient in recipe_ingredients if ingredient.strip()]
-    recipe_steps = specific_recipe.steps.split('\n')
-    recipe_steps = [step.strip() for step in recipe_steps if step.strip()]
-    comments = Comment.objects.select_related('owner__user__profile').filter(recipe=specific_recipe, is_approved=True)
-    comments_count = comments.count()
-    recipe_ratings = [comment.rating for comment in comments]
-    if recipe_ratings:
-        average_recipe_rating = count_recipe_average_rating(recipe_ratings)
-    else:
-        average_recipe_rating = ''
-    try:
-        favorite_recipes = [favorite.favorite_recipe for favorite in request.user.profile.favorite_set.all()]
-    except AttributeError:
-        favorite_recipes = ''
-    form = CommentForm()
+class SpecificRecipeView(TemplateView):
+    template_name = 'recipes/specific-recipe.html'
 
-    context = {'recipe': specific_recipe, 'comments_count': comments_count,
-               'favorites': favorite_recipes, 'ingredients': recipe_ingredients,
-               'steps': recipe_steps, 'form': form, 'comments': comments,
-               'average_recipe_rating': average_recipe_rating}
-    return render(request, 'recipes/specific-recipe.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        specific_recipe = Recipe.objects.get(pk=self.kwargs['pk'], is_approved=True)
+        recipe_ingredients = specific_recipe.ingredients.split('\n')
+        recipe_ingredients = [ingredient.strip() for ingredient in recipe_ingredients if ingredient.strip()]
+        recipe_steps = specific_recipe.steps.split('\n')
+        recipe_steps = [step.strip() for step in recipe_steps if step.strip()]
+        comments = Comment.objects.select_related('owner__user__profile').filter(recipe=specific_recipe,
+                                                                                 is_approved=True)
+        comments_count = comments.count()
+        recipe_ratings = [comment.rating for comment in comments]
+        if recipe_ratings:
+            average_recipe_rating = count_recipe_average_rating(recipe_ratings)
+        else:
+            average_recipe_rating = ''
+        try:
+            favorite_recipes = [favorite.favorite_recipe for favorite in self.request.user.profile.favorite_set.all()]
+        except AttributeError:
+            favorite_recipes = ''
+        form = CommentForm()
+        context.update({'recipe': specific_recipe, 'comments_count': comments_count,
+                        'favorites': favorite_recipes, 'ingredients': recipe_ingredients,
+                        'steps': recipe_steps, 'form': form, 'comments': comments,
+                        'average_recipe_rating': average_recipe_rating})
+        return context
 
 
 def get_pdf(request, pk):
@@ -127,39 +131,63 @@ def get_pdf(request, pk):
     return response
 
 
-@login_required
-def delete_recipe(request, pk):
-    recipe_to_delete = Recipe.objects.select_related('author__user__profile').get(pk=pk)
-    if request.user.id == recipe_to_delete.author.user_id or request.user.is_staff:
-        if request.method == 'POST':
+class RecipeDeleterView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        recipe_to_delete = Recipe.objects.select_related('author__user__profile').get(pk=self.kwargs['pk'])
+        return render(request, 'recipes/delete.html', {'recipe': recipe_to_delete})
+
+    def post(self, request, *args, **kwargs):
+        recipe_to_delete = Recipe.objects.select_related('author__user__profile').get(pk=self.kwargs['pk'])
+        if request.user.profile.id == recipe_to_delete.author.id or request.user.is_staff:
             recipe_to_delete.delete()
             messages.success(request, f'Recipe - "{recipe_to_delete.title}" successfully deleted')
-            return redirect('profile', request.user.id)
-    else:
-        return HttpResponseForbidden('You do not have permission to access this page.')
-
-    context = {'recipe': recipe_to_delete}
-    return render(request, 'recipes/delete.html', context)
+            return redirect('profile', self.request.user.profile.id)
+        else:
+            return HttpResponseForbidden('You do not have permission to access this page.')
 
 
-@staff_member_required
-def pending_recipes(request):
-    all_pending_recipes = Recipe.objects.filter(is_approved=False).all()
-    all_pending_recipes, paginator, custom_range = paginate(request, all_pending_recipes)
-    context = {'recipes': all_pending_recipes, 'paginator': paginator, 'custom_range': custom_range}
-    return render(request, 'recipes/pending-recipes.html', context)
+# Functions for Admin
+class PendingRecipesView(TemplateView):
+    template_name = 'recipes/pending-recipes.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return HttpResponseForbidden('You do not have permission to access this page.')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_pending_recipes = Recipe.objects.filter(is_approved=False).all()
+        all_pending_recipes, paginator, custom_range = paginate(self.request, all_pending_recipes)
+        context.update({'recipes': all_pending_recipes, 'paginator': paginator, 'custom_range': custom_range})
+        return context
 
 
-@staff_member_required
-def approve_recipe(request, pk):
-    recipe = Recipe.objects.get(pk=pk)
-    form = NewRecipe(instance=recipe)
-    if 'image' in form.fields:
-        del form.fields['image']
-    if request.method == 'GET':
-        return render(request, 'recipes/one-pending-recipe.html',
-                      {'recipe': recipe, 'form': form})
-    else:
+class PendingRecipeApprovalView(DetailView):
+    form_class = NewRecipe
+    model = Recipe
+    template_name = 'recipes/one-pending-recipe.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return HttpResponseForbidden('You do not have permission to access this page.')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        recipe = Recipe.objects.get(pk=self.kwargs['pk'])
+        return recipe
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        recipe = self.get_object()
+        form = NewRecipe(instance=recipe)
+        if 'image' in form.fields:
+            del form.fields['image']
+        context.update({'form': form})
+        return context
+
+    def post(self, request, *args, **kwargs):
+        recipe = self.get_object()
         try:
             form = NewRecipe(request.POST, instance=recipe)
             recipe.is_approved = True
@@ -167,24 +195,37 @@ def approve_recipe(request, pk):
             return redirect('pending-recipes')
         except ValueError:
             messages.error(request, 'Something went wrong')
-            return render(request, 'recipes/one-pending-recipe.html',
-                          {'form': form})
+            return redirect('pending-recipes')
 
 
-@staff_member_required
-def pending_comments(request):
-    all_pending_comments = Comment.objects.filter(is_approved=False).all()
-    all_pending_comments, paginator, custom_range = paginate(request, all_pending_comments)
-    if request.method == 'GET':
-        context = {'comments': all_pending_comments, 'paginator': paginator, 'custom_range': custom_range}
-        return render(request, 'recipes/pending-comments.html', context)
+class PendingCommentView(TemplateView):
+    template_name = 'recipes/pending-comments.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return HttpResponseForbidden('You do not have permission to access this page.')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        all_pending_comments = Comment.objects.filter(is_approved=False).all()
+        all_pending_comments, paginator, custom_range = paginate(self.request, all_pending_comments)
+        context.update({'comments': all_pending_comments, 'paginator': paginator, 'custom_range': custom_range})
+        return context
 
 
-@staff_member_required
-def approve_comment(request, pk):
-    comment = Comment.objects.get(pk=pk)
-    print(comment)
-    if request.method == 'GET':
+class CommentApprovalView(DetailView):
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return HttpResponseForbidden('You do not have permission to access this page.')
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_object(self, queryset=None):
+        comment = Comment.objects.get(pk=self.kwargs['pk'])
+        return comment
+
+    def get(self, request, *args, **kwargs):
+        comment = self.object
         comment.is_approved = True
         comment.save()
         return redirect('pending-comments')
