@@ -1,1 +1,50 @@
-[{"model": "recipes.comment", "pk": 2, "fields": {"owner": 9, "recipe": 13, "body": "Good recipe for my breakfast. Thank you!", "rating": 4, "created_date": "2023-11-02T17:53:20.338Z", "is_approved": true}}, {"model": "recipes.comment", "pk": 10, "fields": {"owner": 10, "recipe": 22, "body": "Delicious!", "rating": 5, "created_date": "2023-11-21T16:36:57.178Z", "is_approved": true}}, {"model": "recipes.comment", "pk": 16, "fields": {"owner": 10, "recipe": 25, "body": "I tried it! 🥰", "rating": 5, "created_date": "2023-11-23T12:58:33.218Z", "is_approved": true}}, {"model": "recipes.comment", "pk": 19, "fields": {"owner": 10, "recipe": 20, "body": "Delicious!", "rating": 5, "created_date": "2023-11-25T08:22:12.819Z", "is_approved": true}}]
+[
+  {
+    "model": "recipes.comment",
+    "pk": 2,
+    "fields": {
+      "owner": 9,
+      "recipe": 13,
+      "body": "Good recipe for my breakfast. Thank you!",
+      "rating": 4,
+      "created_date": "2023-11-02T17:53:20.338Z",
+      "is_approved": true
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 10,
+    "fields": {
+      "owner": 10,
+      "recipe": 22,
+      "body": "Delicious!",
+      "rating": 5,
+      "created_date": "2023-11-21T16:36:57.178Z",
+      "is_approved": true
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 16,
+    "fields": {
+      "owner": 10,
+      "recipe": 25,
+      "body": "I tried it! 🥰",
+      "rating": 5,
+      "created_date": "2023-11-23T12:58:33.218Z",
+      "is_approved": true
+    }
+  },
+  {
+    "model": "recipes.comment",
+    "pk": 19,
+    "fields": {
+      "owner": 10,
+      "recipe": 20,
+      "body": "Delicious!",
+      "rating": 5,
+      "created_date": "2023-11-25T08:22:12.819Z",
+      "is_approved": true
+    }
+  }
+]

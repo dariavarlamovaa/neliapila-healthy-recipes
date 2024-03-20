@@ -3,7 +3,7 @@
     "model": "recipes.recipe",
     "pk": 10,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Turkey meatballs",
       "portions": 4,
       "cooking_hours": 1,
@@ -20,7 +20,7 @@
     "model": "recipes.recipe",
     "pk": 12,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Salmon pasta",
       "portions": 4,
       "cooking_hours": 0,
@@ -37,7 +37,7 @@
     "model": "recipes.recipe",
     "pk": 13,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Pancakes",
       "portions": 10,
       "cooking_hours": 0,
@@ -54,7 +54,7 @@
     "model": "recipes.recipe",
     "pk": 14,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Almond butter & banana protein smoothie",
       "portions": 1,
       "cooking_hours": 0,
@@ -71,7 +71,7 @@
     "model": "recipes.recipe",
     "pk": 15,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Peanut butter banana ice cream",
       "portions": 2,
       "cooking_hours": 0,
@@ -88,7 +88,7 @@
     "model": "recipes.recipe",
     "pk": 16,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Ricotta & yogurt parfait",
       "portions": 1,
       "cooking_hours": 0,
@@ -105,7 +105,7 @@
     "model": "recipes.recipe",
     "pk": 17,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Raspberry-kefir power smoothie",
       "portions": 1,
       "cooking_hours": 0,
@@ -122,7 +122,7 @@
     "model": "recipes.recipe",
     "pk": 18,
     "fields": {
-      "author": 18,
+      "author": 9,
       "title": "Strawberry-banana green smoothie",
       "portions": 1,
       "cooking_hours": 0,
@@ -139,7 +139,7 @@
     "model": "recipes.recipe",
     "pk": 19,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Cola chicken",
       "portions": 4,
       "cooking_hours": 0,
@@ -154,9 +154,9 @@
   },
   {
     "model": "recipes.recipe",
-    "pk": 20,
+    "pk": 10,
     "fields": {
-      "author": 18,
+      "author": 9,
       "title": "Salmon salad with sesame dressing",
       "portions": 2,
       "cooking_hours": 0,
@@ -173,7 +173,7 @@
     "model": "recipes.recipe",
     "pk": 21,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Smoky chickpea salad",
       "portions": 4,
       "cooking_hours": 0,
@@ -190,7 +190,7 @@
     "model": "recipes.recipe",
     "pk": 22,
     "fields": {
-      "author": 18,
+      "author": 9,
       "title": "Lemon & spinach rice with feta",
       "portions": 4,
       "cooking_hours": 1,
@@ -207,7 +207,7 @@
     "model": "recipes.recipe",
     "pk": 25,
     "fields": {
-      "author": 18,
+      "author": 9,
       "title": "Egg wraps",
       "portions": 4,
       "cooking_hours": 0,
@@ -224,7 +224,7 @@
     "model": "recipes.recipe",
     "pk": 26,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Smoky mushroom & potato hash with oaty thins",
       "portions": 2,
       "cooking_hours": 1,
@@ -241,7 +241,7 @@
     "model": "recipes.recipe",
     "pk": 27,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Breakfast burrito",
       "portions": 1,
       "cooking_hours": 0,
@@ -258,7 +258,7 @@
     "model": "recipes.recipe",
     "pk": 28,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Budget porridge",
       "portions": 2,
       "cooking_hours": 0,
@@ -275,7 +275,7 @@
     "model": "recipes.recipe",
     "pk": 29,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Homemade muesli with oats, dates & berries",
       "portions": 4,
       "cooking_hours": 0,
@@ -292,7 +292,7 @@
     "model": "recipes.recipe",
     "pk": 30,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Curried broccoli & boiled eggs on toast",
       "portions": 1,
       "cooking_hours": 0,
@@ -309,7 +309,7 @@
     "model": "recipes.recipe",
     "pk": 31,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Oat & chia porridge",
       "portions": 4,
       "cooking_hours": 0,
@@ -326,7 +326,7 @@
     "model": "recipes.recipe",
     "pk": 32,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Microwave shakshuka",
       "portions": 1,
       "cooking_hours": 0,
@@ -343,7 +343,7 @@
     "model": "recipes.recipe",
     "pk": 33,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Quick chicken hummus bowl",
       "portions": 2,
       "cooking_hours": 0,
@@ -360,7 +360,7 @@
     "model": "recipes.recipe",
     "pk": 34,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Bulgur & aubergine pilaf",
       "portions": 2,
       "cooking_hours": 0,
@@ -377,7 +377,7 @@
     "model": "recipes.recipe",
     "pk": 35,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Roasted cauli-broc bowl with tahini hummus",
       "portions": 2,
       "cooking_hours": 0,
@@ -394,7 +394,7 @@
     "model": "recipes.recipe",
     "pk": 36,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Feta & kale loaded sweet potato",
       "portions": 2,
       "cooking_hours": 1,
@@ -411,7 +411,7 @@
     "model": "recipes.recipe",
     "pk": 37,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Lentil & tuna salad",
       "portions": 4,
       "cooking_hours": 0,
@@ -428,7 +428,7 @@
     "model": "recipes.recipe",
     "pk": 42,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Peanut lime salad",
       "portions": 4,
       "cooking_hours": 0,
@@ -445,7 +445,7 @@
     "model": "recipes.recipe",
     "pk": 43,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Sardine tomato pasta with gremolata",
       "portions": 1,
       "cooking_hours": 0,
@@ -462,7 +462,7 @@
     "model": "recipes.recipe",
     "pk": 44,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Curried satay noodles",
       "portions": 2,
       "cooking_hours": 0,
@@ -479,7 +479,7 @@
     "model": "recipes.recipe",
     "pk": 45,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Balsamic beef stew with veggie mash",
       "portions": 4,
       "cooking_hours": 3,
@@ -496,7 +496,7 @@
     "model": "recipes.recipe",
     "pk": 46,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Smoky mushroom & potato hash with oaty thins",
       "portions": 2,
       "cooking_hours": 0,
@@ -513,7 +513,7 @@
     "model": "recipes.recipe",
     "pk": 47,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Flapjacks",
       "portions": 9,
       "cooking_hours": 0,
@@ -530,7 +530,7 @@
     "model": "recipes.recipe",
     "pk": 48,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "High-fiber guacamole snack jar",
       "portions": 1,
       "cooking_hours": 0,
@@ -547,7 +547,7 @@
     "model": "recipes.recipe",
     "pk": 49,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Pistachio & peach toast",
       "portions": 1,
       "cooking_hours": 0,
@@ -564,7 +564,7 @@
     "model": "recipes.recipe",
     "pk": 50,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Apple & peanut butter toast",
       "portions": 1,
       "cooking_hours": 0,
@@ -581,7 +581,7 @@
     "model": "recipes.recipe",
     "pk": 51,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Healthy apple crunch",
       "portions": 4,
       "cooking_hours": 1,
@@ -598,7 +598,7 @@
     "model": "recipes.recipe",
     "pk": 52,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "No-sugar-added vegan oatmeal cookies",
       "portions": 12,
       "cooking_hours": 1,
@@ -615,7 +615,7 @@
     "model": "recipes.recipe",
     "pk": 53,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Apple pie energy balls",
       "portions": 6,
       "cooking_hours": 0,
@@ -632,7 +632,7 @@
     "model": "recipes.recipe",
     "pk": 54,
     "fields": {
-      "author": 20,
+      "author": 10,
       "title": "Apple \"donuts\"",
       "portions": 4,
       "cooking_hours": 0,
