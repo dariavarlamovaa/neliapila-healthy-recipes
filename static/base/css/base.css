@@ -139,7 +139,8 @@ main {
 }
 
 .main-nav-menu {
-    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
 }
 
 .search-bar-mob {
@@ -286,9 +287,16 @@ main {
 }
 
 .profile-popup {
-    min-width: 120px;
-    min-height: 110px;
-    max-width: 185px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.profile-popup.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile-popup-block {
     position: absolute;
     top: 45px;
     right: 0;
@@ -297,10 +305,13 @@ main {
     box-sizing: border-box;
     border: 1px solid #D9D9D9FF;
     background-color: #FFFFFF;
-    display: none;
     font-size: 19px;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-width: 120px;
+    min-height: 110px;
+    max-width: 185px;
 }
 
 .profile-links {

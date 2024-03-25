@@ -79,49 +79,11 @@
                         <img id="arrow" src="{% static 'base/images/arrow.svg' %}" alt="Arrow">
                     </button>
                     <div class="profile-popup" id="profile-popup-settings">
-                        <div class="popup-profile-username">
-                            <a class="profile-user-link" href="{% url 'profile' user.profile.id %}">
-                                <img class="svg-user" src="{% static 'base/images/user2.svg' %}" alt="User">
-                                <span>{{ user.profile.username }}</span></a>
-                        </div>
-                        <div class="edit-profile">
-                            <a class="edit-profile-link" href="{% url 'edit-profile' user.profile.id %}">
-                                <img class="svg-user" src="{% static 'base/images/edit-profile.svg' %}"
-                                     alt="Edit profile">
-                                <span>Edit</span>
-                            </a>
-                        </div>
-                        <div class="logout-form">
-                            <img class="logout-svg" src="{% static 'base/images/logout.svg' %}" alt="Logout">
-                            <form class="logout-form-form" action="{% url 'logout' %}" method="post">
-                                {% csrf_token %}
-                                <button class="logout-btn">Logout</button>
-                            </form>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                </div>
-                <a class="add-a-recipe right-links" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
-                <nav class="navigation">
-                    <div class="burger-menu" id="burger">
-                        <span></span>
-                    </div>
-                    <div class="main-nav-menu">
-                        {% if user.is_authenticated %}
-                        <div class="profile-info">
-                            <a class="profile-link-popup" href="{% url 'profile' user.profile.id %}">
-                                <img class="profile-image" src="{{ user.profile.image.url }}" alt="User image">
-                                <span>@{{ user.profile.username }}</span>
-                            </a>
-                            <img id="arrow-menu-nav" class="arrow-menu" src="{% static 'base/images/arrow.svg' %}"
-                                 alt="Arrow">
-                        </div>
-                        <div id="profile-links" class="profile-links">
+                        <div class="profile-popup-block" id="profile-popup-block">
                             <div class="popup-profile-username">
                                 <a class="profile-user-link" href="{% url 'profile' user.profile.id %}">
                                     <img class="svg-user" src="{% static 'base/images/user2.svg' %}" alt="User">
-                                    <span>Your recipes</span></a>
+                                    <span>{{ user.profile.username }}</span></a>
                             </div>
                             <div class="edit-profile">
                                 <a class="edit-profile-link" href="{% url 'edit-profile' user.profile.id %}">
@@ -138,22 +100,63 @@
                                 </form>
                             </div>
                         </div>
-                        {% else %}
-                        <div class="sign-in-link">
-                            <a href="{% url 'login' %}">Sign In</a>
-                        </div>
-                        {% endif %}
-                        <div class="menu-links">
-                            <a href="{% url 'recipes' %}">Recipes</a>
-                            <a href="{% url 'authors' %}">Authors</a>
-                            {% if user.is_staff %}
-                            <a href="{% url 'pending-recipes' %}">Pending recipes</a>
-                            <a href="{% url 'pending-comments' %}">Comments</a>
-                            <a href="{% url 'messages' %}">Msgs</a>
-                            {% endif %}
-                        </div>
-                        <a class="menu-link-add-a-recipe" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
+                    </div>
+                    {% endif %}
 
+                </div>
+                <a class="add-a-recipe right-links" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
+                <nav class="navigation">
+                    <div class="burger-menu" id="burger">
+                        <span></span>
+                    </div>
+                    <div class="main-nav-menu">
+                        <div class="main-menu-nav-mobile-block">
+                            {% if user.is_authenticated %}
+                            <div class="profile-info">
+                                <a class="profile-link-popup" href="{% url 'profile' user.profile.id %}">
+                                    <img class="profile-image" src="{{ user.profile.image.url }}" alt="User image">
+                                    <span>@{{ user.profile.username }}</span>
+                                </a>
+                                <img id="arrow-menu-nav" class="arrow-menu" src="{% static 'base/images/arrow.svg' %}"
+                                     alt="Arrow">
+                            </div>
+                            <div id="profile-links" class="profile-links">
+                                <div class="popup-profile-username">
+                                    <a class="profile-user-link" href="{% url 'profile' user.profile.id %}">
+                                        <img class="svg-user" src="{% static 'base/images/user2.svg' %}" alt="User">
+                                        <span>Your recipes</span></a>
+                                </div>
+                                <div class="edit-profile">
+                                    <a class="edit-profile-link" href="{% url 'edit-profile' user.profile.id %}">
+                                        <img class="svg-user" src="{% static 'base/images/edit-profile.svg' %}"
+                                             alt="Edit profile">
+                                        <span>Edit</span>
+                                    </a>
+                                </div>
+                                <div class="logout-form">
+                                    <img class="logout-svg" src="{% static 'base/images/logout.svg' %}" alt="Logout">
+                                    <form class="logout-form-form" action="{% url 'logout' %}" method="post">
+                                        {% csrf_token %}
+                                        <button class="logout-btn">Logout</button>
+                                    </form>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="sign-in-link">
+                                <a href="{% url 'login' %}">Sign In</a>
+                            </div>
+                            {% endif %}
+                            <div class="menu-links">
+                                <a href="{% url 'recipes' %}">Recipes</a>
+                                <a href="{% url 'authors' %}">Authors</a>
+                                {% if user.is_staff %}
+                                <a href="{% url 'pending-recipes' %}">Pending recipes</a>
+                                <a href="{% url 'pending-comments' %}">Comments</a>
+                                <a href="{% url 'messages' %}">Msgs</a>
+                                {% endif %}
+                            </div>
+                            <a class="menu-link-add-a-recipe" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
+                        </div>
                     </div>
                 </nav>
             </div>

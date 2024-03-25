@@ -18,9 +18,9 @@ if (arrow != null) {
         arrow.classList.toggle("rotate");
 
         if (isPopupVisible) {
-            profilePopupSettings.style.display = "none";
+            profilePopupSettings.classList.remove("visible")
         } else {
-            profilePopupSettings.style.display = "flex";
+            profilePopupSettings.classList.toggle("visible")
         }
 
         isPopupVisible = !isPopupVisible;
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (isPopupVisible) {
             let isClickInsidePopup = profilePopup.contains(event.target) || arrow.contains(event.target);
             if (!isClickInsidePopup) {
-                profilePopup.style.display = 'none';
+                profilePopup.classList.remove("visible")
                 arrow.classList.toggle("rotate");
                 isPopupVisible = !isPopupVisible;
             }
