@@ -44,6 +44,10 @@ svg {
     vertical-align: middle;
 }
 
+img {
+    cursor: pointer;
+}
+
 form label {
     text-transform: uppercase;
 }
@@ -141,6 +145,7 @@ main {
 .main-nav-menu {
     opacity: 0;
     transition: opacity 0.2s ease-out;
+    visibility: hidden;
 }
 
 .search-bar-mob {

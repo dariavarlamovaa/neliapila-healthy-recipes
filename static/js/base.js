@@ -58,14 +58,14 @@ searchClose.addEventListener("click", () => {
         searchBar.style.display = "none";
     }
     isSearchBarVisible = !isSearchBarVisible;
-})
+});
 
 searchBlockClose.addEventListener("click", () => {
     if (isSearchBarVisible) {
         searchBar.style.display = "none";
     }
     isSearchBarVisible = !isSearchBarVisible;
-})
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {

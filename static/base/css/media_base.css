@@ -104,6 +104,7 @@
 
     .active-menu {
         opacity: 1;
+        visibility: visible;
     }
 
     .main-menu-nav-mobile-block {

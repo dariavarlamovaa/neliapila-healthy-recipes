@@ -105,12 +105,12 @@
 
                 </div>
                 <a class="add-a-recipe right-links" href="{% url 'add-recipe' %}">ADD A RECIPE</a>
-                <nav class="navigation">
+                <nav class="navigation" id="navigation">
                     <div class="burger-menu" id="burger">
                         <span></span>
                     </div>
-                    <div class="main-nav-menu">
-                        <div class="main-menu-nav-mobile-block">
+                    <div class="main-nav-menu" id="main-nav-menu">
+                        <div class="main-menu-nav-mobile-block" id="menu-nav-mobile">
                             {% if user.is_authenticated %}
                             <div class="profile-info">
                                 <a class="profile-link-popup" href="{% url 'profile' user.profile.id %}">
