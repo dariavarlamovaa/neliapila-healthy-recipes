@@ -20,7 +20,7 @@
 - Django
 - HTML
 - CSS
-- SQLite
+- PostgreSQL
 - JavaScript
 - xhtml2pdf
 
